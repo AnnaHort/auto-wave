@@ -34,4 +34,8 @@ button {
     fill:black
 }
 
+#root{
+    padding-left: 60px;
+    padding-right: 60px;
+}
 `;
