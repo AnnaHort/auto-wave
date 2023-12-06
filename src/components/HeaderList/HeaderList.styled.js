@@ -10,6 +10,12 @@ export const NavStyled = styled.nav`
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 `;
 
+export const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+`;
+
 export const HeaderListStyled = styled.ul`
   display: flex;
   gap: 80px;

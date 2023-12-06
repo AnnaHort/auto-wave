@@ -4,6 +4,8 @@ export const ListStyled = styled.ul`
   display: flex;
   gap: 60px;
   justify-content: space-between;
+  padding: 60px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
 `;
 
 export const ListItemStyled = styled.li`

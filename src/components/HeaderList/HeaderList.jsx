@@ -1,13 +1,21 @@
 import { Outlet } from "react-router-dom";
-import { NavStyled, HeaderListStyled, LinkStyle } from "./HeaderList.styled";
+import {
+  NavStyled,
+  HeaderListStyled,
+  LinkStyle,
+  LogoContainer,
+} from "./HeaderList.styled";
 import { Suspense } from "react";
+import { GiCarWheel } from "react-icons/gi";
 
 const HeaderList = () => {
   return (
     <>
       <NavStyled>
-        
-        <LinkStyle to="/">AutoWave</LinkStyle>
+        <LogoContainer>
+          <GiCarWheel size={32} />
+          <LinkStyle to="/">AutoWave</LinkStyle>
+        </LogoContainer>
 
         <HeaderListStyled>
           <li>
