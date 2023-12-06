@@ -1,11 +1,14 @@
 import { Outlet } from "react-router-dom";
-import { HeaderListStyled, LinkStyle } from "./HeaderList.styled";
+import { NavStyled, HeaderListStyled, LinkStyle } from "./HeaderList.styled";
 import { Suspense } from "react";
 
 const HeaderList = () => {
   return (
     <>
-      <nav>
+      <NavStyled>
+        
+        <LinkStyle to="/">AutoWave.com</LinkStyle>
+
         <HeaderListStyled>
           <li>
             <LinkStyle to="/">Home</LinkStyle>
@@ -17,7 +20,7 @@ const HeaderList = () => {
             <LinkStyle to="/favorites">Favorites</LinkStyle>
           </li>
         </HeaderListStyled>
-      </nav>
+      </NavStyled>
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
       </Suspense>
