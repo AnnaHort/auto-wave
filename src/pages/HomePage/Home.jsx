@@ -1,21 +1,18 @@
 import React from "react";
+import { HomeContainer, TextStyle } from "./Home.Styled";
+import CarRentalBrands from "../../components/CarRentalBrands/CarRentalBrands";
+import AboutUsComponent from "../../components/AboutUsComponent/AboutUsComponent";
 import HomeHeroComponent from "../../components/HomeHeroComponent/HomeHeroComponent";
-import { HomeContainer, HomeHeroContainer } from "./Home.Styled";
 
 const Home = () => {
   return (
     <HomeContainer>
-     <HomeHeroContainer>
-     <h2>Прокат автомобілів по всій Україні</h2>
-    <p>
-      AutoWave відкриває вам доступ найбільших брендів в оренді автомобілів.
-    </p>
-   </HomeHeroContainer>
-
-    <HomeHeroComponent/>
+      <HomeHeroComponent />
+      <TextStyle>AutoWave відкриває вам доступ найбільших брендів в оренді автомобілів.</TextStyle>
+      <CarRentalBrands />
+      <AboutUsComponent />
     </HomeContainer>
-
-  )
+  );
 };
 
 export default Home;

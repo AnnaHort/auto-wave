@@ -1,47 +1,24 @@
 import React from "react";
-import { RxCalendar } from "react-icons/rx";
-import { FaSearch } from "react-icons/fa";
-import { TbPigMoney } from "react-icons/tb";
-import {
-  HomeHeroComponentContainer,
-  ListItemStyled,
-  ListStyled,
-  TextContainerStyled,
-  TextStyled,
-} from "./HomeHeroComponent.styled";
+import { HomeHeroContainer } from "./HomeHeroComponent.styled";
+import { MdOutlineDoneOutline } from "react-icons/md";
 
 const HomeHeroComponent = () => {
   return (
-    <HomeHeroComponentContainer>
-      <ListStyled>
-        <ListItemStyled>
-          <RxCalendar size={40} color="teal" />
-          <TextContainerStyled>
-            <h3>Оренда з гнучкими умовами</h3>
-            <TextStyled>
-              Скасовуйте або змінюйте більшість бронювань безкоштовно за 48
-              годин до отримання.
-            </TextStyled>
-          </TextContainerStyled>
-        </ListItemStyled>
-        <ListItemStyled>
-          <FaSearch size={40} color="teal" />
-          <TextContainerStyled>
-            <h3>Жодних прихованих зборів</h3>
-            <TextStyled>Знайте, за що саме ви платите.</TextStyled>
-          </TextContainerStyled>
-        </ListItemStyled>
-        <ListItemStyled>
-          <TbPigMoney size={40} color="teal" />
-          <TextContainerStyled>
-            <h3>Гарантія відповідності ціни</h3>
-            <TextStyled>
-              Знайшли таку ж пропозицію дешевше? Ми повернемо різницю в ціні.
-            </TextStyled>
-          </TextContainerStyled>
-        </ListItemStyled>
-      </ListStyled>
-    </HomeHeroComponentContainer>
+    <HomeHeroContainer>
+      <h2>Прокат автомобілів по всій Україні</h2>
+      <ul>
+        <li>
+          <MdOutlineDoneOutline /> Безкоштовне скасування для більшості номерів
+        </li>
+        <li>
+          <MdOutlineDoneOutline /> Понад 60 000 пунктів прокату
+        </li>
+        <li>
+          <MdOutlineDoneOutline />
+          Служба підтримки надає допомогу понад 40 мовами
+        </li>
+      </ul>
+    </HomeHeroContainer>
   );
 };
 
