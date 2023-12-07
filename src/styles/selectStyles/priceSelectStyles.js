@@ -1,9 +1,9 @@
-export const carBrandSearchStyles = {
+export const priceSelectStyles = {
     control: (provided, state) => ({
       ...provided,
       borderColor: "#d9d9d9",
       boxShadow: state.isFocused ? "transparent" : "none",
-      width: "224px",
+      width: "125px",
       height: "48px",
       "&:hover": {
         borderColor: "#d9d9d9",
@@ -22,4 +22,3 @@ export const carBrandSearchStyles = {
       width: "224px",
     }),
   };
-  
