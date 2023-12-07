@@ -21,23 +21,48 @@ export const LabelStyled = styled.label`
   line-height: 1.3;
 `;
 
-// export const SelectCarBrandStyled = styled.select`
-//   padding: 14px 89px 14px 18px;
-//   border-radius: 14px;
-//   background: #f7f7fb;
-// `;
+export const CarMileageFromInput = styled.input`
+  position: relative;
 
-// export const SelectStyled = styled.select``;
+  border: 1px solid rgba(138, 138, 137, 0.2);
+  border-radius: 4px 0 0 4px;
+  width: 160px;
+  height: 48px;
+  padding: 0 0 0 24px;
+  text-indent: 40px;
+  &:focus {
+    outline: none;
+  }
+  &::placeholder {
+    text-indent: 0px; /* Змініть це значення, якщо потрібно інший відступ для плейсхолдера */
+  }
+`;
+export const CarMileageToInput = styled.input`
+  position: relative;
+  border: 1px solid rgba(138, 138, 137, 0.2);
+  border-radius: 0 4px 4px 0;
+  width: 160px;
+  height: 48px;
+  padding: 0 0 0 24px;
+  text-indent: 20px;
+  &:focus {
+    outline: none;
+  }
+  &::placeholder {
+    text-indent: 0px; 
+  }
+`;
 
-// export const OptionStyled = styled.option`
-//   color: rgba(18, 20, 23, 0.2);
+export const MileageInputContainer = styled.div`
+display: flex;
+`
 
-//   font-family: Manrope;
-//   font-size: 16px;
-//   font-weight: 500;
-//   line-height: 1.25;
-//   &:hover {
-//     background-color: #e0e0e0; 
-//     color: #333; 
-//   }
-// `;
+export const SpanText = styled.span`
+position: absolute;
+top: 16px;
+left: 24px;
+
+`
+export const MileageContainer = styled.div`
+position: relative;
+`

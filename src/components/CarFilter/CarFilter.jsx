@@ -1,28 +1,35 @@
 import Select from "react-select";
 import { carBrandSearchStyles } from "../../styles/selectStyles/carBrandSearchStyles";
 import {
+  CarMileageFromInput,
+  CarMileageToInput,
   FilterFormStyled,
   LabelStyled,
   SelectorContainerStyled,
+  SpanText,
+  MileageContainer,
+  MileageInputContainer,
 } from "./CarFilter.styled";
 import { priceSelectStyles } from "../../styles/selectStyles/priceSelectStyles";
 
 const carBrand = [
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
-  ];
+  { value: "chocolate", label: "Chocolate" },
+  { value: "strawberry", label: "Strawberry" },
+  { value: "vanilla", label: "Vanilla" },
+];
 const priceForHour = [
   { value: "chocolate", label: "Chocolate" },
   { value: "strawberry", label: "Strawberry" },
   { value: "vanilla", label: "Vanilla" },
 ];
 
-const CarFilter = () => {
+const handleMileageChange = (e) => {
+  return console.log(e.target.value);
+};
 
+const CarFilter = () => {
   const carBrandDefaultValue = { value: "", label: "Enter the text" };
   const priceDefaultValue = { value: "", label: "To $" };
-
 
   return (
     <FilterFormStyled method="post">
@@ -44,6 +51,21 @@ const CarFilter = () => {
           id="price"
           defaultValue={priceDefaultValue}
         />
+      </SelectorContainerStyled>
+
+      <SelectorContainerStyled>
+        <LabelStyled htmlFor="mileage">Car mileage / km</LabelStyled>
+        <MileageInputContainer>
+          <MileageContainer>
+            <CarMileageFromInput type="text" onChange={handleMileageChange} />
+            <SpanText>From</SpanText>
+          </MileageContainer>
+
+          <MileageContainer>
+            <CarMileageToInput type="text" />
+            <SpanText>To</SpanText>
+          </MileageContainer>
+        </MileageInputContainer>
       </SelectorContainerStyled>
     </FilterFormStyled>
   );
