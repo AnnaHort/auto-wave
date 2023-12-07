@@ -1,7 +1,12 @@
 import React from "react";
+import CarFilter from "../../components/CarFilter/CarFilter";
 
 const Catalog = () => {
-  return <h2>Catalog</h2>;
+  return (
+    <>
+    <CarFilter/>
+    </>
+  )
 };
 
 export default Catalog;
