@@ -54,7 +54,10 @@ const CarFilter = () => {
             id="price"
             defaultValue={priceDefaultValue}
           />
-          <PriseHourText>To $</PriseHourText>
+        
+          <PriseHourText>
+            To $
+          </PriseHourText>
         </MileageContainer>
       </SelectorContainerStyled>
 
