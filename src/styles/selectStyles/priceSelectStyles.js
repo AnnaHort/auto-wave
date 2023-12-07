@@ -1,6 +1,8 @@
 export const priceSelectStyles = {
     control: (provided, state) => ({
       ...provided,
+    padding: "0px 0px 0px 40px",
+
       borderColor: "#d9d9d9",
       boxShadow: state.isFocused ? "transparent" : "none",
       width: "125px",
@@ -22,3 +24,6 @@ export const priceSelectStyles = {
       width: "224px",
     }),
   };
+
+  //   padding: 0 0 0 24px;
+  // text-indent: 40px;

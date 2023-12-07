@@ -10,18 +10,19 @@ import {
   MileageContainer,
   MileageInputContainer,
   FilterButton,
+  PriseHourText,
 } from "./CarFilter.styled";
 import { priceSelectStyles } from "../../styles/selectStyles/priceSelectStyles";
 
 const carBrand = [
-  { value: "chocolate", label: "Chocolate" },
+  { value: "buick", label: "Buick" },
   { value: "strawberry", label: "Strawberry" },
   { value: "vanilla", label: "Vanilla" },
 ];
 const priceForHour = [
-  { value: "chocolate", label: "Chocolate" },
-  { value: "strawberry", label: "Strawberry" },
-  { value: "vanilla", label: "Vanilla" },
+  { value: "30$", label: "30" },
+  { value: "40$", label: "40" },
+  { value: "50$", label: "50" },
 ];
 
 const handleMileageChange = (e) => {
@@ -30,7 +31,7 @@ const handleMileageChange = (e) => {
 
 const CarFilter = () => {
   const carBrandDefaultValue = { value: "", label: "Enter the text" };
-  const priceDefaultValue = { value: "", label: "To $" };
+  const priceDefaultValue = { value: "", label: "" };
 
   return (
     <FilterFormStyled method="post">
@@ -46,12 +47,15 @@ const CarFilter = () => {
 
       <SelectorContainerStyled>
         <LabelStyled htmlFor="price">Price/ 1 hour</LabelStyled>
-        <Select
-          options={priceForHour}
-          styles={priceSelectStyles}
-          id="price"
-          defaultValue={priceDefaultValue}
-        />
+        <MileageContainer>
+          <Select
+            options={priceForHour}
+            styles={priceSelectStyles}
+            id="price"
+            defaultValue={priceDefaultValue}
+          />
+          <PriseHourText>To $</PriseHourText>
+        </MileageContainer>
       </SelectorContainerStyled>
 
       <SelectorContainerStyled>

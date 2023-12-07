@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
-export const FilterFormStyled = styled.div`
+export const FilterFormStyled = styled.form`
   display: flex;
   justify-content: center;
   align-items: flex-end;
   gap: 18px;
+  padding: 50px 0 50px 0 ;
 `;
 
 export const SelectorContainerStyled = styled.div`
@@ -55,6 +56,12 @@ export const CarMileageToInput = styled.input`
 
 export const MileageInputContainer = styled.div`
 display: flex;
+`
+
+export const PriseHourText = styled.span`
+position: absolute;
+top: 15px;
+left: 18px;
 `
 
 export const SpanText = styled.span`
