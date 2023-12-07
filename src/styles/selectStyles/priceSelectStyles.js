@@ -2,7 +2,7 @@ export const priceSelectStyles = {
     control: (provided, state) => ({
       ...provided,
     padding: "0px 0px 0px 40px",
-
+    borderRadius: "12px",
       borderColor: "#d9d9d9",
       boxShadow: state.isFocused ? "transparent" : "none",
       width: "125px",

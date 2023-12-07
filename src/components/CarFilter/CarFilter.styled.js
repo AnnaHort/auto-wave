@@ -26,7 +26,7 @@ export const CarMileageFromInput = styled.input`
   position: relative;
 
   border: 1px solid rgba(138, 138, 137, 0.2);
-  border-radius: 4px 0 0 4px;
+  border-radius: 12px 0 0 12px;
   width: 160px;
   height: 48px;
   padding: 0 0 0 24px;
@@ -41,7 +41,7 @@ export const CarMileageFromInput = styled.input`
 export const CarMileageToInput = styled.input`
   position: relative;
   border: 1px solid rgba(138, 138, 137, 0.2);
-  border-radius: 0 4px 4px 0;
+  border-radius: 0 12px 12px 0;
   width: 160px;
   height: 48px;
   padding: 0 0 0 24px;
@@ -74,7 +74,7 @@ position: relative;
 `
 export const FilterButton = styled.button`
 padding: 14px 44px;
-border-radius: 4px;
+border-radius: 12px;
 background: #3470FF;
 border: none;
 background: #3470FF;

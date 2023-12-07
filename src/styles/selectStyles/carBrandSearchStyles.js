@@ -1,6 +1,7 @@
 export const carBrandSearchStyles = {
     control: (provided, state) => ({
       ...provided,
+      borderRadius: "12px",
       borderColor: "#d9d9d9",
       boxShadow: state.isFocused ? "transparent" : "none",
       width: "224px",
