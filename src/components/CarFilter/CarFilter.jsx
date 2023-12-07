@@ -9,6 +9,7 @@ import {
   SpanText,
   MileageContainer,
   MileageInputContainer,
+  FilterButton,
 } from "./CarFilter.styled";
 import { priceSelectStyles } from "../../styles/selectStyles/priceSelectStyles";
 
@@ -67,6 +68,8 @@ const CarFilter = () => {
           </MileageContainer>
         </MileageInputContainer>
       </SelectorContainerStyled>
+
+      <FilterButton type="button">Search</FilterButton>
     </FilterFormStyled>
   );
 };

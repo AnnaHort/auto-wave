@@ -61,8 +61,15 @@ export const SpanText = styled.span`
 position: absolute;
 top: 16px;
 left: 24px;
-
 `
 export const MileageContainer = styled.div`
 position: relative;
 `
+export const FilterButton = styled.button`
+padding: 14px 44px;
+border-radius: 4px;
+background: #3470FF;
+border: none;
+background: #3470FF;
+color: #fff;
+` 
