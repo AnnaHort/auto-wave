@@ -11,7 +11,7 @@ export const HomeHeroContainer = styled.div`
       rgba(0, 128, 128, 0.5),
       rgba(0, 128, 128, 0)
     ),
-    url("/pictures/HomeHeroBg/pexels-mike-bird-170286.jpg");
+    url("/build/pictures/homeHeroBg/pexels-mike-bird-170286.jpg");
   background-size: cover;
   background-position: center;
 `;
