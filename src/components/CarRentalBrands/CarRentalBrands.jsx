@@ -3,20 +3,20 @@ import { ListStyle } from "./CarRentalBrands.styled";
 
 const CarRentalBrands = () => {
   const imagePaths = [
-    "/budget_logo_lrg.jpg",
-    "/pictures/CarRentalBrands/enterprise_logo_lrg.jpg",
-    "/pictures/CarRentalBrands/europcar_logo_lrg.jpg",
-    "/pictures/CarRentalBrands/firent_logo_lrg.jpg",
-    "/pictures/CarRentalBrands/hertz_logo_lrg.jpg",
-    "/pictures/CarRentalBrands/sixt_logo_lrg.jpg",
-    "/pictures/CarRentalBrands/thrifty_logo_lrg.jpg",
+    require("../../images/carRentalBrands/alamo_logo_lrg.jpg"),
+    require("../../images/carRentalBrands/budget_logo_lrg.jpg"),
+    require("../../images/carRentalBrands/enterprise_logo_lrg.jpg"),
+    require("../../images/carRentalBrands/europcar_logo_lrg.jpg"),
+    require("../../images/carRentalBrands/firent_logo_lrg.jpg"),
+    require("../../images/carRentalBrands/hertz_logo_lrg.jpg"),
+    require("../../images/carRentalBrands/sixt_logo_lrg.jpg"),
+    require("../../images/carRentalBrands/thrifty_logo_lrg.jpg"),
   ];
   return (
     <ListStyle>
-      <img src="/build/pictures/car/pexels-alexgtacar-1592384.jpg" alt="" />
       {imagePaths.map((path, index) => (
         <li key={index}>
-          <img  src={path} alt={`Car Rental Brand ${index}`} />
+          <img src={path} alt={`Car Rental Brand ${index}`} />
         </li>
       ))}
     </ListStyle>
@@ -24,3 +24,4 @@ const CarRentalBrands = () => {
 };
 
 export default CarRentalBrands;
+
