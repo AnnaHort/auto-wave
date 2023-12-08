@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
   AboutCarContainer,
   CarCardButton,
@@ -8,56 +9,86 @@ import {
   InfoListStyled,
 } from "./CarCard.styled";
 import LikeSvgNormal from "../LikeSvgNormal/LikeSvgNormal";
-// import LikeSvgActive from "../LikeSvgActive/LikeSvgActive";
+import { useEffect, useState } from "react";
 
 const CarCard = () => {
-  const OpenModalWindow = () => {
-    console.log("modal is open");
-  };
+  const BASE_URL = "https://657343ad192318b7db41d7f4.mockapi.io/advert";
+  const [carsData, setCarsData] = useState([]);
+
+  // отримання даних про машини
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(BASE_URL);
+        const carsData = response.data;
+        setCarsData(carsData);
+        console.log("Cars Data:", carsData);
+      } catch (error) {
+        console.error("Error fetching carInfo:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+
 
   return (
-    <CardContainerStyled>
-      <CardImgStyled
-        src="/pictures/car/pexels-alexgtacar-1592384.jpg"
-        alt="#"
-      />
+    <ul>
+      {carsData.map((item) => {
+        const {
+          id,
+          year,
+          img,
+          make,
+          model,
+          rentalPrice,
+          address,
+          mileage,
+          rentalCompany,
+          type,
+        } = item;
+        return (
+          <CardContainerStyled key={id}>
+            <CardImgStyled src={img} alt="#" />
+            <LikeSvgNormal />
 
-      <LikeSvgNormal />
-
-      <AboutCarContainer>
-        <CarMarkStyled>
-          Buick <CarModelStyled>Enclave</CarModelStyled>, 2008
-        </CarMarkStyled>
-        <span>$40</span>
-      </AboutCarContainer>
-      <InfoListStyled>
-        <li>
-          <p>Kiev</p>
-        </li>
-        <li>
-          <p>Ukraine</p>
-        </li>
-        <li>
-          <p>Luxury Car Rentals</p>
-        </li>
-        <li>
-          <p>Premium</p>
-        </li>
-        <li>
-          <p>Suv</p>
-        </li>
-        <li>
-          <p>Enclave</p>
-        </li>
-        <li>
-          <p>9582</p>
-        </li>
-        <li>
-          <p>Power liftgate</p>
-        </li>
-      </InfoListStyled>
-      <CarCardButton onClick={OpenModalWindow}>Learn more</CarCardButton>
-    </CardContainerStyled>
+            <AboutCarContainer>
+              <CarMarkStyled>
+                {make} <CarModelStyled>Enclave</CarModelStyled>, {year}
+              </CarMarkStyled>
+              <span>{rentalPrice}</span>
+            </AboutCarContainer>
+            <InfoListStyled>
+              <li>
+                <p>{address}</p>
+              </li>
+              <li>
+                <p>Ukraine</p>
+              </li>
+              <li>
+                <p>{rentalCompany}</p>
+              </li>
+              <li>
+                <p>Premium</p>
+              </li>
+              <li>
+                <p>{type}</p>
+              </li>
+              <li>
+                <p>{model}</p>
+              </li>
+              <li>
+                <p>{mileage}</p>
+              </li>
+              <li>
+                <p>Power liftgate</p>
+              </li>
+            </InfoListStyled>
+            <CarCardButton>Learn more</CarCardButton>
+          </CardContainerStyled>
+        );
+      })}
+    </ul>
   );
 };
 export default CarCard;
