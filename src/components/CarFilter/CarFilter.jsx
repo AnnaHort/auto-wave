@@ -77,6 +77,7 @@ const CarFilter = () => {
       </SelectorContainerStyled>
 
       <FilterButton type="button">Search</FilterButton>
+
     </FilterFormStyled>
   );
 };
