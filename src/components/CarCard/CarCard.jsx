@@ -8,7 +8,8 @@ import {
   CardImgStyled,
   InfoListStyled,
 } from "./CarCard.styled";
-import NormalLikeSvg from "../normalLikeSvg/normalLikeSvg";
+import LikeSvgNormal from "../LikeSvgNormal/LikeSvgNormal";
+import LikeSvgActive from "../LikeSvgActive/LikeSvgActive";
 
 const CarCard = () => {
   return (
@@ -17,7 +18,9 @@ const CarCard = () => {
         src="/pictures/car/pexels-alexgtacar-1592384.jpg"
         alt="#"
       />
-      <NormalLikeSvg />
+
+      <LikeSvgNormal />
+
       <AboutCarContainer>
         <CarMarkStyled>
           Buick <CarModelStyled>Enclave</CarModelStyled>, 2008
