@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/auto-wave/static/css/main.7cda0caf.css",
-    "main.js": "/auto-wave/static/js/main.b7e7c849.js",
+    "main.js": "/auto-wave/static/js/main.685a8d43.js",
     "static/js/690.aa3ede54.chunk.js": "/auto-wave/static/js/690.aa3ede54.chunk.js",
     "static/js/667.86055dc8.chunk.js": "/auto-wave/static/js/667.86055dc8.chunk.js",
     "static/js/388.fec3a5b9.chunk.js": "/auto-wave/static/js/388.fec3a5b9.chunk.js",
@@ -11,7 +11,7 @@
     "static/js/14.f6ca5bf4.chunk.js": "/auto-wave/static/js/14.f6ca5bf4.chunk.js",
     "index.html": "/auto-wave/index.html",
     "main.7cda0caf.css.map": "/auto-wave/static/css/main.7cda0caf.css.map",
-    "main.b7e7c849.js.map": "/auto-wave/static/js/main.b7e7c849.js.map",
+    "main.685a8d43.js.map": "/auto-wave/static/js/main.685a8d43.js.map",
     "690.aa3ede54.chunk.js.map": "/auto-wave/static/js/690.aa3ede54.chunk.js.map",
     "667.86055dc8.chunk.js.map": "/auto-wave/static/js/667.86055dc8.chunk.js.map",
     "388.fec3a5b9.chunk.js.map": "/auto-wave/static/js/388.fec3a5b9.chunk.js.map",
@@ -22,6 +22,6 @@
   },
   "entrypoints": [
     "static/css/main.7cda0caf.css",
-    "static/js/main.b7e7c849.js"
+    "static/js/main.685a8d43.js"
   ]
 }
