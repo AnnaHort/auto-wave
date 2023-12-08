@@ -2,6 +2,13 @@ import { createGlobalStyle } from "styled-components";
 import "modern-normalize";
 
 export const GlobalStyle = createGlobalStyle`
+body {
+    overflow-y: scroll; 
+    margin: 0;  
+    width: 100%;
+    box-sizing: border-box;
+}
+
 h1,
 h2,
 h3,
