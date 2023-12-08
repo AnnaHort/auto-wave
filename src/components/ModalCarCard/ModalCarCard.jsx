@@ -12,11 +12,14 @@ import {
   ModalTitleSpanStyled,
   ModalTitleStyled,
 } from "./ModalCarCard.styled";
+import CloseModalSvg from "../svg-components/CloseSvg/CloseSvg";
 
 const ModalWindowCar = () => {
   return (
     <MainModalContainerStyled>
       <ModalContainerStyled>
+        <CloseModalSvg />
+
         <ModalImgStyled
           src="/pictures/car/pexels-alexgtacar-1592384.jpg"
           alt="#"
