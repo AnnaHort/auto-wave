@@ -1,4 +1,3 @@
-import React from "react";
 import {
   AboutCarContainer,
   CarCardButton,
@@ -9,9 +8,13 @@ import {
   InfoListStyled,
 } from "./CarCard.styled";
 import LikeSvgNormal from "../LikeSvgNormal/LikeSvgNormal";
-import LikeSvgActive from "../LikeSvgActive/LikeSvgActive";
+// import LikeSvgActive from "../LikeSvgActive/LikeSvgActive";
 
 const CarCard = () => {
+  const OpenModalWindow = () => {
+    console.log("modal is open");
+  };
+
   return (
     <CardContainerStyled>
       <CardImgStyled
@@ -53,7 +56,7 @@ const CarCard = () => {
           <p>Power liftgate</p>
         </li>
       </InfoListStyled>
-      <CarCardButton>Learn more</CarCardButton>
+      <CarCardButton onClick={OpenModalWindow}>Learn more</CarCardButton>
     </CardContainerStyled>
   );
 };
