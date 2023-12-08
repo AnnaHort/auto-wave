@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import carBg from "../../images/car/pexels-alexgtacar-1592384.jpg"
 
 export const HomeHeroContainer = styled.div`
   display: flex;
@@ -11,7 +12,7 @@ export const HomeHeroContainer = styled.div`
       rgba(0, 128, 128, 0.5),
       rgba(0, 128, 128, 0)
     ),
-    url("../../images/homeHeroBg/pexels-mike-bird-170286.jpg");
+    url(${carBg});
   background-size: cover;
   background-position: center;
 `;
