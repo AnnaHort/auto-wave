@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const CardContainerStyled = styled.div`
   max-width: 274px;
   position: relative;
+  margin-bottom: 100px;
 `;
 export const CardImgStyled = styled.img`
   width: 100%;

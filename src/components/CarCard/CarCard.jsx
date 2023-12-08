@@ -8,7 +8,8 @@ import {
   CardImgStyled,
   InfoListStyled,
 } from "./CarCard.styled";
-import NormalLikeSvg from "./normalLikeSvg";
+import NormalLikeSvg from "../normalLikeSvg/normalLikeSvg";
+
 const CarCard = () => {
   return (
     <CardContainerStyled>
