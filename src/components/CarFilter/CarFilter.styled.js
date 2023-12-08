@@ -79,4 +79,8 @@ background: #3470FF;
 border: none;
 background: #3470FF;
 color: #fff;
+&:hover{
+  background: #0B44CD;
+  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1)
+}
 ` 

@@ -52,4 +52,8 @@ font-size: 14px;
 font-weight: 600;
 line-height: 1.4; 
 border: none;
+&:hover{
+  background: #0B44CD;
+  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1)
+}
 `
