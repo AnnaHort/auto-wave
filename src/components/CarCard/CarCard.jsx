@@ -1,4 +1,3 @@
-import axios from 'axios';
 import {
   AboutCarContainer,
   CarCardButton,
@@ -12,7 +11,7 @@ import {
 import LikeSvgNormal from '../LikeSvgNormal/LikeSvgNormal';
 
 const CarCard = props => {
-  
+
   const { carInfo } = props;
 
   return (
