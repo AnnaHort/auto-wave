@@ -16,12 +16,6 @@ import { priceSelectStyles } from '../../styles/selectStyles/priceSelectStyles';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-// const priceForHour = [
-//   { value: '30$', label: '30' },
-//   { value: '40$', label: '40' },
-//   { value: '50$', label: '50' },
-// ];
-
 const handleMileageChange = e => {
   return console.log(e.target.value);
 };
