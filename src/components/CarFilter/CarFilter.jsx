@@ -13,55 +13,34 @@ import {
   PriseHourText,
 } from './CarFilter.styled';
 import { priceSelectStyles } from '../../styles/selectStyles/priceSelectStyles';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 
 const handleMileageChange = e => {
   return console.log(e.target.value);
 };
 
-const CarFilter = (props) => {
+const CarFilter = props => {
   const carBrandDefaultValue = { value: '', label: 'Enter the text' };
   const priceDefaultValue = { value: '', label: '$' };
 
   const { carInfo } = props;
 
-  console.log(carInfo)
-
-//   const BASE_URL = 'https://657343ad192318b7db41d7f4.mockapi.io/advert';
-//   const [carsData, setCarsData] = useState([]);
-
-//   // отримання даних про машини
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         const response = await axios.get(BASE_URL);
-//         const carsData = response.data;
-//         console.log(carsData)
-//         setCarsData(carsData);
-//       } catch (error) {
-//         console.error('Error fetching carInfo:', error);
-//       }
-//     };
-//     fetchData();
-//   }, []);
-// до селекта №1
+  // до селекта №1
   let carsMarkOptions = [];
 
   if (carInfo.length > 0) {
     carInfo.forEach(item => {
       const carsMark = item.make;
-      carsMarkOptions.push({ value: carsMark, label: carsMark }); 
+      carsMarkOptions.push({ value: carsMark, label: carsMark });
     });
   }
 
-//   // до селекта №2
+  //   // до селекта №2
   let carsPriceOptions = [];
 
   if (carInfo.length > 0) {
     carInfo.forEach(item => {
       const carsPrice = item.rentalPrice;
-      carsPriceOptions.push({ value: carsPrice, label: carsPrice }); 
+      carsPriceOptions.push({ value: carsPrice, label: carsPrice });
     });
   }
 
