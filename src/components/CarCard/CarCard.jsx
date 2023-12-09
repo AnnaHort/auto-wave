@@ -48,8 +48,9 @@ const CarCard = () => {
           type,
         } = item;
         return (
-          <CardContainerStyled key={id}>
-            <CardImgStyled src={img} alt="#" />
+          <li key={id}>
+            <CardContainerStyled >
+            <CardImgStyled src={img} alt="#"/>
             <LikeSvgNormal />
 
             <AboutCarContainer>
@@ -86,6 +87,8 @@ const CarCard = () => {
             </InfoListStyled>
             <CarCardButton>Learn more</CarCardButton>
           </CardContainerStyled>
+          </li>
+          
         );
       })}
     </ul>

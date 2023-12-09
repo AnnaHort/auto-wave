@@ -16,7 +16,12 @@ const CarRentalBrands = () => {
     <ListStyle>
       {imagePaths.map((path, index) => (
         <li key={index}>
-          <img src={path} alt={`Car Rental Brand ${index}`} />
+          <img
+            src={path}
+            alt={`Car Rental Brand ${index}`}
+            width="110"
+            height="65"
+          />
         </li>
       ))}
     </ListStyle>
@@ -24,4 +29,3 @@ const CarRentalBrands = () => {
 };
 
 export default CarRentalBrands;
-
