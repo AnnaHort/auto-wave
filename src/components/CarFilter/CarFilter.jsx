@@ -16,11 +16,11 @@ import { priceSelectStyles } from '../../styles/selectStyles/priceSelectStyles';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const priceForHour = [
-  { value: '30$', label: '30' },
-  { value: '40$', label: '40' },
-  { value: '50$', label: '50' },
-];
+// const priceForHour = [
+//   { value: '30$', label: '30' },
+//   { value: '40$', label: '40' },
+//   { value: '50$', label: '50' },
+// ];
 
 const handleMileageChange = e => {
   return console.log(e.target.value);
@@ -28,7 +28,7 @@ const handleMileageChange = e => {
 
 const CarFilter = () => {
   const carBrandDefaultValue = { value: '', label: 'Enter the text' };
-  const priceDefaultValue = { value: '', label: '' };
+  const priceDefaultValue = { value: '', label: '$' };
 
   const BASE_URL = 'https://657343ad192318b7db41d7f4.mockapi.io/advert';
   const [carsData, setCarsData] = useState([]);
@@ -39,6 +39,7 @@ const CarFilter = () => {
       try {
         const response = await axios.get(BASE_URL);
         const carsData = response.data;
+        console.log(carsData)
         setCarsData(carsData);
       } catch (error) {
         console.error('Error fetching carInfo:', error);
@@ -46,15 +47,26 @@ const CarFilter = () => {
     };
     fetchData();
   }, []);
-
-  let carsMarkOptions = []; // Оголосити тут, щоб було доступно за межами блока if
+// до селекта №1
+  let carsMarkOptions = [];
 
   if (carsData.length > 0) {
     carsData.forEach(item => {
       const carsMark = item.make;
-      carsMarkOptions.push({ value: carsMark, label: carsMark }); // Додати варіант до масиву
+      carsMarkOptions.push({ value: carsMark, label: carsMark }); 
     });
   }
+
+  // до селекта №2
+  let carsPriceOptions = [];
+
+  if (carsData.length > 0) {
+    carsData.forEach(item => {
+      const carsPrice = item.rentalPrice;
+      carsPriceOptions.push({ value: carsPrice, label: carsPrice }); 
+    });
+  }
+
   return (
     <FilterFormStyled method="post">
       <SelectorContainerStyled>
@@ -71,13 +83,13 @@ const CarFilter = () => {
         <LabelStyled htmlFor="price">Price/ 1 hour</LabelStyled>
         <MileageContainer>
           <Select
-            options={priceForHour}
+            options={carsPriceOptions}
             styles={priceSelectStyles}
             id="price"
             defaultValue={priceDefaultValue}
           />
 
-          <PriseHourText>To $</PriseHourText>
+          <PriseHourText>To</PriseHourText>
         </MileageContainer>
       </SelectorContainerStyled>
 
