@@ -1,7 +1,7 @@
-import React from "react";
-import { LikeSvgActiveStyled } from "./LikeSvgActive.styled";
+import React from 'react';
+import { LikeSvgActiveStyled } from './LikeSvgActive.styled';
 
-const LikeSvgActive = () => {
+const LikeSvgActive = ({ onClick }) => {
   return (
     <LikeSvgActiveStyled
       version="1.1"
@@ -9,6 +9,7 @@ const LikeSvgActive = () => {
       width="18"
       height="18"
       viewBox="0 0 32 32"
+      onClick={onClick}
     >
       <title>active</title>
       <path

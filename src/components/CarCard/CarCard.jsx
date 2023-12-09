@@ -11,14 +11,16 @@ import {
 import LikeSvgNormal from '../LikeSvgNormal/LikeSvgNormal';
 import ModalWindowCar from '../ModalCarCard/ModalCarCard';
 import { useEffect, useState } from 'react';
+import LikeSvgActive from '../LikeSvgActive/LikeSvgActive';
 
-const CarCard = props => {
+const CarCard = (props) => {
   const { carInfo } = props;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCar, setSelectedCar] = useState(null);
+  const [favorites, setFavorites] = useState({});
 
-  const openModal = car => {
+  const openModal = (car) => {
     setSelectedCar(car);
     setIsModalOpen(true);
   };
@@ -39,10 +41,18 @@ const CarCard = props => {
     };
   }, []);
 
+  const toggleFavorite = (carId) => {
+    setFavorites((prevFavorites) => {
+      const updatedFavorites = { ...prevFavorites };
+      updatedFavorites[carId] = !prevFavorites[carId];
+      return updatedFavorites;
+    });
+  };
+
   return (
     <>
       <ListCardStyled>
-        {carInfo.map(item => {
+        {carInfo.map((item) => {
           const {
             id,
             year,
@@ -66,7 +76,12 @@ const CarCard = props => {
             <li key={id}>
               <CardContainerStyled>
                 <CardImgStyled src={img} alt={`${make}`} />
-                <LikeSvgNormal />
+
+                {favorites[id] ? (
+                  <LikeSvgActive onClick={() => toggleFavorite(id)} />
+                ) : (
+                  <LikeSvgNormal onClick={() => toggleFavorite(id)} />
+                )}
 
                 <AboutCarContainer>
                   <CarMarkStyled>
@@ -104,8 +119,16 @@ const CarCard = props => {
         })}
       </ListCardStyled>
 
-      {isModalOpen && <ModalWindowCar car={selectedCar} isOpen={isModalOpen} onClose={() => closeModal()} />}
+      {isModalOpen && (
+        <ModalWindowCar
+          car={selectedCar}
+          isOpen={isModalOpen}
+          onClose={() => closeModal()}
+        />
+      )}
     </>
   );
 };
+
 export default CarCard;
+

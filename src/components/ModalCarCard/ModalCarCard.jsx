@@ -15,8 +15,6 @@ import CloseModalSvg from '../svg-components/CloseSvg/CloseSvg';
 
 const ModalWindowCar = ({ car, onClose }) => {
   const handleSvgClick = () => {
-    console.log(car);
-    console.log(onClose);
     onClose();
   };
 

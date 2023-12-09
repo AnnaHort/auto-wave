@@ -1,9 +1,9 @@
 import React from "react";
 import { LikeSvgNormalStyled } from "./LikeSvgNormal.styled";
 
-const LikeSvgNormal = () => {
+const LikeSvgNormal = ({ onClick }) => {
   return (
-    <LikeSvgNormalStyled id="icon-normal" viewBox="0 0 32 32" width="18" height="18">
+    <LikeSvgNormalStyled id="icon-normal" viewBox="0 0 32 32" width="18" height="18" onClick={onClick}>
       <path
         fill="none"
         stroke="#fff"
