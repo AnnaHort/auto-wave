@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 import {
   AboutCarContainer,
   CarCardButton,
@@ -8,31 +8,16 @@ import {
   CardImgStyled,
   InfoListStyled,
   ListCardStyled,
-} from "./CarCard.styled";
-import LikeSvgNormal from "../LikeSvgNormal/LikeSvgNormal";
-import { useEffect, useState } from "react";
+} from './CarCard.styled';
+import LikeSvgNormal from '../LikeSvgNormal/LikeSvgNormal';
 
-const CarCard = () => {
-  const BASE_URL = "https://657343ad192318b7db41d7f4.mockapi.io/advert";
-  const [carsData, setCarsData] = useState([]);
-
-  // отримання даних про машини
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(BASE_URL);
-        const carsData = response.data;
-        setCarsData(carsData);
-      } catch (error) {
-        console.error("Error fetching carInfo:", error);
-      }
-    };
-    fetchData();
-  }, []);
+const CarCard = props => {
+  
+  const { carInfo } = props;
 
   return (
     <ListCardStyled>
-      {carsData.map((item) => {
+      {carInfo.map(item => {
         const {
           id,
           year,
@@ -44,49 +29,50 @@ const CarCard = () => {
           mileage,
           rentalCompany,
           type,
+          functionalities,
         } = item;
+
+        const reverseAddress = address;
+        const reversedText = reverseAddress.split(' ').reverse().join(' ');
+
+        const functionalitiesCar = functionalities[0];
+    
         return (
           <li key={id}>
-            <CardContainerStyled >
-            <CardImgStyled src={img} alt="#"/>
-            <LikeSvgNormal />
+            <CardContainerStyled>
+              <CardImgStyled src={img} alt={`${make}`} />
+              <LikeSvgNormal />
 
-            <AboutCarContainer>
-              <CarMarkStyled>
-                {make} <CarModelStyled>Enclave</CarModelStyled>, {year}
-              </CarMarkStyled>
-              <span>{rentalPrice}</span>
-            </AboutCarContainer>
-            <InfoListStyled>
-              <li>
-                <p>{address}</p>
-              </li>
-              <li>
-                <p>Ukraine</p>
-              </li>
-              <li>
-                <p>{rentalCompany}</p>
-              </li>
-              <li>
-                <p>Premium</p>
-              </li>
-              <li>
-                <p>{type}</p>
-              </li>
-              <li>
-                <p>{model}</p>
-              </li>
-              <li>
-                <p>{mileage}</p>
-              </li>
-              <li>
-                <p>Power liftgate</p>
-              </li>
-            </InfoListStyled>
-            <CarCardButton>Learn more</CarCardButton>
-          </CardContainerStyled>
+              <AboutCarContainer>
+                <CarMarkStyled>
+                  {make} <CarModelStyled>{model}</CarModelStyled>, {year}
+                </CarMarkStyled>
+                <span>{rentalPrice}</span>
+              </AboutCarContainer>
+              <InfoListStyled>
+                <li>
+                  <p>{reversedText}</p>
+                </li>
+                <li>
+                  <p>{rentalCompany}</p>
+                </li>
+                <li>
+                  <p>{type}</p>
+                </li>
+                <li>
+                  <p>{make}</p>
+                </li>
+                <li>
+                  <p>{model}</p>
+                </li>
+                <li>
+                  <p>{mileage}</p>
+                </li>
+                <li>{functionalitiesCar}</li>
+              </InfoListStyled>
+              <CarCardButton>Learn more</CarCardButton>
+            </CardContainerStyled>
           </li>
-          
         );
       })}
     </ListCardStyled>

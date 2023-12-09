@@ -20,42 +20,46 @@ const handleMileageChange = e => {
   return console.log(e.target.value);
 };
 
-const CarFilter = () => {
+const CarFilter = (props) => {
   const carBrandDefaultValue = { value: '', label: 'Enter the text' };
   const priceDefaultValue = { value: '', label: '$' };
 
-  const BASE_URL = 'https://657343ad192318b7db41d7f4.mockapi.io/advert';
-  const [carsData, setCarsData] = useState([]);
+  const { carInfo } = props;
 
-  // отримання даних про машини
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(BASE_URL);
-        const carsData = response.data;
-        console.log(carsData)
-        setCarsData(carsData);
-      } catch (error) {
-        console.error('Error fetching carInfo:', error);
-      }
-    };
-    fetchData();
-  }, []);
+  console.log(carInfo)
+
+//   const BASE_URL = 'https://657343ad192318b7db41d7f4.mockapi.io/advert';
+//   const [carsData, setCarsData] = useState([]);
+
+//   // отримання даних про машини
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         const response = await axios.get(BASE_URL);
+//         const carsData = response.data;
+//         console.log(carsData)
+//         setCarsData(carsData);
+//       } catch (error) {
+//         console.error('Error fetching carInfo:', error);
+//       }
+//     };
+//     fetchData();
+//   }, []);
 // до селекта №1
   let carsMarkOptions = [];
 
-  if (carsData.length > 0) {
-    carsData.forEach(item => {
+  if (carInfo.length > 0) {
+    carInfo.forEach(item => {
       const carsMark = item.make;
       carsMarkOptions.push({ value: carsMark, label: carsMark }); 
     });
   }
 
-  // до селекта №2
+//   // до селекта №2
   let carsPriceOptions = [];
 
-  if (carsData.length > 0) {
-    carsData.forEach(item => {
+  if (carInfo.length > 0) {
+    carInfo.forEach(item => {
       const carsPrice = item.rentalPrice;
       carsPriceOptions.push({ value: carsPrice, label: carsPrice }); 
     });
