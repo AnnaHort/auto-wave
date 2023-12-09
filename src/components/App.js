@@ -1,12 +1,12 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import { GlobalStyle } from "./GlobalStyle";
-import { lazy, Suspense } from "react";
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { GlobalStyle } from './GlobalStyle';
+import { lazy, Suspense } from 'react';
 
-const HeaderList = lazy(() => import("./HeaderList/HeaderList.jsx"));
-const Home = lazy(() => import("../pages/HomePage/Home.jsx"));
-const Catalog = lazy(() => import("../pages/CatalogPage/Catalog.jsx"));
-const Favorites = lazy(() => import("../pages/FavoritesPage/Favorites.jsx"));
+const HeaderList = lazy(() => import('./HeaderList/HeaderList.jsx'));
+const Home = lazy(() => import('../pages/HomePage/Home.jsx'));
+const Catalog = lazy(() => import('../pages/CatalogPage/Catalog.jsx'));
+const Favorites = lazy(() => import('../pages/FavoritesPage/Favorites.jsx'));
 
 function App() {
   return (

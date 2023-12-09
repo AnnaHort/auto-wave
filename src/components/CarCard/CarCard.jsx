@@ -23,15 +23,12 @@ const CarCard = () => {
         const response = await axios.get(BASE_URL);
         const carsData = response.data;
         setCarsData(carsData);
-        console.log("Cars Data:", carsData);
       } catch (error) {
         console.error("Error fetching carInfo:", error);
       }
     };
     fetchData();
   }, []);
-
-
 
   return (
     <ListCardStyled>

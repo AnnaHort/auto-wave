@@ -1,5 +1,5 @@
-import Select from "react-select";
-import { carBrandSearchStyles } from "../../styles/selectStyles/carBrandSearchStyles";
+import Select from 'react-select';
+import { carBrandSearchStyles } from '../../styles/selectStyles/carBrandSearchStyles';
 import {
   CarMileageFromInput,
   CarMileageToInput,
@@ -11,34 +11,56 @@ import {
   MileageInputContainer,
   FilterButton,
   PriseHourText,
-} from "./CarFilter.styled";
-import { priceSelectStyles } from "../../styles/selectStyles/priceSelectStyles";
+} from './CarFilter.styled';
+import { priceSelectStyles } from '../../styles/selectStyles/priceSelectStyles';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-const carBrand = [
-  { value: "buick", label: "Buick" },
-  { value: "strawberry", label: "Strawberry" },
-  { value: "vanilla", label: "Vanilla" },
-];
 const priceForHour = [
-  { value: "30$", label: "30" },
-  { value: "40$", label: "40" },
-  { value: "50$", label: "50" },
+  { value: '30$', label: '30' },
+  { value: '40$', label: '40' },
+  { value: '50$', label: '50' },
 ];
 
-const handleMileageChange = (e) => {
+const handleMileageChange = e => {
   return console.log(e.target.value);
 };
 
 const CarFilter = () => {
-  const carBrandDefaultValue = { value: "", label: "Enter the text" };
-  const priceDefaultValue = { value: "", label: "" };
+  const carBrandDefaultValue = { value: '', label: 'Enter the text' };
+  const priceDefaultValue = { value: '', label: '' };
 
+  const BASE_URL = 'https://657343ad192318b7db41d7f4.mockapi.io/advert';
+  const [carsData, setCarsData] = useState([]);
+
+  // отримання даних про машини
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(BASE_URL);
+        const carsData = response.data;
+        setCarsData(carsData);
+      } catch (error) {
+        console.error('Error fetching carInfo:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  let carsMarkOptions = []; // Оголосити тут, щоб було доступно за межами блока if
+
+  if (carsData.length > 0) {
+    carsData.forEach(item => {
+      const carsMark = item.make;
+      carsMarkOptions.push({ value: carsMark, label: carsMark }); // Додати варіант до масиву
+    });
+  }
   return (
     <FilterFormStyled method="post">
       <SelectorContainerStyled>
         <LabelStyled htmlFor="carBrand">Car brand</LabelStyled>
         <Select
-          options={carBrand}
+          options={carsMarkOptions}
           styles={carBrandSearchStyles}
           id="carBrand"
           defaultValue={carBrandDefaultValue}
@@ -54,10 +76,8 @@ const CarFilter = () => {
             id="price"
             defaultValue={priceDefaultValue}
           />
-        
-          <PriseHourText>
-            To $
-          </PriseHourText>
+
+          <PriseHourText>To $</PriseHourText>
         </MileageContainer>
       </SelectorContainerStyled>
 
@@ -77,7 +97,6 @@ const CarFilter = () => {
       </SelectorContainerStyled>
 
       <FilterButton type="button">Search</FilterButton>
-
     </FilterFormStyled>
   );
 };
