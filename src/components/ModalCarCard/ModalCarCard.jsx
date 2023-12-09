@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from 'react';
 import {
   MainModalContainerStyled,
   ModalAboutTextStyled,
@@ -11,14 +11,26 @@ import {
   ModalListStyled,
   ModalTitleSpanStyled,
   ModalTitleStyled,
-} from "./ModalCarCard.styled";
-import CloseModalSvg from "../svg-components/CloseSvg/CloseSvg";
+} from './ModalCarCard.styled';
+import CloseModalSvg from '../svg-components/CloseSvg/CloseSvg';
 
-const ModalWindowCar = () => {
+const ModalWindowCar = ({ car, onClose }) => {
+  const handleSvgClick = () => {
+    console.log(car);
+    console.log(onClose);
+    onClose();
+  };
+
+  const handleModalClose = e => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
   return (
-    <MainModalContainerStyled>
+    <MainModalContainerStyled onClick={handleModalClose}>
       <ModalContainerStyled>
-        <CloseModalSvg />
+        <CloseModalSvg onClick={handleSvgClick} />
 
         <ModalImgStyled
           src="/pictures/car/pexels-alexgtacar-1592384.jpg"
@@ -73,7 +85,7 @@ const ModalWindowCar = () => {
         <ModalCarConditionsStyled>
           <li>
             <p>
-              Minimum age :{" "}
+              Minimum age :{' '}
               <ModalConditionsSpanStyled>25</ModalConditionsSpanStyled>
             </p>
           </li>
@@ -85,7 +97,7 @@ const ModalWindowCar = () => {
           </li>
           <li>
             <p>
-              Mileage:{" "}
+              Mileage:{' '}
               <ModalConditionsSpanStyled>5,858</ModalConditionsSpanStyled>
             </p>
           </li>
