@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+export const ListCardStyled = styled.ul`
+display: flex;
+flex-wrap: wrap;
+gap: 28px;
+justify-content: center;
+align-items: center;
+`
+
 export const CardContainerStyled = styled.div`
   max-width: 274px;
   position: relative;
@@ -7,8 +15,10 @@ export const CardContainerStyled = styled.div`
 `;
 export const CardImgStyled = styled.img`
   width: 100%;
+  height: 268px;
   border-radius: 14px;
   margin-bottom: 14px;
+  object-fit: cover;
 `;
 
 export const AboutCarContainer = styled.div`

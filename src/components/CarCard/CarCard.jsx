@@ -7,6 +7,7 @@ import {
   CardContainerStyled,
   CardImgStyled,
   InfoListStyled,
+  ListCardStyled,
 } from "./CarCard.styled";
 import LikeSvgNormal from "../LikeSvgNormal/LikeSvgNormal";
 import { useEffect, useState } from "react";
@@ -33,7 +34,7 @@ const CarCard = () => {
 
 
   return (
-    <ul>
+    <ListCardStyled>
       {carsData.map((item) => {
         const {
           id,
@@ -91,7 +92,7 @@ const CarCard = () => {
           
         );
       })}
-    </ul>
+    </ListCardStyled>
   );
 };
 export default CarCard;
