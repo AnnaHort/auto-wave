@@ -1,5 +1,4 @@
 import {
-  ConditionsListElStyled,
   MainModalContainerStyled,
   ModalAboutTextStyled,
   ModalAccessoriesStyled,
@@ -13,7 +12,7 @@ import {
   ModalTitleStyled,
 } from './ModalCarCard.styled';
 import CloseModalSvg from '../svg-components/CloseSvg/CloseSvg';
-import { InfoListElStyled, InfoListStyled } from '../CarCard/CarCard.styled';
+import { InfoListElStyled } from '../CarCard/CarCard.styled';
 
 const ModalWindowCar = ({ car, onClose }) => {
   const handleSvgClick = () => {
