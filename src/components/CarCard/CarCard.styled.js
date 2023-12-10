@@ -12,6 +12,10 @@ export const CardContainerStyled = styled.div`
   max-width: 274px;
   position: relative;
   margin-bottom: 100px;
+  display: flex;
+    height: 450px;
+    flex-direction: column;
+    justify-content: space-between;
 `;
 export const CardImgStyled = styled.img`
   width: 100%;
@@ -43,14 +47,22 @@ line-height: 1.5;
 export const InfoListStyled = styled.ul`
 display: flex;
 flex-wrap: wrap;
-gap: 12px;
+gap: 6px;
 color: rgba(18, 20, 23, 0.50);
 font-family: Manrope;
 font-size: 12px;
 font-weight: 400;
 line-height: 1.5; 
 margin-bottom: 28px;
+height: 40px;
 `
+
+export const InfoListElStyled = styled.li`
+display: flex;
+gap: 6px;
+`
+
+
 export const CarCardButton = styled.button`
 width: 100%;
 padding: 12px 99px;

@@ -5,6 +5,7 @@ import {
   CarModelStyled,
   CardContainerStyled,
   CardImgStyled,
+  InfoListElStyled,
   InfoListStyled,
   ListCardStyled,
 } from './CarCard.styled';
@@ -76,8 +77,11 @@ const CarCard = props => {
             functionalities,
           } = item;
 
-          const reverseAddress = address;
-          const reversedText = reverseAddress.split(' ').reverse().join(' ');
+          const carAddress = address;
+
+          const reversedText = carAddress.split(' ').slice(3);
+          const town = reversedText[0].replace(',', '');
+          const country = reversedText[1];
 
           const functionalitiesCar = functionalities[0];
 
@@ -99,31 +103,40 @@ const CarCard = props => {
                   <span>{rentalPrice}</span>
                 </AboutCarContainer>
                 <InfoListStyled>
-                  <li>
-                    <p>{reversedText}</p>
-                  </li>
-                  <li>
-                    <p>{rentalCompany}</p>
-                  </li>
-                  <li>
-                    <p>{type}</p>
-                  </li>
-                  <li>
-                    <p>{make}</p>
-                  </li>
-                  <li>
-                    <p>{model}</p>
-                  </li>
-                  <li>
+                  <InfoListElStyled>
+                    <p>{town}</p>
+                    <span>|</span>
+                    </InfoListElStyled>
+                  <InfoListElStyled>
+                  <p>{country}</p>
+                    <span>|</span>
+                    </InfoListElStyled>
+                  <InfoListElStyled>
+                    <p>{rentalCompany} </p>
+                    <span>|</span>
+                  </InfoListElStyled>
+                  <InfoListElStyled>
+                    <p>{type} </p>
+                    <span>|</span>
+                  </InfoListElStyled>
+                  <InfoListElStyled>
+                    <p>{make} </p>
+                    <span>|</span>
+                  </InfoListElStyled>
+                  <InfoListElStyled>
+                    <p>{model} </p>
+                    <span>|</span>
+                  </InfoListElStyled>
+                  <InfoListElStyled>
                     <p>{mileage}</p>
-                  </li>
-                  <li>{functionalitiesCar}</li>
+                    <span>|</span>
+                  </InfoListElStyled>
+                  <InfoListElStyled>{functionalitiesCar} </InfoListElStyled>
                 </InfoListStyled>
                 <CarCardButton onClick={() => openModal(item)}>
                   Learn more
                 </CarCardButton>
               </CardContainerStyled>
-
             </li>
           );
         })}
