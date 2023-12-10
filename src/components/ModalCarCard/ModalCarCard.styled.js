@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const MainModalContainerStyled = styled.div`
@@ -94,7 +95,7 @@ export const ModalConditionsSpanStyled = styled.span`
   line-height: 1.5;
   letter-spacing: -0.24px;
 `;
-export const ModalButtonStyled = styled.button`
+export const ModalLinkStyled = styled(NavLink)`
   border-radius: 12px;
   background: #3470ff;
   padding: 12px 50px;
@@ -104,6 +105,7 @@ export const ModalButtonStyled = styled.button`
   font-weight: 600;
   line-height: 1.42;
   border: none;
+  text-decoration: none;
   &:hover{
   background: #0B44CD;
   transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1)

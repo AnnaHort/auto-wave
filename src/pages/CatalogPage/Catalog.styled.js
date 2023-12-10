@@ -4,6 +4,7 @@ export const LoadMoreStyled = styled.button`
   display: block;
   margin-right: auto;
   margin-left: auto;
+  margin-bottom: 150px;
   border: none;
   background-color: transparent;
   color: #3470ff;

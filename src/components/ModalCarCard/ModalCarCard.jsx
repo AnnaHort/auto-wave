@@ -2,11 +2,11 @@ import {
   MainModalContainerStyled,
   ModalAboutTextStyled,
   ModalAccessoriesStyled,
-  ModalButtonStyled,
   ModalCarConditionsStyled,
   ModalConditionsSpanStyled,
   ModalContainerStyled,
   ModalImgStyled,
+  ModalLinkStyled,
   ModalListStyled,
   ModalTitleSpanStyled,
   ModalTitleStyled,
@@ -30,7 +30,7 @@ const ModalWindowCar = ({ car, onClose }) => {
         <CloseModalSvg onClick={handleSvgClick} />
 
         <ModalImgStyled
-          src={require("../../images/car/pexels-alexgtacar-1592384.jpg")}
+          src={require('../../images/car/pexels-alexgtacar-1592384.jpg')}
           alt="#"
         />
         <ModalTitleStyled>
@@ -77,12 +77,11 @@ const ModalWindowCar = ({ car, onClose }) => {
           <li>Remote start</li>
           <li>Blind-spot monitoring</li>
         </ModalListStyled>
-
         <ModalAccessoriesStyled>Rental Conditions: </ModalAccessoriesStyled>
         <ModalCarConditionsStyled>
           <li>
             <p>
-              Minimum age :{' '}
+              age
               <ModalConditionsSpanStyled>25</ModalConditionsSpanStyled>
             </p>
           </li>
@@ -94,7 +93,7 @@ const ModalWindowCar = ({ car, onClose }) => {
           </li>
           <li>
             <p>
-              Mileage:{' '}
+              Mileage
               <ModalConditionsSpanStyled>5,858</ModalConditionsSpanStyled>
             </p>
           </li>
@@ -104,7 +103,8 @@ const ModalWindowCar = ({ car, onClose }) => {
             </p>
           </li>
         </ModalCarConditionsStyled>
-        <ModalButtonStyled>Rental car</ModalButtonStyled>
+
+        <ModalLinkStyled to={'tel:+380730000000'}>Rental Car</ModalLinkStyled>
       </ModalContainerStyled>
     </MainModalContainerStyled>
   );
