@@ -8,6 +8,7 @@ export const NavStyled = styled.nav`
   gap: 20px;
   padding: 30px 60px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 60px;
 `;
 
 export const LogoContainer = styled.div`

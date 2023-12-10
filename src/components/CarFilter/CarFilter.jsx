@@ -14,15 +14,17 @@ import {
 } from './CarFilter.styled';
 import { priceSelectStyles } from '../../styles/selectStyles/priceSelectStyles';
 
-const handleMileageChange = e => {
-  return console.log(e.target.value);
-};
+
 
 const CarFilter = props => {
   const carBrandDefaultValue = { value: '', label: 'Enter the text' };
   const priceDefaultValue = { value: '', label: '$' };
 
   const { carInfo } = props;
+
+  const handleMileageChange = e => {
+    return console.log(e.target.value);
+  };
 
   // до селекта №1
   let carsMarkOptions = [];
