@@ -55,6 +55,7 @@ font-weight: 400;
 line-height: 1.5; 
 margin-bottom: 28px;
 height: 40px;
+max-width: 277px;
 `
 
 export const InfoListElStyled = styled.li`

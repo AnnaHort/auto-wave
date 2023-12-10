@@ -1,4 +1,5 @@
 import {
+  ConditionsListElStyled,
   MainModalContainerStyled,
   ModalAboutTextStyled,
   ModalAccessoriesStyled,
@@ -12,10 +13,9 @@ import {
   ModalTitleStyled,
 } from './ModalCarCard.styled';
 import CloseModalSvg from '../svg-components/CloseSvg/CloseSvg';
+import { InfoListElStyled, InfoListStyled } from '../CarCard/CarCard.styled';
 
 const ModalWindowCar = ({ car, onClose }) => {
-
-
   const handleSvgClick = () => {
     onClose();
   };
@@ -26,77 +26,117 @@ const ModalWindowCar = ({ car, onClose }) => {
     }
   };
 
-  console.log(car)
+  console.log(car);
 
   const {
+    id,
     year,
     img,
     make,
     model,
     address,
-    mileage,
-    rentalCompany,
+    // mileage,
+    // rentalCompany,
     type,
-    functionalities,
-  } = car
-  const reverseAddress = address;
-  const reversedText = reverseAddress.split(' ').reverse().join(' ');
+    fuelConsumption,
+    engineSize,
+    // functionalities,
+  } = car;
+  const carAddress = address;
 
-  const functionalitiesCar = functionalities[0];
+  const reversedText = carAddress.split(' ').slice(3);
+  const town = reversedText[0].replace(',', '');
+  const country = reversedText[1];
+
+  // const functionalitiesCar = functionalities[0];
   return (
     <MainModalContainerStyled onClick={handleModalClose}>
       <ModalContainerStyled>
         <CloseModalSvg onClick={handleSvgClick} />
 
-        <ModalImgStyled
-          src={img}
-          alt={`${make}`}
-        />
+        <ModalImgStyled src={img} alt={`${make}`} />
         <ModalTitleStyled>
-        {make}<ModalTitleSpanStyled> {model} </ModalTitleSpanStyled>{year}
+          {make}
+          <ModalTitleSpanStyled> {model} </ModalTitleSpanStyled>
+          {year}
         </ModalTitleStyled>
         <ModalListStyled>
-        <li>
-                    <p>{reversedText}</p>
-                  </li>
-                  <li>
-                    <p>{rentalCompany}</p>
-                  </li>
-                  <li>
-                    <p>{type}</p>
-                  </li>
-                  <li>
-                    <p>{make}</p>
-                  </li>
-                  <li>
-                    <p>{model}</p>
-                  </li>
-                  <li>
-                    <p>{mileage}</p>
-                  </li>
-                  <li>{functionalitiesCar}</li>
+          <InfoListElStyled>
+            <p>{town}</p>
+            <span>|</span>
+          </InfoListElStyled>
+          <InfoListElStyled>
+            <p>{country}</p>
+            <span>|</span>
+          </InfoListElStyled>
+
+          <InfoListElStyled>
+            <p>id: {id}</p>
+            <span>|</span>
+          </InfoListElStyled>
+
+          <InfoListElStyled>
+            <p>year: {year}</p>
+            <span>|</span>
+          </InfoListElStyled>
+
+          <InfoListElStyled>
+            <p>Type: {type} </p>
+            <span>|</span>
+          </InfoListElStyled>
+
+          <InfoListElStyled>
+            <p>Fuel Consumption: {fuelConsumption} </p>
+            <span>|</span>
+          </InfoListElStyled>
+
+          <InfoListElStyled>
+            <p>Engine Size: {engineSize} </p>
+          </InfoListElStyled>
         </ModalListStyled>
         <ModalAboutTextStyled>
           The Buick Enclave is a stylish and spacious SUV known for its
           comfortable ride and luxurious features.
         </ModalAboutTextStyled>
-        <ModalAccessoriesStyled>
+        <ModalAccessoriesStyled style={{marginBottom:"8px"}}>
           Accessories and functionalities:
         </ModalAccessoriesStyled>
-        <ModalListStyled>
-          <li>Leather seats</li>
-          <li>Panoramic sunroof</li>
-          <li>Power liftgate</li>
-          <li>Premium audio system</li>
-          <li>Remote start</li>
-          <li>Blind-spot monitoring</li>
+        <ModalListStyled style={{marginBottom: "24px"}}>
+          <InfoListElStyled>
+            <p>Leather seats</p>
+            <span>|</span>
+          </InfoListElStyled>
+
+          <InfoListElStyled>
+            <p>Panoramic sunroof</p>
+            <span>|</span>
+          </InfoListElStyled>
+
+          <InfoListElStyled>
+            <p>Power liftgate</p>
+            <span>|</span>
+          </InfoListElStyled>
+
+          <InfoListElStyled>
+            <p>Premium audio system</p>
+            <span>|</span>
+          </InfoListElStyled>
+
+          <InfoListElStyled>
+            <p>Remote start</p>
+            <span>|</span>
+          </InfoListElStyled>
+
+          <InfoListElStyled>
+            <p>Blind-spot monitoring</p>
+          </InfoListElStyled>
         </ModalListStyled>
-        <ModalAccessoriesStyled>Rental Conditions: </ModalAccessoriesStyled>
+        <ModalAccessoriesStyled >Rental Conditions: </ModalAccessoriesStyled>
         <ModalCarConditionsStyled>
           <li>
             <p>
-              age
-              <ModalConditionsSpanStyled>25</ModalConditionsSpanStyled>
+              Minimum age :
+              <ModalConditionsSpanStyled> 25</ModalConditionsSpanStyled>
             </p>
           </li>
           <li>
@@ -108,7 +148,7 @@ const ModalWindowCar = ({ car, onClose }) => {
           <li>
             <p>
               Mileage
-              <ModalConditionsSpanStyled>5,858</ModalConditionsSpanStyled>
+              <ModalConditionsSpanStyled> 5,858</ModalConditionsSpanStyled>
             </p>
           </li>
           <li>

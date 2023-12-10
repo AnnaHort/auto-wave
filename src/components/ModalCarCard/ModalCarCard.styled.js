@@ -25,12 +25,13 @@ export const ModalContainerStyled = styled.div`
 `;
 
 export const ModalImgStyled = styled.img`
-  max-width: 469px;
+  width: 469px;
   max-height: 287px;
   margin-right: auto;
   margin-left: auto;
   border-radius: 24px;
   margin-bottom: 14px;
+  object-fit: cover;
 `;
 
 export const ModalTitleStyled = styled.h2`
@@ -73,18 +74,20 @@ export const ModalAccessoriesStyled = styled.h3`
   font-size: 14px;
   font-weight: 500;
   line-height: 1.42;
-  margin-bottom: 15px;
 `;
 
 export const ModalCarConditionsStyled = styled.ul`
   display: flex;
-  gap: 36px;
+  flex-wrap: wrap;
   color: #363535;
   font-family: Manrope;
   font-size: 12px;
   font-weight: 400;
   line-height: 1.5;
   margin-bottom: 31px;
+  li {
+    padding: 12px 36px 12px 0; // Задаємо відступи всередині кожного елемента
+  }
 `;
 
 export const ModalConditionsSpanStyled = styled.span`
