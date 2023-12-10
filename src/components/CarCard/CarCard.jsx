@@ -24,8 +24,6 @@ const CarCard = props => {
   const [selectedCar, setSelectedCar] = useState(null);
 
   const favoriteId = useSelector(state => state.car.favoriteId);
- console.log(favoriteId)
-
 
   const openModal = car => {
     setSelectedCar(car);
@@ -47,27 +45,6 @@ const CarCard = props => {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
-
-  // const handleToggleFavoriteSvg = () => {
-  //   dispatch(addToFavorite({id}))
-  // }
-
-  // const toggleFavorite = carId => {
-  //   setFavorites(prevFavorites => {
-  //     const updatedFavorites = { ...prevFavorites };
-  //     updatedFavorites[carId] = !prevFavorites[carId];
-  //     return updatedFavorites;
-  //   });
-  // };
-
-  // useEffect(() => {
-  //   const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || {};
-  //   setFavorites(storedFavorites);
-  // }, []);
-
-  // useEffect(() => {
-  //   localStorage.setItem('favorites', JSON.stringify(favorites));
-  // }, [favorites]);
 
   return (
     <>
@@ -101,21 +78,24 @@ const CarCard = props => {
             <li key={id}>
               <CardContainerStyled>
                 <CardImgStyled src={img} alt={`${make}`} />
-                {favoriteId.includes(id) ? (
-  <LikeSvgActive onClick={() => dispatch(deleteFromFavorite({ id }))} />
-) : (
-  <LikeSvgNormal onClick={() => dispatch(addToFavorite({ id }))} />
-)}     
 
-                {/* {favorites[id] ? (
-                  <LikeSvgActive onClick={() => toggleFavorite(id)} />
+                {favoriteId.includes(id) ? (
+                  <LikeSvgActive
+                    onClick={() => dispatch(deleteFromFavorite({ id }))}
+                  />
                 ) : (
-                  <LikeSvgNormal onClick={() => toggleFavorite(id)} />
-                )} */}
+                  <LikeSvgNormal
+                    onClick={() => dispatch(addToFavorite({ id }))}
+                  />
+                )}
 
                 <AboutCarContainer>
                   <CarMarkStyled>
-                    {make} {shouldDisplayCarModel && <CarModelStyled>{model}</CarModelStyled>}, {year}
+                    {make}{' '}
+                    {shouldDisplayCarModel && (
+                      <CarModelStyled>{model}</CarModelStyled>
+                    )}
+                    , {year}
                   </CarMarkStyled>
                   <span>{rentalPrice}</span>
                 </AboutCarContainer>
@@ -123,11 +103,11 @@ const CarCard = props => {
                   <InfoListElStyled>
                     <p>{town}</p>
                     <span>|</span>
-                    </InfoListElStyled>
+                  </InfoListElStyled>
                   <InfoListElStyled>
-                  <p>{country}</p>
+                    <p>{country}</p>
                     <span>|</span>
-                    </InfoListElStyled>
+                  </InfoListElStyled>
                   <InfoListElStyled>
                     <p>{rentalCompany} </p>
                     <span>|</span>
@@ -136,7 +116,7 @@ const CarCard = props => {
                     <p>{type} </p>
                     <span>|</span>
                   </InfoListElStyled>
-                
+
                   <InfoListElStyled>
                     <p>{model} </p>
                     <span>|</span>
