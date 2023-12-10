@@ -62,7 +62,7 @@ const CarCard = props => {
   return (
     <>
       <ListCardStyled>
-        {carInfo.map(item => {
+        {carInfo.map((item, index) => {
           const {
             id,
             year,
@@ -85,6 +85,8 @@ const CarCard = props => {
 
           const functionalitiesCar = functionalities[0];
 
+          const shouldDisplayCarModel = index <= 2;
+
           return (
             <li key={id}>
               <CardContainerStyled>
@@ -98,7 +100,7 @@ const CarCard = props => {
 
                 <AboutCarContainer>
                   <CarMarkStyled>
-                    {make} <CarModelStyled>{model}</CarModelStyled>, {year}
+                    {make} {shouldDisplayCarModel && <CarModelStyled>{model}</CarModelStyled>}, {year}
                   </CarMarkStyled>
                   <span>{rentalPrice}</span>
                 </AboutCarContainer>
@@ -119,10 +121,7 @@ const CarCard = props => {
                     <p>{type} </p>
                     <span>|</span>
                   </InfoListElStyled>
-                  <InfoListElStyled>
-                    <p>{make} </p>
-                    <span>|</span>
-                  </InfoListElStyled>
+                
                   <InfoListElStyled>
                     <p>{model} </p>
                     <span>|</span>
