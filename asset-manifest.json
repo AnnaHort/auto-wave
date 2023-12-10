@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/auto-wave/static/css/main.59094a38.css",
-    "main.js": "/auto-wave/static/js/main.f01eeaf2.js",
+    "main.js": "/auto-wave/static/js/main.c0f4e8bf.js",
     "static/js/690.517f1bfe.chunk.js": "/auto-wave/static/js/690.517f1bfe.chunk.js",
     "static/js/356.0eeffa26.chunk.js": "/auto-wave/static/js/356.0eeffa26.chunk.js",
-    "static/js/238.41875948.chunk.js": "/auto-wave/static/js/238.41875948.chunk.js",
-    "static/js/733.1e71f1d0.chunk.js": "/auto-wave/static/js/733.1e71f1d0.chunk.js",
+    "static/js/238.5656f8a2.chunk.js": "/auto-wave/static/js/238.5656f8a2.chunk.js",
+    "static/js/733.9fd00483.chunk.js": "/auto-wave/static/js/733.9fd00483.chunk.js",
     "static/js/294.653c88c2.chunk.js": "/auto-wave/static/js/294.653c88c2.chunk.js",
     "static/js/615.2f136df3.chunk.js": "/auto-wave/static/js/615.2f136df3.chunk.js",
     "static/js/557.f8f326a0.chunk.js": "/auto-wave/static/js/557.f8f326a0.chunk.js",
@@ -13,11 +13,11 @@
     "static/media/pexels-alexgtacar-1592384.jpg": "/auto-wave/static/media/pexels-alexgtacar-1592384.beaaa3552398c10c0727.jpg",
     "index.html": "/auto-wave/index.html",
     "main.59094a38.css.map": "/auto-wave/static/css/main.59094a38.css.map",
-    "main.f01eeaf2.js.map": "/auto-wave/static/js/main.f01eeaf2.js.map",
+    "main.c0f4e8bf.js.map": "/auto-wave/static/js/main.c0f4e8bf.js.map",
     "690.517f1bfe.chunk.js.map": "/auto-wave/static/js/690.517f1bfe.chunk.js.map",
     "356.0eeffa26.chunk.js.map": "/auto-wave/static/js/356.0eeffa26.chunk.js.map",
-    "238.41875948.chunk.js.map": "/auto-wave/static/js/238.41875948.chunk.js.map",
-    "733.1e71f1d0.chunk.js.map": "/auto-wave/static/js/733.1e71f1d0.chunk.js.map",
+    "238.5656f8a2.chunk.js.map": "/auto-wave/static/js/238.5656f8a2.chunk.js.map",
+    "733.9fd00483.chunk.js.map": "/auto-wave/static/js/733.9fd00483.chunk.js.map",
     "294.653c88c2.chunk.js.map": "/auto-wave/static/js/294.653c88c2.chunk.js.map",
     "615.2f136df3.chunk.js.map": "/auto-wave/static/js/615.2f136df3.chunk.js.map",
     "557.f8f326a0.chunk.js.map": "/auto-wave/static/js/557.f8f326a0.chunk.js.map",
@@ -25,6 +25,6 @@
   },
   "entrypoints": [
     "static/css/main.59094a38.css",
-    "static/js/main.f01eeaf2.js"
+    "static/js/main.c0f4e8bf.js"
   ]
 }
