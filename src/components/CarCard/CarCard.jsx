@@ -17,8 +17,8 @@ const CarCard = props => {
   const { carInfo } = props;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedCar, setSelectedCar] = useState(null);
   const [favorites, setFavorites] = useState({});
+  const [selectedCar, setSelectedCar] = useState(null);
 
   const openModal = car => {
     setSelectedCar(car);
@@ -123,6 +123,7 @@ const CarCard = props => {
                   Learn more
                 </CarCardButton>
               </CardContainerStyled>
+
             </li>
           );
         })}

@@ -14,6 +14,8 @@ import {
 import CloseModalSvg from '../svg-components/CloseSvg/CloseSvg';
 
 const ModalWindowCar = ({ car, onClose }) => {
+
+
   const handleSvgClick = () => {
     onClose();
   };
@@ -24,43 +26,55 @@ const ModalWindowCar = ({ car, onClose }) => {
     }
   };
 
+  console.log(car)
+
+  const {
+    year,
+    img,
+    make,
+    model,
+    address,
+    mileage,
+    rentalCompany,
+    type,
+    functionalities,
+  } = car
+  const reverseAddress = address;
+  const reversedText = reverseAddress.split(' ').reverse().join(' ');
+
+  const functionalitiesCar = functionalities[0];
   return (
     <MainModalContainerStyled onClick={handleModalClose}>
       <ModalContainerStyled>
         <CloseModalSvg onClick={handleSvgClick} />
 
         <ModalImgStyled
-          src={require('../../images/car/pexels-alexgtacar-1592384.jpg')}
-          alt="#"
+          src={img}
+          alt={`${make}`}
         />
         <ModalTitleStyled>
-          Buick<ModalTitleSpanStyled>Enclave</ModalTitleSpanStyled>2008
+        {make}<ModalTitleSpanStyled> {model} </ModalTitleSpanStyled>{year}
         </ModalTitleStyled>
         <ModalListStyled>
-          <li>
-            <p>Kiev</p>
-          </li>
-          <li>
-            <p>Ukraine</p>
-          </li>
-          <li>
-            <p>Luxury Car Rentals</p>
-          </li>
-          <li>
-            <p>Premium</p>
-          </li>
-          <li>
-            <p>Suv</p>
-          </li>
-          <li>
-            <p>Enclave</p>
-          </li>
-          <li>
-            <p>9582</p>
-          </li>
-          <li>
-            <p>Power liftgate</p>
-          </li>
+        <li>
+                    <p>{reversedText}</p>
+                  </li>
+                  <li>
+                    <p>{rentalCompany}</p>
+                  </li>
+                  <li>
+                    <p>{type}</p>
+                  </li>
+                  <li>
+                    <p>{make}</p>
+                  </li>
+                  <li>
+                    <p>{model}</p>
+                  </li>
+                  <li>
+                    <p>{mileage}</p>
+                  </li>
+                  <li>{functionalitiesCar}</li>
         </ModalListStyled>
         <ModalAboutTextStyled>
           The Buick Enclave is a stylish and spacious SUV known for its

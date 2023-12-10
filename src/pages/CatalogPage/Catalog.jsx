@@ -10,17 +10,7 @@ const Catalog = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const fetchMoreData = async () => {
-    try {
-      const response = await axios.get(`${BASE_URL}?page=${currentPage + 1}&limit=12`);
-      const newCarsData = response.data;
-      setCarsData((prevData) => [...prevData, ...newCarsData]);
-      setCurrentPage(currentPage + 1);
-    } catch (error) {
-      console.error('Error fetching more carInfo:', error);
-    }
-  };
-
+// отримання даних при завантаженні сторінки 
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -36,6 +26,21 @@ const Catalog = () => {
     };
     fetchData();
   }, []);
+  console.log(carsData)
+
+  // отримання даних при натичканні на load more
+  const fetchMoreData = async () => {
+    try {
+      const response = await axios.get(
+        `${BASE_URL}?page=${currentPage + 1}&limit=12`
+      );
+      const newCarsData = response.data;
+      setCarsData(prevData => [...prevData, ...newCarsData]);
+      setCurrentPage(currentPage + 1);
+    } catch (error) {
+      console.error('Error fetching more carInfo:', error);
+    }
+  };
 
   return isLoading === false ? (
     <div>...Loading</div>
@@ -49,4 +54,3 @@ const Catalog = () => {
 };
 
 export default Catalog;
-
