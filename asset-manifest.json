@@ -1,28 +1,30 @@
 {
   "files": {
     "main.css": "/auto-wave/static/css/main.59094a38.css",
-    "main.js": "/auto-wave/static/js/main.133da085.js",
+    "main.js": "/auto-wave/static/js/main.43a72cf1.js",
     "static/js/690.5635ec45.chunk.js": "/auto-wave/static/js/690.5635ec45.chunk.js",
     "static/js/356.d0df248f.chunk.js": "/auto-wave/static/js/356.d0df248f.chunk.js",
-    "static/js/896.b0fd0782.chunk.js": "/auto-wave/static/js/896.b0fd0782.chunk.js",
-    "static/js/678.414554d0.chunk.js": "/auto-wave/static/js/678.414554d0.chunk.js",
-    "static/js/761.8927dc6a.chunk.js": "/auto-wave/static/js/761.8927dc6a.chunk.js",
+    "static/js/238.ffbea8c5.chunk.js": "/auto-wave/static/js/238.ffbea8c5.chunk.js",
+    "static/js/678.1253c091.chunk.js": "/auto-wave/static/js/678.1253c091.chunk.js",
+    "static/js/294.653c88c2.chunk.js": "/auto-wave/static/js/294.653c88c2.chunk.js",
+    "static/js/615.2f136df3.chunk.js": "/auto-wave/static/js/615.2f136df3.chunk.js",
     "static/js/557.f8f326a0.chunk.js": "/auto-wave/static/js/557.f8f326a0.chunk.js",
     "static/js/14.92b7d690.chunk.js": "/auto-wave/static/js/14.92b7d690.chunk.js",
     "static/media/pexels-alexgtacar-1592384.jpg": "/auto-wave/static/media/pexels-alexgtacar-1592384.beaaa3552398c10c0727.jpg",
     "index.html": "/auto-wave/index.html",
     "main.59094a38.css.map": "/auto-wave/static/css/main.59094a38.css.map",
-    "main.133da085.js.map": "/auto-wave/static/js/main.133da085.js.map",
+    "main.43a72cf1.js.map": "/auto-wave/static/js/main.43a72cf1.js.map",
     "690.5635ec45.chunk.js.map": "/auto-wave/static/js/690.5635ec45.chunk.js.map",
     "356.d0df248f.chunk.js.map": "/auto-wave/static/js/356.d0df248f.chunk.js.map",
-    "896.b0fd0782.chunk.js.map": "/auto-wave/static/js/896.b0fd0782.chunk.js.map",
-    "678.414554d0.chunk.js.map": "/auto-wave/static/js/678.414554d0.chunk.js.map",
-    "761.8927dc6a.chunk.js.map": "/auto-wave/static/js/761.8927dc6a.chunk.js.map",
+    "238.ffbea8c5.chunk.js.map": "/auto-wave/static/js/238.ffbea8c5.chunk.js.map",
+    "678.1253c091.chunk.js.map": "/auto-wave/static/js/678.1253c091.chunk.js.map",
+    "294.653c88c2.chunk.js.map": "/auto-wave/static/js/294.653c88c2.chunk.js.map",
+    "615.2f136df3.chunk.js.map": "/auto-wave/static/js/615.2f136df3.chunk.js.map",
     "557.f8f326a0.chunk.js.map": "/auto-wave/static/js/557.f8f326a0.chunk.js.map",
     "14.92b7d690.chunk.js.map": "/auto-wave/static/js/14.92b7d690.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.59094a38.css",
-    "static/js/main.133da085.js"
+    "static/js/main.43a72cf1.js"
   ]
 }
