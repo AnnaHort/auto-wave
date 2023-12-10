@@ -13,14 +13,14 @@ import ModalWindowCar from '../ModalCarCard/ModalCarCard';
 import { useEffect, useState } from 'react';
 import LikeSvgActive from '../LikeSvgActive/LikeSvgActive';
 
-const CarCard = (props) => {
+const CarCard = props => {
   const { carInfo } = props;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCar, setSelectedCar] = useState(null);
   const [favorites, setFavorites] = useState({});
 
-  const openModal = (car) => {
+  const openModal = car => {
     setSelectedCar(car);
     setIsModalOpen(true);
   };
@@ -30,7 +30,7 @@ const CarCard = (props) => {
   };
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKeyDown = e => {
       if (e.key === 'Escape') {
         closeModal();
       }
@@ -41,18 +41,27 @@ const CarCard = (props) => {
     };
   }, []);
 
-  const toggleFavorite = (carId) => {
-    setFavorites((prevFavorites) => {
+  const toggleFavorite = carId => {
+    setFavorites(prevFavorites => {
       const updatedFavorites = { ...prevFavorites };
       updatedFavorites[carId] = !prevFavorites[carId];
       return updatedFavorites;
     });
   };
 
+  useEffect(() => {
+    const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || {};
+    setFavorites(storedFavorites);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }, [favorites]);
+
   return (
     <>
       <ListCardStyled>
-        {carInfo.map((item) => {
+        {carInfo.map(item => {
           const {
             id,
             year,
@@ -131,4 +140,3 @@ const CarCard = (props) => {
 };
 
 export default CarCard;
-

@@ -30,7 +30,7 @@ const ModalWindowCar = ({ car, onClose }) => {
         <CloseModalSvg onClick={handleSvgClick} />
 
         <ModalImgStyled
-          src="/pictures/car/pexels-alexgtacar-1592384.jpg"
+          src={require("../../images/car/pexels-alexgtacar-1592384.jpg")}
           alt="#"
         />
         <ModalTitleStyled>

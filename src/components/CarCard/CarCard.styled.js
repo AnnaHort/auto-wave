@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const ListCardStyled = styled.ul`
 display: flex;
-flex-wrap: wrap;
-gap: 28px;
-justify-content: center;
-align-items: center;
+    flex-wrap: wrap;
+    gap: 28px;
+    justify-content: center;
+    align-items: flex-end;
 `
 
 export const CardContainerStyled = styled.div`
