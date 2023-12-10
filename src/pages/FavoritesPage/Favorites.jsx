@@ -5,15 +5,19 @@ import { AboutCarContainer, CarCardButton, CarMarkStyled, CarModelStyled, CardCo
 import LikeSvgActive from '../../components/LikeSvgActive/LikeSvgActive';
 import LikeSvgNormal from '../../components/LikeSvgNormal/LikeSvgNormal';
 import { addToFavorite, deleteFromFavorite } from '../../redux/carSlice';
+import ModalWindowCar from '../../components/ModalCarCard/ModalCarCard';
 
 
 const Favorites = () => {
-  const BASE_URL = 'https://657343ad192318b7db41d7f4.mockapi.io/advert';
 
-  const favoriteIds = useSelector(state => state.car.favoriteId);
+  const [isLoading, setIsLoading] = useState(false);
   const [favoriteCars, setFavoriteCars] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCar, setSelectedCar] = useState(null);
+
+  const BASE_URL = 'https://657343ad192318b7db41d7f4.mockapi.io/advert';
+
+  const favoriteIds = useSelector(state => state.car.favoriteId);
 
   const dispatch = useDispatch();
 
@@ -25,6 +29,7 @@ const Favorites = () => {
         // Фільтрація авто за favoriteIds
         const filteredCars = carsData.filter(car => favoriteIds.includes(car.id));
         setFavoriteCars(filteredCars);
+        setIsLoading(true);
       } catch (error) {
         console.error('Error fetching carInfo:', error);
       }
@@ -55,7 +60,7 @@ useEffect(() => {
     window.removeEventListener('keydown', handleKeyDown);
   };
 }, []);
-  return (
+  return isLoading === false ? (<div>...Loading</div>) : (
     <>
     <ListCardStyled>
     {favoriteCars.map((item,index) => {
@@ -134,15 +139,23 @@ useEffect(() => {
                     </InfoListElStyled>
                     <InfoListElStyled>{functionalitiesCar} </InfoListElStyled>
                   </InfoListStyled>
+
                   <CarCardButton onClick={() => openModal(item)}>
                     Learn more
                   </CarCardButton>
+
                 </CardContainerStyled>
               </li>
             );   
       })}
     </ListCardStyled>
-
+    {isModalOpen && (
+        <ModalWindowCar
+          car={selectedCar}
+          isOpen={isModalOpen}
+          onClose={() => closeModal()}
+        />
+      )}
     </>
     );
 };

@@ -28,7 +28,7 @@ const Catalog = () => {
   }, []);
   console.log(carsData)
 
-  // отримання даних при натичканні на load more
+  // отримання даних при натиcканні на load more
   const fetchMoreData = async () => {
     try {
       const response = await axios.get(
