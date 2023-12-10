@@ -25,7 +25,7 @@ const ModalWindowCar = ({ car, onClose }) => {
     }
   };
 
-  console.log(car);
+
 
   const {
     id,

@@ -25,7 +25,7 @@ const FavoriteCarCards = () => {
       try {
         const response = await axios.get(`${BASE_URL}?page=1&limit=12`);
         const carsData = response.data;
-        // Фільтрація авто за favoriteIds
+       
         const filteredCars = carsData.filter(car =>
           favoriteIds.includes(car.id)
         );
@@ -37,8 +37,8 @@ const FavoriteCarCards = () => {
     };
 
     fetchData();
-  }, [favoriteIds]); // Додавання favoriteIds до залежностей useEffect
-  console.log(favoriteCars);
+  }, [favoriteIds]); 
+ 
 
   const openModal = car => {
     setSelectedCar(car);

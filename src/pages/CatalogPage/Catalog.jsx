@@ -26,7 +26,7 @@ const Catalog = () => {
     };
     fetchData();
   }, []);
-  console.log(carsData)
+
 
   // отримання даних при натиcканні на load more
   const fetchMoreData = async () => {
