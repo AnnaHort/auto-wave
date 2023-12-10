@@ -13,13 +13,19 @@ import LikeSvgNormal from '../LikeSvgNormal/LikeSvgNormal';
 import ModalWindowCar from '../ModalCarCard/ModalCarCard';
 import { useEffect, useState } from 'react';
 import LikeSvgActive from '../LikeSvgActive/LikeSvgActive';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToFavorite, deleteFromFavorite } from '../../redux/carSlice';
 
 const CarCard = props => {
   const { carInfo } = props;
+  const dispatch = useDispatch();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [favorites, setFavorites] = useState({});
   const [selectedCar, setSelectedCar] = useState(null);
+
+  const favoriteId = useSelector(state => state.car.favoriteId);
+ console.log(favoriteId)
+
 
   const openModal = car => {
     setSelectedCar(car);
@@ -42,22 +48,26 @@ const CarCard = props => {
     };
   }, []);
 
-  const toggleFavorite = carId => {
-    setFavorites(prevFavorites => {
-      const updatedFavorites = { ...prevFavorites };
-      updatedFavorites[carId] = !prevFavorites[carId];
-      return updatedFavorites;
-    });
-  };
+  // const handleToggleFavoriteSvg = () => {
+  //   dispatch(addToFavorite({id}))
+  // }
 
-  useEffect(() => {
-    const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || {};
-    setFavorites(storedFavorites);
-  }, []);
+  // const toggleFavorite = carId => {
+  //   setFavorites(prevFavorites => {
+  //     const updatedFavorites = { ...prevFavorites };
+  //     updatedFavorites[carId] = !prevFavorites[carId];
+  //     return updatedFavorites;
+  //   });
+  // };
 
-  useEffect(() => {
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-  }, [favorites]);
+  // useEffect(() => {
+  //   const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || {};
+  //   setFavorites(storedFavorites);
+  // }, []);
+
+  // useEffect(() => {
+  //   localStorage.setItem('favorites', JSON.stringify(favorites));
+  // }, [favorites]);
 
   return (
     <>
@@ -91,12 +101,17 @@ const CarCard = props => {
             <li key={id}>
               <CardContainerStyled>
                 <CardImgStyled src={img} alt={`${make}`} />
+                {favoriteId.includes(id) ? (
+  <LikeSvgActive onClick={() => dispatch(deleteFromFavorite({ id }))} />
+) : (
+  <LikeSvgNormal onClick={() => dispatch(addToFavorite({ id }))} />
+)}     
 
-                {favorites[id] ? (
+                {/* {favorites[id] ? (
                   <LikeSvgActive onClick={() => toggleFavorite(id)} />
                 ) : (
                   <LikeSvgNormal onClick={() => toggleFavorite(id)} />
-                )}
+                )} */}
 
                 <AboutCarContainer>
                   <CarMarkStyled>
