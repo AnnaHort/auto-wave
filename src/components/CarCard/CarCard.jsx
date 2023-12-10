@@ -136,7 +136,13 @@ const CarCard = props => {
         })}
       </ListCardStyled>
 
-
+      {isModalOpen && (
+        <ModalWindowCar
+          car={selectedCar}
+          isOpen={isModalOpen}
+          onClose={() => closeModal()}
+        />
+      )}
     </>
   );
 };
