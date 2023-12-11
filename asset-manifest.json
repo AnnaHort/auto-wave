@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/auto-wave/static/css/main.59094a38.css",
-    "main.js": "/auto-wave/static/js/main.76432e14.js",
+    "main.js": "/auto-wave/static/js/main.bc8aad21.js",
     "static/js/690.517f1bfe.chunk.js": "/auto-wave/static/js/690.517f1bfe.chunk.js",
     "static/js/356.0eeffa26.chunk.js": "/auto-wave/static/js/356.0eeffa26.chunk.js",
     "static/js/238.5656f8a2.chunk.js": "/auto-wave/static/js/238.5656f8a2.chunk.js",
@@ -13,7 +13,7 @@
     "static/media/pexels-alexgtacar-1592384.jpg": "/auto-wave/static/media/pexels-alexgtacar-1592384.beaaa3552398c10c0727.jpg",
     "index.html": "/auto-wave/index.html",
     "main.59094a38.css.map": "/auto-wave/static/css/main.59094a38.css.map",
-    "main.76432e14.js.map": "/auto-wave/static/js/main.76432e14.js.map",
+    "main.bc8aad21.js.map": "/auto-wave/static/js/main.bc8aad21.js.map",
     "690.517f1bfe.chunk.js.map": "/auto-wave/static/js/690.517f1bfe.chunk.js.map",
     "356.0eeffa26.chunk.js.map": "/auto-wave/static/js/356.0eeffa26.chunk.js.map",
     "238.5656f8a2.chunk.js.map": "/auto-wave/static/js/238.5656f8a2.chunk.js.map",
@@ -25,6 +25,6 @@
   },
   "entrypoints": [
     "static/css/main.59094a38.css",
-    "static/js/main.76432e14.js"
+    "static/js/main.bc8aad21.js"
   ]
 }
