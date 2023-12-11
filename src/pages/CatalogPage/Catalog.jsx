@@ -3,7 +3,6 @@ import CarFilter from '../../components/CarFilter/CarFilter';
 import CarCard from '../../components/CarCard/CarCard';
 import { LoadMoreStyled } from './Catalog.styled';
 import axios from 'axios';
-import HeaderList from '../../components/HeaderList/HeaderList';
 
 const Catalog = () => {
   const BASE_URL = 'https://657343ad192318b7db41d7f4.mockapi.io/advert';
@@ -47,7 +46,6 @@ const Catalog = () => {
     <div>...Loading</div>
   ) : (
     <>
-    <HeaderList/>
       <CarFilter carInfo={carsData} />
       <CarCard carInfo={carsData} />
       <LoadMoreStyled onClick={fetchMoreData}>Load more</LoadMoreStyled>

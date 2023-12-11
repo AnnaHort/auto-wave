@@ -1,20 +1,11 @@
-import FavoriteCarCards from "../../components/FavoriteCarCards/FavoriteCarCards";
-import HeaderList from "../../components/HeaderList/HeaderList";
+import FavoriteCarCards from '../../components/FavoriteCarCards/FavoriteCarCards';
 
 const Favorites = () => {
-return (
-  <>
-     <HeaderList/>
- <FavoriteCarCards/>
-  </>
-
-)
+  return (
+    <>
+      <FavoriteCarCards />
+    </>
+  );
 };
 
 export default Favorites;
-
-
-
-
-
-

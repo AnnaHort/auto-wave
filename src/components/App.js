@@ -16,10 +16,10 @@ function App() {
         <Routes>
           <Route path="/" element={<HeaderList />}>
             <Route index element={<Home />} />
+            <Route path="/catalog" element={<Catalog />} />
+            <Route path="/favorites" element={<Favorites />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
-          <Route path="/catalog" element={<Catalog />} />
-          <Route path="/favorites" element={<Favorites />} />
-          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
     </>

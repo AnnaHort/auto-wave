@@ -11,14 +11,12 @@ import { PersistGate } from 'redux-persist/integration/react';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-   
-    <BrowserRouter basename="/auto-wave">
-      <Provider store={store}>
+    <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <App />
-        </PersistGate>
-      </Provider>
-    </BrowserRouter>
-
+        <BrowserRouter basename="/auto-wave">
+          <App />
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
   </React.StrictMode>
 );
