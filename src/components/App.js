@@ -13,16 +13,14 @@ function App() {
     <>
       <GlobalStyle />
       <Suspense fallback={<div>Loading...</div>}>
-
-          <Routes>
-            <Route path="/" element={<HeaderList />}>
-              <Route index element={<Home />} />
-              <Route path="/catalog" element={<Catalog />} />
-              <Route path="/favorites" element={<Favorites />} />
-            </Route>
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-  
+        <Routes>
+          <Route path="/" element={<HeaderList />}>
+            <Route index element={<Home />} />
+          </Route>
+          <Route path="/catalog" element={<Catalog />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </Suspense>
     </>
   );
