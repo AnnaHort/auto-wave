@@ -2,7 +2,7 @@
   "name": "auto-wave",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://AnnaHort.github.io/auto-wave/",
+  "homepage": "https://AnnaHort.github.io/auto-wave",
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.19.3",
     "@reduxjs/toolkit": "^2.0.1",
