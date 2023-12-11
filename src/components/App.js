@@ -1,7 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { GlobalStyle } from './GlobalStyle';
-import { lazy, Suspense } from 'react';
+import { lazy } from 'react';
+import NotFound from './NotFound/NotFound.jsx';
 
 const HeaderList = lazy(() => import('./HeaderList/HeaderList.jsx'));
 const Home = lazy(() => import('../pages/HomePage/Home.jsx'));
@@ -11,15 +12,15 @@ const Favorites = lazy(() => import('../pages/FavoritesPage/Favorites.jsx'));
 function App() {
   return (
     <>
-      <Suspense fallback={<div>Loading...</div>}>
+
         <Routes>
           <Route path="/" element={<HeaderList />}>
             <Route index element={<Home />} />
             <Route path="/catalog" element={<Catalog />} />
             <Route path="/favorites" element={<Favorites />} />
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
-      </Suspense>
       <GlobalStyle />
     </>
   );
