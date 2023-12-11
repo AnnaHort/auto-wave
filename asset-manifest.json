@@ -1,30 +1,30 @@
 {
   "files": {
-    "main.css": "/AnnaHort/auto-wave/static/css/main.59094a38.css",
-    "main.js": "/AnnaHort/auto-wave/static/js/main.80e06f8a.js",
-    "static/js/690.517f1bfe.chunk.js": "/AnnaHort/auto-wave/static/js/690.517f1bfe.chunk.js",
-    "static/js/356.0e7cc507.chunk.js": "/AnnaHort/auto-wave/static/js/356.0e7cc507.chunk.js",
-    "static/js/238.5656f8a2.chunk.js": "/AnnaHort/auto-wave/static/js/238.5656f8a2.chunk.js",
-    "static/js/733.9fd00483.chunk.js": "/AnnaHort/auto-wave/static/js/733.9fd00483.chunk.js",
-    "static/js/294.653c88c2.chunk.js": "/AnnaHort/auto-wave/static/js/294.653c88c2.chunk.js",
-    "static/js/615.2f136df3.chunk.js": "/AnnaHort/auto-wave/static/js/615.2f136df3.chunk.js",
-    "static/js/557.f8f326a0.chunk.js": "/AnnaHort/auto-wave/static/js/557.f8f326a0.chunk.js",
-    "static/js/14.92b7d690.chunk.js": "/AnnaHort/auto-wave/static/js/14.92b7d690.chunk.js",
-    "static/media/pexels-alexgtacar-1592384.jpg": "/AnnaHort/auto-wave/static/media/pexels-alexgtacar-1592384.beaaa3552398c10c0727.jpg",
-    "index.html": "/AnnaHort/auto-wave/index.html",
-    "main.59094a38.css.map": "/AnnaHort/auto-wave/static/css/main.59094a38.css.map",
-    "main.80e06f8a.js.map": "/AnnaHort/auto-wave/static/js/main.80e06f8a.js.map",
-    "690.517f1bfe.chunk.js.map": "/AnnaHort/auto-wave/static/js/690.517f1bfe.chunk.js.map",
-    "356.0e7cc507.chunk.js.map": "/AnnaHort/auto-wave/static/js/356.0e7cc507.chunk.js.map",
-    "238.5656f8a2.chunk.js.map": "/AnnaHort/auto-wave/static/js/238.5656f8a2.chunk.js.map",
-    "733.9fd00483.chunk.js.map": "/AnnaHort/auto-wave/static/js/733.9fd00483.chunk.js.map",
-    "294.653c88c2.chunk.js.map": "/AnnaHort/auto-wave/static/js/294.653c88c2.chunk.js.map",
-    "615.2f136df3.chunk.js.map": "/AnnaHort/auto-wave/static/js/615.2f136df3.chunk.js.map",
-    "557.f8f326a0.chunk.js.map": "/AnnaHort/auto-wave/static/js/557.f8f326a0.chunk.js.map",
-    "14.92b7d690.chunk.js.map": "/AnnaHort/auto-wave/static/js/14.92b7d690.chunk.js.map"
+    "main.css": "/static/css/main.59094a38.css",
+    "main.js": "/static/js/main.d5bbe3b8.js",
+    "static/js/690.517f1bfe.chunk.js": "/static/js/690.517f1bfe.chunk.js",
+    "static/js/356.0e7cc507.chunk.js": "/static/js/356.0e7cc507.chunk.js",
+    "static/js/238.5656f8a2.chunk.js": "/static/js/238.5656f8a2.chunk.js",
+    "static/js/733.9fd00483.chunk.js": "/static/js/733.9fd00483.chunk.js",
+    "static/js/294.653c88c2.chunk.js": "/static/js/294.653c88c2.chunk.js",
+    "static/js/615.2f136df3.chunk.js": "/static/js/615.2f136df3.chunk.js",
+    "static/js/557.f8f326a0.chunk.js": "/static/js/557.f8f326a0.chunk.js",
+    "static/js/14.92b7d690.chunk.js": "/static/js/14.92b7d690.chunk.js",
+    "static/media/pexels-alexgtacar-1592384.jpg": "/static/media/pexels-alexgtacar-1592384.beaaa3552398c10c0727.jpg",
+    "index.html": "/index.html",
+    "main.59094a38.css.map": "/static/css/main.59094a38.css.map",
+    "main.d5bbe3b8.js.map": "/static/js/main.d5bbe3b8.js.map",
+    "690.517f1bfe.chunk.js.map": "/static/js/690.517f1bfe.chunk.js.map",
+    "356.0e7cc507.chunk.js.map": "/static/js/356.0e7cc507.chunk.js.map",
+    "238.5656f8a2.chunk.js.map": "/static/js/238.5656f8a2.chunk.js.map",
+    "733.9fd00483.chunk.js.map": "/static/js/733.9fd00483.chunk.js.map",
+    "294.653c88c2.chunk.js.map": "/static/js/294.653c88c2.chunk.js.map",
+    "615.2f136df3.chunk.js.map": "/static/js/615.2f136df3.chunk.js.map",
+    "557.f8f326a0.chunk.js.map": "/static/js/557.f8f326a0.chunk.js.map",
+    "14.92b7d690.chunk.js.map": "/static/js/14.92b7d690.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.59094a38.css",
-    "static/js/main.80e06f8a.js"
+    "static/js/main.d5bbe3b8.js"
   ]
 }
