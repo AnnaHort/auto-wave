@@ -17,13 +17,14 @@ const FavoriteCarCards = () => {
   const BASE_URL = 'https://657343ad192318b7db41d7f4.mockapi.io/advert';
 
   const favoriteIds = useSelector(state => state.car.favoriteId);
+  console.log(favoriteIds)
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}?page=1&limit=12`);
+        const response = await axios.get(`${BASE_URL}`);
         const carsData = response.data;
        
         const filteredCars = carsData.filter(car =>
