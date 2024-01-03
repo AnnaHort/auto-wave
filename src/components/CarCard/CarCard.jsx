@@ -91,11 +91,10 @@ const CarCard = props => {
 
                 <AboutCarContainer>
                   <CarMarkStyled>
-                    {make}{' '}
+                    {make}
                     {shouldDisplayCarModel && (
-                      <CarModelStyled>{model}</CarModelStyled>
-                    )}
-                    , {year}
+                      <CarModelStyled> {model}</CarModelStyled>
+                    )}, {year}
                   </CarMarkStyled>
                   <span>{rentalPrice}</span>
                 </AboutCarContainer>

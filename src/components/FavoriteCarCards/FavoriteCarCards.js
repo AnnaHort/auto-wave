@@ -17,7 +17,6 @@ const FavoriteCarCards = () => {
   const BASE_URL = 'https://657343ad192318b7db41d7f4.mockapi.io/advert';
 
   const favoriteIds = useSelector(state => state.car.favoriteId);
-  console.log(favoriteIds)
 
   const dispatch = useDispatch();
 

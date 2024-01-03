@@ -19,6 +19,7 @@ p {
     margin-top: 0;
     margin-bottom: 0;
     user-select:none;
+    font-family: 'Manrope', sans-serif;
 }
 
 ul,

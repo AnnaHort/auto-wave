@@ -16,7 +16,7 @@ export const SelectorContainerStyled = styled.div`
 
 export const LabelStyled = styled.label`
   color: #8a8a89;
-  font-family: Manrope;
+  font-family: 'Manrope', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.3;
@@ -31,6 +31,7 @@ export const CarMileageFromInput = styled.input`
   height: 48px;
   padding: 0 0 0 24px;
   text-indent: 40px;
+  font-family: 'Manrope', sans-serif;
   &:focus {
     outline: none;
   }
@@ -46,6 +47,7 @@ export const CarMileageToInput = styled.input`
   height: 48px;
   padding: 0 0 0 24px;
   text-indent: 20px;
+  font-family: 'Manrope', sans-serif;
   &:focus {
     outline: none;
   }
@@ -62,12 +64,14 @@ export const PriseHourText = styled.span`
 position: absolute;
 top: 15px;
 left: 18px;
+font-family: 'Manrope', sans-serif;
 `
 
 export const SpanText = styled.span`
 position: absolute;
 top: 16px;
 left: 24px;
+font-family: 'Manrope', sans-serif;
 `
 export const MileageContainer = styled.div`
 position: relative;
@@ -79,6 +83,7 @@ background: #3470FF;
 border: none;
 background: #3470FF;
 color: #fff;
+font-family: 'Manrope', sans-serif;
 &:hover{
   background: #0B44CD;
   transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1)

@@ -26,7 +26,7 @@ export const LinkStyle = styled(Link)`
   text-decoration: none;
   color: black;
   font-size: 20px;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: 'Manrope';
   &:hover,
   :focus {
     color: teal;

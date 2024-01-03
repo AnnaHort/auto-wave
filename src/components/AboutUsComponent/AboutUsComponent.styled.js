@@ -26,4 +26,5 @@ export const TextContainerStyled = styled.div`
 
 export const TextStyled = styled.p`
   max-width: 280px;
+  font-family: 'Manrope', sans-serif;
 `;

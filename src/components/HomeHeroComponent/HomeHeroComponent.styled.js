@@ -23,6 +23,8 @@ export const TitleStyle = styled.h2`
   color: #fff;
   text-align: center;
   text-shadow: 1px -3px 6px rgba(0,0,0,0.83);
+  font-family: 'Manrope';
+
 `;
 
 export const ListStyle = styled.ul``;

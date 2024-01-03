@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 
 export const MainModalContainerStyled = styled.div`
   position: fixed;
@@ -19,7 +19,6 @@ export const ModalContainerStyled = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   position: absolute;
   z-index: 2;
 `;
@@ -43,7 +42,6 @@ export const ModalTitleStyled = styled.h2`
 `;
 export const ModalTitleSpanStyled = styled.span`
   color: #3470ff;
-  font-family: Manrope;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.33;
@@ -53,7 +51,6 @@ export const ModalListStyled = styled.ul`
   flex-wrap: wrap;
   gap: 12px;
   color: rgba(18, 20, 23, 0.5);
-  font-family: Manrope;
   font-size: 12px;
   font-weight: 400;
   line-height: 1.5;
@@ -62,7 +59,6 @@ export const ModalListStyled = styled.ul`
 
 export const ModalAboutTextStyled = styled.p`
   color: #121417;
-  font-family: Manrope;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.42;
@@ -70,7 +66,6 @@ export const ModalAboutTextStyled = styled.p`
 `;
 export const ModalAccessoriesStyled = styled.h3`
   color: #121417;
-  font-family: Manrope;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.42;
@@ -80,7 +75,7 @@ export const ModalCarConditionsStyled = styled.ul`
   display: flex;
   flex-wrap: wrap;
   color: #363535;
-  font-family: Manrope;
+  font-family: 'Manrope';
   font-size: 12px;
   font-weight: 400;
   line-height: 1.5;
@@ -92,7 +87,7 @@ export const ModalCarConditionsStyled = styled.ul`
 
 export const ModalConditionsSpanStyled = styled.span`
   color: #3470ff;
-  font-family: Montserrat;
+  font-family: 'Manrope';
   font-size: 12px;
   font-weight: 600;
   line-height: 1.5;
@@ -103,14 +98,16 @@ export const ModalLinkStyled = styled(NavLink)`
   background: #3470ff;
   padding: 12px 50px;
   color: #fff;
-  font-family: Manrope;
+  font-family: 'Manrope', sans-serif;
   font-size: 14px;
   font-weight: 600;
   line-height: 1.42;
   border: none;
   text-decoration: none;
-  &:hover{
-  background: #0B44CD;
-  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1)
-}
+  font-family: 'Manrope';
+
+  &:hover {
+    background: #0b44cd;
+    transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
 `;

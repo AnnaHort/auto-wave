@@ -8,7 +8,7 @@ export const LoadMoreStyled = styled.button`
   border: none;
   background-color: transparent;
   color: #3470ff;
-  font-family: Manrope;
+  font-family: 'Manrope', sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
