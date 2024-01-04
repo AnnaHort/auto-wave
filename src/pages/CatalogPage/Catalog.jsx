@@ -8,7 +8,6 @@ import { getAllCarsInfo } from '../../redux/operations';
 
 import { getCarInfo } from '../../redux/carSlice';
 
-
 const Catalog = () => {
   const dispatch = useDispatch();
   const BASE_URL = 'https://657343ad192318b7db41d7f4.mockapi.io/advert';
@@ -16,7 +15,7 @@ const Catalog = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [originalCarsInfo, setOriginalCarsInfo] = useState([]);
   const [filteredCarsInfo, setFilteredCarsInfo] = useState([]);
-console.log(originalCarsInfo)
+  // console.log(originalCarsInfo);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -33,24 +32,42 @@ console.log(originalCarsInfo)
     fetchData();
   }, [dispatch]);
 
-  const filterCars = (searchModel, searchPrice) => {
+  const filterCars = (
+    searchModel,
+    searchPrice,
+    searchMileageFrom,
+    searchMileageTo
+  ) => {
     let filteredCars = [...originalCarsInfo];
-    // console.log(filteredCars)
-  
+
     if (searchModel && searchModel !== '') {
       filteredCars = filteredCars.filter(car =>
         car.make.toLowerCase().includes(searchModel.toLowerCase())
       );
     }
-  
+
     if (searchPrice && searchPrice !== '') {
       const numericSearchPrice = parseInt(searchPrice.replace('$', ''), 10);
-  
       filteredCars = filteredCars.filter(car => {
-        const numericRentalPrice = parseInt(car.rentalPrice.replace('$', ''), 10);
+        const numericRentalPrice = parseInt(
+          car.rentalPrice.replace('$', ''),
+          10
+        );
         return numericRentalPrice <= numericSearchPrice;
       });
     }
+
+    if (searchMileageFrom !== null && searchMileageTo !== null) {
+      filteredCars = filteredCars.filter(car => {
+        const rentalMileageCar = car.mileage;
+        return rentalMileageCar >= searchMileageFrom && rentalMileageCar <= searchMileageTo;
+      });
+    } else if (searchMileageFrom !== null) {
+      filteredCars = filteredCars.filter(car => car.mileage >= searchMileageFrom);
+    } else if (searchMileageTo !== null) {
+      filteredCars = filteredCars.filter(car => car.mileage <= searchMileageTo);
+    }
+
     setFilteredCarsInfo(filteredCars);
   };
 
@@ -62,8 +79,8 @@ console.log(originalCarsInfo)
       );
       const newCarsData = response.data;
       // console.log(newCarsData)
-      setFilteredCarsInfo([...filteredCarsInfo, ...newCarsData])
-      setOriginalCarsInfo([...originalCarsInfo, ...newCarsData])
+      setFilteredCarsInfo([...filteredCarsInfo, ...newCarsData]);
+      setOriginalCarsInfo([...originalCarsInfo, ...newCarsData]);
       setCurrentPage(currentPage + 1);
     } catch (error) {
       console.error('Error fetching more carInfo:', error);

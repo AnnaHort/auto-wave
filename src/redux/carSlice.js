@@ -8,6 +8,8 @@ const filterInitialState = {
   carsInfo: [],
   searchModel: '',
   searchPrice: null,
+  searchMileageFrom: null,
+  searchMileageTo: null,
 };
 
 const filterCarSlice = createSlice({
@@ -22,6 +24,12 @@ const filterCarSlice = createSlice({
     },
     getFilterPrice(state, action) {
       state.searchPrice = action.payload;
+    },
+    getFilterMileageFrom(state, action) {
+      state.searchMileageFrom = action.payload;
+    },
+    getFilterMileageTo(state, action) {
+      state.searchMileageTo = action.payload;
     },
   },
 });
@@ -48,5 +56,12 @@ const carSlice = createSlice({
 export const { addToFavorite, deleteFromFavorite } = carSlice.actions;
 export const carReducer = carSlice.reducer;
 
-export const { getFilterModel,getFilterPrice, getCarInfo, getFilterCars } = filterCarSlice.actions;
+export const {
+  getFilterModel,
+  getFilterPrice,
+  getCarInfo,
+  getFilterCars,
+  getFilterMileageFrom,
+  getFilterMileageTo,
+} = filterCarSlice.actions;
 export const filterCarReducer = filterCarSlice.reducer;

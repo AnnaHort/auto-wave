@@ -16,13 +16,20 @@ import { priceSelectStyles } from '../../styles/selectStyles/priceSelectStyles';
 
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  selectFilterSearchMileageFrom,
+  selectFilterSearchMileageTo,
   // selectCarsInfo,
   selectFilterSearchModel,
   selectFilterSearchPrice,
 } from '../../redux/selectors';
-import { getFilterModel, getFilterPrice } from '../../redux/carSlice';
+import {
+  getFilterMileageFrom,
+  getFilterMileageTo,
+  getFilterModel,
+  getFilterPrice,
+} from '../../redux/carSlice';
 
-const CarFilter = (props) => {
+const CarFilter = props => {
   const dispatch = useDispatch();
 
   // const allCarsInfo = useSelector(selectCarsInfo);
@@ -31,13 +38,12 @@ const CarFilter = (props) => {
   // console.log(searchModel);
   const searchPrice = useSelector(selectFilterSearchPrice);
   // console.log(searchPrice)
+  const searchMileageFrom = useSelector(selectFilterSearchMileageFrom);
+  const searchMileageTo = useSelector(selectFilterSearchMileageTo);
+
 
   const carBrandDefaultValue = { value: '', label: 'Enter the text' };
   const priceDefaultValue = { value: '', label: '$' };
-
-  const handleMileageChange = e => {
-    return console.log(e.target.value);
-  };
 
   // до селекта №1
   const carsMarkOptions = [
@@ -81,8 +87,20 @@ const CarFilter = (props) => {
 
   const handleFilterCar = e => {
     e.preventDefault();
- const { filterCars } = props;
-  filterCars(searchModel, searchPrice);
+
+    const mileageFrom = parseInt(document.getElementById('mileageFrom').value);
+    const mileageTo = parseInt(document.getElementById('mileageTo').value);
+
+    const { filterCars } = props;
+
+    if(mileageFrom && mileageFrom!==null){
+      dispatch(getFilterMileageFrom(mileageFrom));
+    }
+    if(mileageTo && mileageTo!==null){
+      dispatch(getFilterMileageTo(mileageTo));
+    }
+
+    filterCars(searchModel, searchPrice, searchMileageFrom, searchMileageTo);
   };
 
   return (
@@ -121,12 +139,12 @@ const CarFilter = (props) => {
         <LabelStyled htmlFor="mileage">Car mileage / km</LabelStyled>
         <MileageInputContainer>
           <MileageContainer>
-            <CarMileageFromInput type="text" onChange={handleMileageChange} />
+            <CarMileageFromInput type="number" id="mileageFrom" />
             <SpanText>From</SpanText>
           </MileageContainer>
 
           <MileageContainer>
-            <CarMileageToInput type="text" />
+            <CarMileageToInput type="number" id="mileageTo" />
             <SpanText>To</SpanText>
           </MileageContainer>
         </MileageInputContainer>
