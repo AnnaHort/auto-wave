@@ -14,47 +14,89 @@ import {
 } from './CarFilter.styled';
 import { priceSelectStyles } from '../../styles/selectStyles/priceSelectStyles';
 
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  // selectCarsInfo,
+  selectFilterSearchModel,
+  selectFilterSearchPrice,
+} from '../../redux/selectors';
+import { getFilterModel, getFilterPrice } from '../../redux/carSlice';
 
+const CarFilter = (props) => {
+  const dispatch = useDispatch();
 
-const CarFilter = props => {
+  // const allCarsInfo = useSelector(selectCarsInfo);
+  // console.log(allCarsInfo);
+  const searchModel = useSelector(selectFilterSearchModel);
+  // console.log(searchModel);
+  const searchPrice = useSelector(selectFilterSearchPrice);
+  // console.log(searchPrice)
+
   const carBrandDefaultValue = { value: '', label: 'Enter the text' };
   const priceDefaultValue = { value: '', label: '$' };
-
-  const { carInfo } = props;
 
   const handleMileageChange = e => {
     return console.log(e.target.value);
   };
 
   // до селекта №1
-  let carsMarkOptions = [];
+  const carsMarkOptions = [
+    'Buick',
+    'Volvo',
+    'HUMMER',
+    'Subaru',
+    'Mitsubishi',
+    'Nissan',
+    'Lincoln',
+    'GMC',
+    'Hyundai',
+    'MINI',
+    'Bentley',
+    'Mercedes-Benz',
+    'Aston Martin',
+    'Pontiac',
+    'Lamborghini',
+    'Audi',
+    'BMW',
+    'Chevrolet',
+    'Mercedes-Benz',
+    'Chrysler',
+    'Kia',
+    'Land',
+  ];
+  const transformedMarkOptions = carsMarkOptions.map(mark => ({
+    value: mark,
+    label: mark,
+  }));
 
-  if (carInfo.length > 0) {
-    carInfo.forEach(item => {
-      const carsMark = item.make;
-      carsMarkOptions.push({ value: carsMark, label: carsMark });
-    });
+  // до селекта №2
+  let carsPrice = [];
+  for (let i = 10; i <= 150; i += 10) {
+    carsPrice.push({ value: i, label: i });
   }
+  const carsPriceObj = carsPrice.map(item => ({
+    value: item.value + '$',
+    label: item.label + '$',
+  }));
 
-  //   // до селекта №2
-  let carsPriceOptions = [];
-
-  if (carInfo.length > 0) {
-    carInfo.forEach(item => {
-      const carsPrice = item.rentalPrice;
-      carsPriceOptions.push({ value: carsPrice, label: carsPrice });
-    });
-  }
+  const handleFilterCar = e => {
+    e.preventDefault();
+ const { filterCars } = props;
+  filterCars(searchModel, searchPrice);
+  };
 
   return (
-    <FilterFormStyled method="post">
+    <FilterFormStyled method="post" onSubmit={handleFilterCar}>
       <SelectorContainerStyled>
         <LabelStyled htmlFor="carBrand">Car brand</LabelStyled>
         <Select
-          options={carsMarkOptions}
+          options={transformedMarkOptions}
           styles={carBrandSearchStyles}
           id="carBrand"
           defaultValue={carBrandDefaultValue}
+          onChange={selectedOption =>
+            dispatch(getFilterModel(selectedOption.value))
+          }
         />
       </SelectorContainerStyled>
 
@@ -62,10 +104,13 @@ const CarFilter = props => {
         <LabelStyled htmlFor="price">Price/ 1 hour</LabelStyled>
         <MileageContainer>
           <Select
-            options={carsPriceOptions}
+            options={carsPriceObj}
             styles={priceSelectStyles}
             id="price"
             defaultValue={priceDefaultValue}
+            onChange={selectedOption =>
+              dispatch(getFilterPrice(selectedOption.value))
+            }
           />
 
           <PriseHourText>To</PriseHourText>
@@ -87,7 +132,7 @@ const CarFilter = props => {
         </MileageInputContainer>
       </SelectorContainerStyled>
 
-      <FilterButton type="button">Search</FilterButton>
+      <FilterButton type="submit">Search</FilterButton>
     </FilterFormStyled>
   );
 };

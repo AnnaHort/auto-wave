@@ -15,15 +15,17 @@ import { useEffect, useState } from 'react';
 import LikeSvgActive from '../LikeSvgActive/LikeSvgActive';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToFavorite, deleteFromFavorite } from '../../redux/carSlice';
+import { selectFavoriteCar } from '../../redux/selectors';
 
 const CarCard = props => {
   const { carInfo } = props;
   const dispatch = useDispatch();
+  const favoriteCar = useSelector(selectFavoriteCar)
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCar, setSelectedCar] = useState(null);
 
-  const favoriteId = useSelector(state => state.car.favoriteId);
+  const favoriteId = favoriteCar;
 
   const openModal = car => {
     setSelectedCar(car);
