@@ -60,7 +60,6 @@ export const {
   getFilterModel,
   getFilterPrice,
   getCarInfo,
-  getFilterCars,
   getFilterMileageFrom,
   getFilterMileageTo,
 } = filterCarSlice.actions;

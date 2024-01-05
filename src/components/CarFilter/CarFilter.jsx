@@ -18,64 +18,43 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectFilterSearchMileageFrom,
   selectFilterSearchMileageTo,
-  // selectCarsInfo,
-  selectFilterSearchModel,
+  selectCarsInfo,
   selectFilterSearchPrice,
 } from '../../redux/selectors';
 import {
+  getCarInfo,
   getFilterMileageFrom,
   getFilterMileageTo,
   getFilterModel,
   getFilterPrice,
 } from '../../redux/carSlice';
+import { getAllCarsInfo } from '../../redux/operations';
+import { useState } from 'react';
 
-const CarFilter = props => {
+const CarFilter = () => {
   const dispatch = useDispatch();
+  const [, setIsLoading] = useState(false);
 
-  // const allCarsInfo = useSelector(selectCarsInfo);
-  // console.log(allCarsInfo);
-  const searchModel = useSelector(selectFilterSearchModel);
-  // console.log(searchModel);
   const searchPrice = useSelector(selectFilterSearchPrice);
-  // console.log(searchPrice)
+  const carsDataFilter = useSelector(selectCarsInfo);
   const searchMileageFrom = useSelector(selectFilterSearchMileageFrom);
   const searchMileageTo = useSelector(selectFilterSearchMileageTo);
 
+  const [filteredCarsInfo, setFilteredCarsInfo] = useState(carsDataFilter);
 
   const carBrandDefaultValue = { value: '', label: 'Enter the text' };
   const priceDefaultValue = { value: '', label: '$' };
 
-  // до селекта №1
   const carsMarkOptions = [
-    'Buick',
-    'Volvo',
-    'HUMMER',
-    'Subaru',
-    'Mitsubishi',
-    'Nissan',
-    'Lincoln',
-    'GMC',
-    'Hyundai',
-    'MINI',
-    'Bentley',
-    'Mercedes-Benz',
-    'Aston Martin',
-    'Pontiac',
-    'Lamborghini',
-    'Audi',
-    'BMW',
-    'Chevrolet',
-    'Mercedes-Benz',
-    'Chrysler',
-    'Kia',
-    'Land',
+    'Buick', 'Volvo', 'HUMMER', 'Subaru', 'Mitsubishi', 'Nissan', 'Lincoln',
+    'GMC', 'Hyundai', 'MINI', 'Bentley', 'Mercedes-Benz', 'Aston Martin', 'Pontiac',
+    'Lamborghini', 'Audi', 'BMW', 'Chevrolet', 'Mercedes-Benz', 'Chrysler', 'Kia', 'Land',
   ];
   const transformedMarkOptions = carsMarkOptions.map(mark => ({
     value: mark,
     label: mark,
   }));
 
-  // до селекта №2
   let carsPrice = [];
   for (let i = 10; i <= 150; i += 10) {
     carsPrice.push({ value: i, label: i });
@@ -85,24 +64,55 @@ const CarFilter = props => {
     label: item.label + '$',
   }));
 
-  const handleFilterCar = e => {
+  const handleFilterCar = async e => {
     e.preventDefault();
 
     const mileageFrom = parseInt(document.getElementById('mileageFrom').value);
     const mileageTo = parseInt(document.getElementById('mileageTo').value);
 
-    const { filterCars } = props;
-
-    if(mileageFrom && mileageFrom!==null){
+    if (mileageFrom && mileageFrom !== null) {
       dispatch(getFilterMileageFrom(mileageFrom));
     }
-    if(mileageTo && mileageTo!==null){
+    if (mileageTo && mileageTo !== null) {
       dispatch(getFilterMileageTo(mileageTo));
     }
 
-    filterCars(searchModel, searchPrice, searchMileageFrom, searchMileageTo);
-  };
+    try {
+      const response = await dispatch(getAllCarsInfo());
+      const carsData = response.payload;
 
+      let filteredCars = carsData;
+
+      if (searchPrice && searchPrice !== '') {
+        const numericSearchPrice = parseInt(searchPrice.replace('$', ''), 10);
+        filteredCars = filteredCars.filter(car => {
+          const numericRentalPrice = parseInt(
+            car.rentalPrice.replace('$', ''),
+            10
+          );
+          return numericRentalPrice <= numericSearchPrice;
+        });
+      }
+
+      // if (searchMileageFrom !== null && searchMileageTo !== null) {
+      //   filteredCars = filteredCars.filter(car => {
+      //     const rentalMileageCar = car.mileage;
+      //     return rentalMileageCar >= searchMileageFrom && rentalMileageCar <= searchMileageTo;
+      //   });
+      // } else if (searchMileageFrom !== null) {
+      //   filteredCars = filteredCars.filter(car => car.mileage >= searchMileageFrom);
+      // } else if (searchMileageTo !== null) {
+      //   filteredCars = filteredCars.filter(car => car.mileage <= searchMileageTo);
+      // }
+      
+      setFilteredCarsInfo(filteredCars);
+      dispatch(getCarInfo(filteredCars));
+      setIsLoading(true);
+    } catch (error) {
+      console.error('Error fetching carInfo:', error);
+    }
+  };
+  
   return (
     <FilterFormStyled method="post" onSubmit={handleFilterCar}>
       <SelectorContainerStyled>

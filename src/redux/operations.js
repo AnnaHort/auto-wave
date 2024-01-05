@@ -7,7 +7,17 @@ export const getAllCarsInfo = createAsyncThunk(
   'cars/carsInfo',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get(`${BASE_URL}?page=1&limit=12`);
+      // Отримайте значення фільтрів зі стану
+      const { searchModel, searchPrice, searchMileageFrom, searchMileageTo } =
+        thunkAPI.getState().filter;
+
+      const url = new URL(`${BASE_URL}`);
+      url.searchParams.append('page', '1');
+      url.searchParams.append('limit', '12');
+
+      if (searchModel) url.searchParams.append('make', searchModel);
+
+      const response = await axios.get(url);
       return response.data;
     } catch (error) {
       console.error(error);
@@ -15,4 +25,3 @@ export const getAllCarsInfo = createAsyncThunk(
     }
   }
 );
-

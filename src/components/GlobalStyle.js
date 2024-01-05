@@ -46,4 +46,8 @@ button {
     padding-left: 60px;
     padding-right: 60px;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
 `;
