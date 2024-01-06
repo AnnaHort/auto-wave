@@ -20,8 +20,10 @@ import {
   selectFilterSearchMileageTo,
   selectCarsInfo,
   selectFilterSearchPrice,
+  selectFilterSearchModel,
 } from '../../redux/selectors';
 import {
+  changeReset,
   getCarInfo,
   getFilterMileageFrom,
   getFilterMileageTo,
@@ -35,15 +37,15 @@ const CarFilter = () => {
   const dispatch = useDispatch();
   const [, setIsLoading] = useState(false);
 
+  const searchModel = useSelector(selectFilterSearchModel)
   const searchPrice = useSelector(selectFilterSearchPrice);
-  // const carsDataFilter = useSelector(selectCarsInfo);
-  // const searchMileageFrom = useSelector(selectFilterSearchMileageFrom);
-  // const searchMileageTo = useSelector(selectFilterSearchMileageTo);
-
-  // const [filteredCarsInfo, setFilteredCarsInfo] = useState(carsDataFilter);
+  const searchMileageFrom = useSelector(selectFilterSearchMileageFrom);
+  const searchMileageTo = useSelector(selectFilterSearchMileageTo);
 
   const carBrandDefaultValue = { value: '', label: 'Enter the text' };
   const priceDefaultValue = { value: '', label: '$' };
+
+// const [currentCarBrand, setCurrentCarBrand] = useState({ value: '', label: 'Enter the text' })
 
   const carsMarkOptions = [
     'Buick',
@@ -125,9 +127,20 @@ const CarFilter = () => {
           return filterMileage <= mileageTo;
         });
       }
-
-      // setFilteredCarsInfo(filteredCars);
       dispatch(getCarInfo(filteredCars));
+      setIsLoading(true);
+    } catch (error) {
+      console.error('Error fetching carInfo:', error);
+    }
+  };
+
+  const handleReset = async e => {
+    e.preventDefault();
+    dispatch(changeReset());
+    try {
+      const response = await dispatch(getAllCarsInfo());
+      const carsData = response.payload;
+      dispatch(getCarInfo(carsData));
       setIsLoading(true);
     } catch (error) {
       console.error('Error fetching carInfo:', error);
@@ -142,7 +155,7 @@ const CarFilter = () => {
           options={transformedMarkOptions}
           styles={carBrandSearchStyles}
           id="carBrand"
-          defaultValue={carBrandDefaultValue}
+          value={searchModel ? { value: searchModel, label: searchModel } : carBrandDefaultValue}
           onChange={selectedOption =>
             dispatch(getFilterModel(selectedOption.value))
           }
@@ -156,7 +169,7 @@ const CarFilter = () => {
             options={carsPriceObj}
             styles={priceSelectStyles}
             id="price"
-            defaultValue={priceDefaultValue}
+            value={searchPrice ? { value: searchPrice, label: searchPrice } : priceDefaultValue}
             onChange={selectedOption =>
               dispatch(getFilterPrice(selectedOption.value))
             }
@@ -170,18 +183,32 @@ const CarFilter = () => {
         <LabelStyled htmlFor="mileage">Car mileage / km</LabelStyled>
         <MileageInputContainer>
           <MileageContainer>
-            <CarMileageFromInput type="number" id="mileageFrom" />
+            <CarMileageFromInput 
+            type="number" 
+            id="mileageFrom"
+            value={searchMileageFrom !== null ? searchMileageFrom.toString() : ''}
+            onChange={(e) => dispatch(getFilterMileageFrom(e.target.value))}
+             />
             <SpanText>From</SpanText>
           </MileageContainer>
 
           <MileageContainer>
-            <CarMileageToInput type="number" id="mileageTo" />
+            <CarMileageToInput 
+            type="number" 
+            id="mileageTo"
+            value={searchMileageTo !== null ? searchMileageTo.toString() : ''}
+            onChange={(e) => dispatch(getFilterMileageTo(e.target.value))}
+            />
             <SpanText>To</SpanText>
           </MileageContainer>
         </MileageInputContainer>
       </SelectorContainerStyled>
 
       <FilterButton type="submit">Search</FilterButton>
+
+      <FilterButton type="button" onClick={handleReset}>
+        Reset
+      </FilterButton>
     </FilterFormStyled>
   );
 };
