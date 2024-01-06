@@ -18,7 +18,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectFilterSearchMileageFrom,
   selectFilterSearchMileageTo,
-  selectCarsInfo,
   selectFilterSearchPrice,
   selectFilterSearchModel,
 } from '../../redux/selectors';

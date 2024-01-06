@@ -8,7 +8,7 @@ export const getAllCarsInfo = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       // Отримайте значення фільтрів зі стану
-      const { searchModel, searchPrice, searchMileageFrom, searchMileageTo } =
+      const { searchModel } =
         thunkAPI.getState().filter;
 
       const url = new URL(`${BASE_URL}`);

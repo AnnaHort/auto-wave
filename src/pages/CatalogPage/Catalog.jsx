@@ -11,7 +11,6 @@ import { selectCarsInfo } from '../../redux/selectors';
 const Catalog = () => {
   const dispatch = useDispatch();
   const carArray = useSelector(selectCarsInfo);
-  // console.log(carArray);
   const BASE_URL = 'https://657343ad192318b7db41d7f4.mockapi.io/advert';
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
