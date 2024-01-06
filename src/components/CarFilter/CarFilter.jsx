@@ -36,19 +36,38 @@ const CarFilter = () => {
   const [, setIsLoading] = useState(false);
 
   const searchPrice = useSelector(selectFilterSearchPrice);
-  const carsDataFilter = useSelector(selectCarsInfo);
-  const searchMileageFrom = useSelector(selectFilterSearchMileageFrom);
-  const searchMileageTo = useSelector(selectFilterSearchMileageTo);
+  // const carsDataFilter = useSelector(selectCarsInfo);
+  // const searchMileageFrom = useSelector(selectFilterSearchMileageFrom);
+  // const searchMileageTo = useSelector(selectFilterSearchMileageTo);
 
-  const [filteredCarsInfo, setFilteredCarsInfo] = useState(carsDataFilter);
+  // const [filteredCarsInfo, setFilteredCarsInfo] = useState(carsDataFilter);
 
   const carBrandDefaultValue = { value: '', label: 'Enter the text' };
   const priceDefaultValue = { value: '', label: '$' };
 
   const carsMarkOptions = [
-    'Buick', 'Volvo', 'HUMMER', 'Subaru', 'Mitsubishi', 'Nissan', 'Lincoln',
-    'GMC', 'Hyundai', 'MINI', 'Bentley', 'Mercedes-Benz', 'Aston Martin', 'Pontiac',
-    'Lamborghini', 'Audi', 'BMW', 'Chevrolet', 'Mercedes-Benz', 'Chrysler', 'Kia', 'Land',
+    'Buick',
+    'Volvo',
+    'HUMMER',
+    'Subaru',
+    'Mitsubishi',
+    'Nissan',
+    'Lincoln',
+    'GMC',
+    'Hyundai',
+    'MINI',
+    'Bentley',
+    'Mercedes-Benz',
+    'Aston Martin',
+    'Pontiac',
+    'Lamborghini',
+    'Audi',
+    'BMW',
+    'Chevrolet',
+    'Mercedes-Benz',
+    'Chrysler',
+    'Kia',
+    'Land',
   ];
   const transformedMarkOptions = carsMarkOptions.map(mark => ({
     value: mark,
@@ -94,25 +113,27 @@ const CarFilter = () => {
         });
       }
 
-      // if (searchMileageFrom !== null && searchMileageTo !== null) {
-      //   filteredCars = filteredCars.filter(car => {
-      //     const rentalMileageCar = car.mileage;
-      //     return rentalMileageCar >= searchMileageFrom && rentalMileageCar <= searchMileageTo;
-      //   });
-      // } else if (searchMileageFrom !== null) {
-      //   filteredCars = filteredCars.filter(car => car.mileage >= searchMileageFrom);
-      // } else if (searchMileageTo !== null) {
-      //   filteredCars = filteredCars.filter(car => car.mileage <= searchMileageTo);
-      // }
-      
-      setFilteredCarsInfo(filteredCars);
+      if (mileageFrom && mileageFrom !== null) {
+        filteredCars = filteredCars.filter(car => {
+          const filterMileage = car.mileage;
+          return filterMileage >= mileageFrom;
+        });
+      }
+      if (mileageTo && mileageTo !== null) {
+        filteredCars = filteredCars.filter(car => {
+          const filterMileage = car.mileage;
+          return filterMileage <= mileageTo;
+        });
+      }
+
+      // setFilteredCarsInfo(filteredCars);
       dispatch(getCarInfo(filteredCars));
       setIsLoading(true);
     } catch (error) {
       console.error('Error fetching carInfo:', error);
     }
   };
-  
+
   return (
     <FilterFormStyled method="post" onSubmit={handleFilterCar}>
       <SelectorContainerStyled>
