@@ -33,6 +33,7 @@ import {
 } from '../../redux/carSlice';
 import { getAllCarsInfo } from '../../redux/operations';
 import { useState } from 'react';
+import { useFormik } from 'formik';
 
 const CarFilter = () => {
   const dispatch = useDispatch();
@@ -44,6 +45,59 @@ const CarFilter = () => {
   const searchMileageTo = useSelector(selectFilterSearchMileageTo);
   const currentReset = useSelector(resetFilters);
 
+  const formik = useFormik({
+    initialValues: {
+      mileageFrom: '',
+      mileageTo: '',
+    },
+    onSubmit: async values => {
+      dispatch(reset());
+
+      if (values.mileageFrom && values.mileageFrom !== null) {
+        dispatch(getFilterMileageFrom(values.mileageFrom));
+      }
+      if (values.mileageTo && values.mileageTo !== null) {
+        dispatch(getFilterMileageTo(values.mileageTo));
+      }
+
+      try {
+        const response = await dispatch(getAllCarsInfo());
+        const carsData = response.payload;
+
+        let filteredCars = carsData;
+
+        if (searchPrice && searchPrice !== '') {
+          const numericSearchPrice = parseInt(searchPrice.replace('$', ''), 10);
+          filteredCars = filteredCars.filter(car => {
+            const numericRentalPrice = parseInt(
+              car.rentalPrice.replace('$', ''),
+              10
+            );
+            return numericRentalPrice <= numericSearchPrice;
+          });
+        }
+
+        if (values.mileageFrom && values.mileageFrom !== null) {
+          filteredCars = filteredCars.filter(car => {
+            const filterMileage = car.mileage;
+            return filterMileage >= values.mileageFrom;
+          });
+        }
+        if (values.mileageTo && values.mileageTo !== null) {
+          filteredCars = filteredCars.filter(car => {
+            const filterMileage = car.mileage;
+            return filterMileage <= values.mileageTo;
+          });
+        }
+        dispatch(getCarInfo(filteredCars));
+        setIsLoading(true);
+      } catch (error) {
+        console.error('Error fetching carInfo:', error);
+      }
+    },
+  });
+
+  // console.log('Form values: ', formik.values);
 
   const carBrandDefaultValue = { value: '', label: 'Enter the text' };
   const priceDefaultValue = { value: '', label: '$' };
@@ -150,7 +204,7 @@ const CarFilter = () => {
   };
 
   return (
-    <FilterFormStyled method="post" onSubmit={handleFilterCar}>
+    <FilterFormStyled method="post" onSubmit={formik.handleSubmit}>
       <SelectorContainerStyled>
         <LabelStyled htmlFor="carBrand">Car brand</LabelStyled>
         <Select
@@ -180,8 +234,9 @@ const CarFilter = () => {
                 ? { value: searchPrice, label: searchPrice }
                 : priceDefaultValue
             }
-            onChange={selectedOption => {
-              dispatch(getFilterPrice(selectedOption.value));
+            onChange={e => {
+              formik.handleChange(e);
+              dispatch(getFilterMileageFrom(e.target.value));
             }}
           />
 
@@ -196,10 +251,14 @@ const CarFilter = () => {
             <CarMileageFromInput
               type="number"
               id="mileageFrom"
+              name="mileageFrom"
               value={
-                searchMileageFrom !== null ? searchMileageFrom.toString() : ''
+                searchMileageFrom !== null ? formik.values.mileageFrom : ''
               }
-              onChange={e => dispatch(getFilterMileageFrom(e.target.value))}
+              onChange={e => {
+                formik.handleChange(e);
+                dispatch(getFilterMileageFrom(e.target.value));
+              }}
             />
             <SpanText>From</SpanText>
           </MileageContainer>
@@ -208,8 +267,16 @@ const CarFilter = () => {
             <CarMileageToInput
               type="number"
               id="mileageTo"
-              value={searchMileageTo !== null ? searchMileageTo.toString() : ''}
-              onChange={e => dispatch(getFilterMileageTo(e.target.value))}
+              name="mileageTo"
+              value={
+                searchMileageTo !== null
+                  ? formik.values.mileageTo.toString()
+                  : ''
+              }
+              onChange={e => {
+                formik.handleChange(e);
+                dispatch(getFilterMileageTo(e.target.value));
+              }}
             />
             <SpanText>To</SpanText>
           </MileageContainer>
