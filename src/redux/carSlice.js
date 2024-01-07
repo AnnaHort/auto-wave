@@ -37,8 +37,11 @@ const filterCarSlice = createSlice({
       state.searchPrice = null;
       state.searchMileageFrom = null;
       state.searchMileageTo = null;
-      state.reset = true;
+      state.reset = false;
     },
+    reset(state){
+      state.reset = true;
+    }
   },
 });
 
@@ -70,6 +73,7 @@ export const {
   getCarInfo,
   getFilterMileageFrom,
   getFilterMileageTo,
-  changeReset
+  changeReset,
+  reset
 } = filterCarSlice.actions;
 export const filterCarReducer = filterCarSlice.reducer;

@@ -20,6 +20,7 @@ import {
   selectFilterSearchMileageTo,
   selectFilterSearchPrice,
   selectFilterSearchModel,
+  resetFilters,
 } from '../../redux/selectors';
 import {
   changeReset,
@@ -28,6 +29,7 @@ import {
   getFilterMileageTo,
   getFilterModel,
   getFilterPrice,
+  reset,
 } from '../../redux/carSlice';
 import { getAllCarsInfo } from '../../redux/operations';
 import { useState } from 'react';
@@ -36,15 +38,15 @@ const CarFilter = () => {
   const dispatch = useDispatch();
   const [, setIsLoading] = useState(false);
 
-  const searchModel = useSelector(selectFilterSearchModel)
+  const searchModel = useSelector(selectFilterSearchModel);
   const searchPrice = useSelector(selectFilterSearchPrice);
   const searchMileageFrom = useSelector(selectFilterSearchMileageFrom);
   const searchMileageTo = useSelector(selectFilterSearchMileageTo);
+  const currentReset = useSelector(resetFilters);
+
 
   const carBrandDefaultValue = { value: '', label: 'Enter the text' };
   const priceDefaultValue = { value: '', label: '$' };
-
-// const [currentCarBrand, setCurrentCarBrand] = useState({ value: '', label: 'Enter the text' })
 
   const carsMarkOptions = [
     'Buick',
@@ -86,6 +88,7 @@ const CarFilter = () => {
 
   const handleFilterCar = async e => {
     e.preventDefault();
+    dispatch(reset());
 
     const mileageFrom = parseInt(document.getElementById('mileageFrom').value);
     const mileageTo = parseInt(document.getElementById('mileageTo').value);
@@ -154,10 +157,14 @@ const CarFilter = () => {
           options={transformedMarkOptions}
           styles={carBrandSearchStyles}
           id="carBrand"
-          value={searchModel ? { value: searchModel, label: searchModel } : carBrandDefaultValue}
-          onChange={selectedOption =>
-            dispatch(getFilterModel(selectedOption.value))
+          value={
+            searchModel
+              ? { value: searchModel, label: searchModel }
+              : carBrandDefaultValue
           }
+          onChange={selectedOption => {
+            dispatch(getFilterModel(selectedOption.value));
+          }}
         />
       </SelectorContainerStyled>
 
@@ -168,10 +175,14 @@ const CarFilter = () => {
             options={carsPriceObj}
             styles={priceSelectStyles}
             id="price"
-            value={searchPrice ? { value: searchPrice, label: searchPrice } : priceDefaultValue}
-            onChange={selectedOption =>
-              dispatch(getFilterPrice(selectedOption.value))
+            value={
+              searchPrice
+                ? { value: searchPrice, label: searchPrice }
+                : priceDefaultValue
             }
+            onChange={selectedOption => {
+              dispatch(getFilterPrice(selectedOption.value));
+            }}
           />
 
           <PriseHourText>To</PriseHourText>
@@ -182,21 +193,23 @@ const CarFilter = () => {
         <LabelStyled htmlFor="mileage">Car mileage / km</LabelStyled>
         <MileageInputContainer>
           <MileageContainer>
-            <CarMileageFromInput 
-            type="number" 
-            id="mileageFrom"
-            value={searchMileageFrom !== null ? searchMileageFrom.toString() : ''}
-            onChange={(e) => dispatch(getFilterMileageFrom(e.target.value))}
-             />
+            <CarMileageFromInput
+              type="number"
+              id="mileageFrom"
+              value={
+                searchMileageFrom !== null ? searchMileageFrom.toString() : ''
+              }
+              onChange={e => dispatch(getFilterMileageFrom(e.target.value))}
+            />
             <SpanText>From</SpanText>
           </MileageContainer>
 
           <MileageContainer>
-            <CarMileageToInput 
-            type="number" 
-            id="mileageTo"
-            value={searchMileageTo !== null ? searchMileageTo.toString() : ''}
-            onChange={(e) => dispatch(getFilterMileageTo(e.target.value))}
+            <CarMileageToInput
+              type="number"
+              id="mileageTo"
+              value={searchMileageTo !== null ? searchMileageTo.toString() : ''}
+              onChange={e => dispatch(getFilterMileageTo(e.target.value))}
             />
             <SpanText>To</SpanText>
           </MileageContainer>
@@ -205,7 +218,11 @@ const CarFilter = () => {
 
       <FilterButton type="submit">Search</FilterButton>
 
-      <FilterButton type="button" onClick={handleReset}>
+      <FilterButton
+        type="button"
+        onClick={handleReset}
+        style={{ display: currentReset === false ? 'none' : 'block' }}
+      >
         Reset
       </FilterButton>
     </FilterFormStyled>
