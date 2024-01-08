@@ -6,7 +6,18 @@ import LikeSvgActive from '../../components/LikeSvgActive/LikeSvgActive';
 import LikeSvgNormal from '../../components/LikeSvgNormal/LikeSvgNormal';
 import { addToFavorite, deleteFromFavorite } from '../../redux/carSlice';
 import ModalWindowCar from '../../components/ModalCarCard/ModalCarCard';
-import { AboutCarContainer, CarCardButton, CarMarkStyled, CarModelStyled, CardContainerStyled, CardImgStyled, InfoListElStyled, InfoListStyled, ListCardStyled } from '../CarCard/CarCard.styled';
+import {
+  AboutCarContainer,
+  CarCardButton,
+  CarMarkStyled,
+  CarModelStyled,
+  CardContainerStyled,
+  CardImgStyled,
+  InfoListElStyled,
+  InfoListStyled,
+  ListCardStyled,
+} from '../CarCard/CarCard.styled';
+import { FavoriteWithoutCard } from 'components/FavoriteWithoutCard/FavoriteWithoutCard';
 
 const FavoriteCarCards = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -25,7 +36,7 @@ const FavoriteCarCards = () => {
       try {
         const response = await axios.get(`${BASE_URL}`);
         const carsData = response.data;
-       
+
         const filteredCars = carsData.filter(car =>
           favoriteIds.includes(car.id)
         );
@@ -37,8 +48,7 @@ const FavoriteCarCards = () => {
     };
 
     fetchData();
-  }, [favoriteIds]); 
- 
+  }, [favoriteIds]);
 
   const openModal = car => {
     setSelectedCar(car);
@@ -66,90 +76,94 @@ const FavoriteCarCards = () => {
   ) : (
     <>
       <ListCardStyled>
-        {favoriteCars.map((item, index) => {
-          const {
-            id,
-            year,
-            img,
-            make,
-            model,
-            rentalPrice,
-            address,
-            mileage,
-            rentalCompany,
-            type,
-            functionalities,
-          } = item;
-          const carAddress = address;
+        {favoriteCars.length === 0 ? (
+          <FavoriteWithoutCard/>
+        ) : (
+          favoriteCars.map((item, index) => {
+            const {
+              id,
+              year,
+              img,
+              make,
+              model,
+              rentalPrice,
+              address,
+              mileage,
+              rentalCompany,
+              type,
+              functionalities,
+            } = item;
+            const carAddress = address;
 
-          const reversedText = carAddress.split(' ').slice(3);
-          const town = reversedText[0].replace(',', '');
-          const country = reversedText[1];
+            const reversedText = carAddress.split(' ').slice(3);
+            const town = reversedText[0].replace(',', '');
+            const country = reversedText[1];
 
-          const functionalitiesCar = functionalities[0];
+            const functionalitiesCar = functionalities[0];
 
-          const shouldDisplayCarModel = index <= 2;
-          return (
-            <li key={id}>
-              <CardContainerStyled>
-                <CardImgStyled src={img} alt={`${make}`} />
+            const shouldDisplayCarModel = index <= 2;
+            return (
+              <li key={id}>
+                <CardContainerStyled>
+                  <CardImgStyled src={img} alt={`${make}`} />
 
-                {favoriteIds.includes(id) ? (
-                  <LikeSvgActive
-                    onClick={() => dispatch(deleteFromFavorite({ id }))}
-                  />
-                ) : (
-                  <LikeSvgNormal
-                    onClick={() => dispatch(addToFavorite({ id }))}
-                  />
-                )}
+                  {favoriteIds.includes(id) ? (
+                    <LikeSvgActive
+                      onClick={() => dispatch(deleteFromFavorite({ id }))}
+                    />
+                  ) : (
+                    <LikeSvgNormal
+                      onClick={() => dispatch(addToFavorite({ id }))}
+                    />
+                  )}
 
-                <AboutCarContainer>
-                  <CarMarkStyled>
-                    {make}{' '}
-                    {shouldDisplayCarModel && (
-                      <CarModelStyled>{model}</CarModelStyled>
-                    )}
-                    , {year}
-                  </CarMarkStyled>
-                  <span>{rentalPrice}</span>
-                </AboutCarContainer>
-                <InfoListStyled>
-                  <InfoListElStyled>
-                    <p>{town}</p>
-                    <span>|</span>
-                  </InfoListElStyled>
-                  <InfoListElStyled>
-                    <p>{country}</p>
-                    <span>|</span>
-                  </InfoListElStyled>
-                  <InfoListElStyled>
-                    <p>{rentalCompany} </p>
-                    <span>|</span>
-                  </InfoListElStyled>
-                  <InfoListElStyled>
-                    <p>{type} </p>
-                    <span>|</span>
-                  </InfoListElStyled>
+                  <AboutCarContainer>
+                    <CarMarkStyled>
+                      {make}{' '}
+                      {shouldDisplayCarModel && (
+                        <CarModelStyled>{model}</CarModelStyled>
+                      )}
+                      , {year}
+                    </CarMarkStyled>
+                    <span>{rentalPrice}</span>
+                  </AboutCarContainer>
+                  <InfoListStyled>
+                    <InfoListElStyled>
+                      <p>{town}</p>
+                      <span>|</span>
+                    </InfoListElStyled>
+                    <InfoListElStyled>
+                      <p>{country}</p>
+                      <span>|</span>
+                    </InfoListElStyled>
+                    <InfoListElStyled>
+                      <p>{rentalCompany} </p>
+                      <span>|</span>
+                    </InfoListElStyled>
+                    <InfoListElStyled>
+                      <p>{type} </p>
+                      <span>|</span>
+                    </InfoListElStyled>
 
-                  <InfoListElStyled>
-                    <p>{model} </p>
-                    <span>|</span>
-                  </InfoListElStyled>
-                  <InfoListElStyled>
-                    <p>{mileage}</p>
-                    <span>|</span>
-                  </InfoListElStyled>
-                  <InfoListElStyled>{functionalitiesCar} </InfoListElStyled>
-                </InfoListStyled>
+                    <InfoListElStyled>
+                      <p>{model} </p>
+                      <span>|</span>
+                    </InfoListElStyled>
+                    <InfoListElStyled>
+                      <p>{mileage}</p>
+                      <span>|</span>
+                    </InfoListElStyled>
+                    <InfoListElStyled>{functionalitiesCar} </InfoListElStyled>
+                  </InfoListStyled>
 
-                <CarCardButton onClick={() => openModal(item)}>
-                  Learn more
-                </CarCardButton>
-              </CardContainerStyled>
-            </li>
-          );
-        })}
+                  <CarCardButton onClick={() => openModal(item)}>
+                    Learn more
+                  </CarCardButton>
+                </CardContainerStyled>
+              </li>
+            );
+          })
+        )}
       </ListCardStyled>
       {isModalOpen && (
         <ModalWindowCar
