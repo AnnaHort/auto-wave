@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const NavStyled = styled.nav`
@@ -22,14 +22,18 @@ export const HeaderListStyled = styled.ul`
   gap: 80px;
 `;
 
-export const LinkStyle = styled(Link)`
+export const LinkStyle = styled(NavLink)`
   text-decoration: none;
   color: black;
   font-size: 20px;
   font-family: 'Manrope';
   &:hover,
   :focus {
-    color: teal;
-    transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    color: #3470ff;
+    transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  &.active {
+    color: #3470ff;
+    transition: 1000ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 `;
