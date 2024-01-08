@@ -22,6 +22,7 @@ import {
   selectFilterSearchPrice,
   selectFilterSearchModel,
   resetFilters,
+  selectCarsInfo,
 } from '../../redux/selectors';
 import {
   changeReset,
@@ -36,16 +37,20 @@ import { getAllCarsInfo } from '../../redux/operations';
 import { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import toast, { Toaster } from 'react-hot-toast';
 
 const CarFilter = () => {
   const dispatch = useDispatch();
   const [, setIsLoading] = useState(false);
 
+  const carsInfo = useSelector(selectCarsInfo);
+  console.log(carsInfo);
   const searchModel = useSelector(selectFilterSearchModel);
   const searchPrice = useSelector(selectFilterSearchPrice);
   const searchMileageFrom = useSelector(selectFilterSearchMileageFrom);
   const searchMileageTo = useSelector(selectFilterSearchMileageTo);
   const currentReset = useSelector(resetFilters);
+  console.log(currentReset);
 
   const validationSchema = Yup.object().shape({
     make: Yup.string(),
@@ -83,6 +88,26 @@ const CarFilter = () => {
     },
     validationSchema: validationSchema,
     onSubmit: async values => {
+      if (
+        searchModel === '' &&
+        searchPrice === null &&
+        searchMileageFrom === null &&
+        searchMileageTo === null
+      ) {
+        return toast.error('Please enter any filters before searching', {
+          duration: 2000,
+          style: {
+            border: '1px solid #121417',
+            padding: '16px',
+            color: '#3470ff',
+          },
+          iconTheme: {
+            primary: '#3470ff',
+            secondary: '#FFFAEE',
+          },
+        });
+      }
+
       dispatch(reset());
 
       if (searchMileageFrom && searchMileageFrom !== null) {
@@ -198,9 +223,11 @@ const CarFilter = () => {
               : carBrandDefaultValue
           }
           onChange={selectedOption => {
-            dispatch(getFilterModel(selectedOption.value));
-          }}
+             dispatch(getFilterModel(selectedOption.value))} 
+          }
         />
+        
+
         {formik.touched.make && formik.errors.make && (
           <div>{formik.errors.make}</div>
         )}
@@ -288,6 +315,7 @@ const CarFilter = () => {
       >
         Reset
       </FilterButton>
+      <Toaster />
     </FilterFormStyled>
   );
 };
