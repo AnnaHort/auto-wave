@@ -12,34 +12,34 @@ import {
 const AboutUsComponent = () => {
   return (
     <>
-      <ListStyled>
-        <ListItemStyled>
-          <RxCalendar size={40} color="teal" />
-          <TextContainerStyled>
-            <h3>Оренда з гнучкими умовами</h3>
-            <TextStyled>
-              Скасовуйте або змінюйте більшість бронювань безкоштовно за 48
-              годин до отримання.
-            </TextStyled>
-          </TextContainerStyled>
-        </ListItemStyled>
-        <ListItemStyled>
-          <FaSearch size={40} color="teal" />
-          <TextContainerStyled>
-            <h3>Жодних прихованих зборів</h3>
-            <TextStyled>Знайте, за що саме ви платите.</TextStyled>
-          </TextContainerStyled>
-        </ListItemStyled>
-        <ListItemStyled>
-          <TbPigMoney size={40} color="teal" />
-          <TextContainerStyled>
-            <h3>Гарантія відповідності ціни</h3>
-            <TextStyled>
-              Знайшли таку ж пропозицію дешевше? Ми повернемо різницю в ціні.
-            </TextStyled>
-          </TextContainerStyled>
-        </ListItemStyled>
-      </ListStyled>
+<ListStyled>
+  <ListItemStyled>
+    <RxCalendar size={40} color="teal" />
+    <TextContainerStyled>
+      <h3>Flexible Rental</h3>
+      <TextStyled>
+        Cancel or change most bookings for free up to 48 hours before pickup.
+      </TextStyled>
+    </TextContainerStyled>
+  </ListItemStyled>
+  <ListItemStyled>
+    <FaSearch size={40} color="teal" />
+    <TextContainerStyled>
+      <h3>No Hidden Fees</h3>
+      <TextStyled>Know exactly what you're paying for.</TextStyled>
+    </TextContainerStyled>
+  </ListItemStyled>
+  <ListItemStyled>
+    <TbPigMoney size={40} color="teal" />
+    <TextContainerStyled>
+      <h3>Price Match Guarantee</h3>
+      <TextStyled>
+        Found the same offer for a lower price? We'll refund the difference.
+      </TextStyled>
+    </TextContainerStyled>
+  </ListItemStyled>
+</ListStyled>
+
     </>
   );
 };

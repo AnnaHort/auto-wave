@@ -11,22 +11,22 @@ import { MdOutlineDoneOutline } from "react-icons/md";
 const HomeHeroComponent = () => {
   return (
     <HomeHeroContainer>
-      <TitleStyle>Прокат автомобілів по всій Україні</TitleStyle>
+      <TitleStyle>Car rental throughout Ukraine</TitleStyle>
       <ListStyle>
         <ListElementStyled>
           <MdOutlineDoneOutline size={40} color="#fff"/>
           <ListTextStyle>
-            Безкоштовне скасування для більшості номерів
+          Free cancellation for most rooms
           </ListTextStyle>
         </ListElementStyled>
         <ListElementStyled>
           <MdOutlineDoneOutline size={40} color="#fff"/>
-          <ListTextStyle>Понад 60 000 пунктів прокату</ListTextStyle>
+          <ListTextStyle>Over 60,000 rental locations</ListTextStyle>
         </ListElementStyled>
         <ListElementStyled>
           <MdOutlineDoneOutline size={40} color="#fff"/>
           <ListTextStyle>
-            Служба підтримки надає допомогу понад 40 мовами
+          Customer support available in over 40 languages
           </ListTextStyle>
         </ListElementStyled>
       </ListStyle>

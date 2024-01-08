@@ -10,7 +10,7 @@ const Home = () => {
       <HomeContainer>
         <HomeHeroComponent />
         <TextStyle>
-          AutoWave відкриває вам доступ найбільших брендів в оренді автомобілів.
+        AutoWave gives you access to the largest car rental brands.
         </TextStyle>
         <CarRentalBrands />
         <AboutUsComponent />

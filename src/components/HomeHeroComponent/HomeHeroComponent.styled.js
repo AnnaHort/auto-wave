@@ -7,6 +7,7 @@ export const HomeHeroContainer = styled.div`
   gap: 24px;
   margin-bottom: 60px;
   padding: 40px;
+  border-radius: 10px;
   background-image: linear-gradient(
       to bottom,
       rgba(0, 128, 128, 0.5),
@@ -30,6 +31,7 @@ export const TitleStyle = styled.h2`
 export const ListStyle = styled.ul``;
 export const ListElementStyled = styled.li`
   display: flex;
+  align-items: center;
   gap: 8px;
 `;
 export const ListTextStyle = styled.p`
