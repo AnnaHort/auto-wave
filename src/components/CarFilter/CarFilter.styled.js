@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const FilterFormStyled = styled.form`
   display: flex;
@@ -89,3 +89,21 @@ font-family: 'Manrope', sans-serif;
   transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1)
 }
 ` 
+
+const slideIn = keyframes`
+  from {
+    left: 20px;
+    opacity: 0;
+  }
+  to {
+    left: 0;
+    transition: 0.3s cubic-bezier(.39,.4,.77,.74);
+    opacity: 1;
+  }
+`;
+
+export const ValidationErrorContainer = styled.div`
+  position: absolute;
+  color: teal;
+  animation: ${slideIn} 0.3s cubic-bezier(.39,.4,.77,.74);
+`;

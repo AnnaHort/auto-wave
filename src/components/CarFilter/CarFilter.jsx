@@ -11,6 +11,7 @@ import {
   MileageInputContainer,
   FilterButton,
   PriseHourText,
+  ValidationErrorContainer,
 } from './CarFilter.styled';
 import { priceSelectStyles } from '../../styles/selectStyles/priceSelectStyles';
 
@@ -34,6 +35,7 @@ import {
 import { getAllCarsInfo } from '../../redux/operations';
 import { useState } from 'react';
 import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 const CarFilter = () => {
   const dispatch = useDispatch();
@@ -45,19 +47,49 @@ const CarFilter = () => {
   const searchMileageTo = useSelector(selectFilterSearchMileageTo);
   const currentReset = useSelector(resetFilters);
 
+  const validationSchema = Yup.object().shape({
+    make: Yup.string(),
+    rentalPrice: Yup.string(),
+    mileageFrom: Yup.string()
+      .min(2, 'Too short')
+      .max(6, 'Too long')
+      .matches(/^\d+$/, 'Mileage must be only numbers')
+      .test(
+        'is-less-than-mileageTo',
+        'From must be less than To',
+        function (value) {
+          const { mileageTo } = this.parent; // отримуємо значення mileageTo з контексту
+
+          // Перевіряємо, чи введене значення менше за mileageTo
+          return (
+            !value ||
+            !mileageTo ||
+            parseInt(value, 10) < parseInt(mileageTo, 10)
+          );
+        }
+      ),
+    mileageTo: Yup.string()
+      .min(2, 'Too short')
+      .max(6, 'Too long')
+      .matches(/^\d+$/, 'Mileage must be only numbers'),
+  });
+
   const formik = useFormik({
     initialValues: {
+      make: '',
+      rentalPrice: '',
       mileageFrom: '',
       mileageTo: '',
     },
+    validationSchema: validationSchema,
     onSubmit: async values => {
       dispatch(reset());
 
-      if (values.mileageFrom && values.mileageFrom !== null) {
-        dispatch(getFilterMileageFrom(values.mileageFrom));
+      if (searchMileageFrom && searchMileageFrom !== null) {
+        dispatch(getFilterMileageFrom(searchMileageFrom));
       }
-      if (values.mileageTo && values.mileageTo !== null) {
-        dispatch(getFilterMileageTo(values.mileageTo));
+      if (searchMileageTo && searchMileageTo !== null) {
+        dispatch(getFilterMileageTo(searchMileageTo));
       }
 
       try {
@@ -77,16 +109,16 @@ const CarFilter = () => {
           });
         }
 
-        if (values.mileageFrom && values.mileageFrom !== null) {
+        if (searchMileageFrom && searchMileageFrom !== null) {
           filteredCars = filteredCars.filter(car => {
             const filterMileage = car.mileage;
-            return filterMileage >= values.mileageFrom;
+            return filterMileage >= searchMileageFrom;
           });
         }
-        if (values.mileageTo && values.mileageTo !== null) {
+        if (searchMileageTo && searchMileageTo !== null) {
           filteredCars = filteredCars.filter(car => {
             const filterMileage = car.mileage;
-            return filterMileage <= values.mileageTo;
+            return filterMileage <= searchMileageTo;
           });
         }
         dispatch(getCarInfo(filteredCars));
@@ -96,8 +128,6 @@ const CarFilter = () => {
       }
     },
   });
-
-  // console.log('Form values: ', formik.values);
 
   const carBrandDefaultValue = { value: '', label: 'Enter the text' };
   const priceDefaultValue = { value: '', label: '$' };
@@ -140,56 +170,6 @@ const CarFilter = () => {
     label: item.label + '$',
   }));
 
-  const handleFilterCar = async e => {
-    e.preventDefault();
-    dispatch(reset());
-
-    const mileageFrom = parseInt(document.getElementById('mileageFrom').value);
-    const mileageTo = parseInt(document.getElementById('mileageTo').value);
-
-    if (mileageFrom && mileageFrom !== null) {
-      dispatch(getFilterMileageFrom(mileageFrom));
-    }
-    if (mileageTo && mileageTo !== null) {
-      dispatch(getFilterMileageTo(mileageTo));
-    }
-
-    try {
-      const response = await dispatch(getAllCarsInfo());
-      const carsData = response.payload;
-
-      let filteredCars = carsData;
-
-      if (searchPrice && searchPrice !== '') {
-        const numericSearchPrice = parseInt(searchPrice.replace('$', ''), 10);
-        filteredCars = filteredCars.filter(car => {
-          const numericRentalPrice = parseInt(
-            car.rentalPrice.replace('$', ''),
-            10
-          );
-          return numericRentalPrice <= numericSearchPrice;
-        });
-      }
-
-      if (mileageFrom && mileageFrom !== null) {
-        filteredCars = filteredCars.filter(car => {
-          const filterMileage = car.mileage;
-          return filterMileage >= mileageFrom;
-        });
-      }
-      if (mileageTo && mileageTo !== null) {
-        filteredCars = filteredCars.filter(car => {
-          const filterMileage = car.mileage;
-          return filterMileage <= mileageTo;
-        });
-      }
-      dispatch(getCarInfo(filteredCars));
-      setIsLoading(true);
-    } catch (error) {
-      console.error('Error fetching carInfo:', error);
-    }
-  };
-
   const handleReset = async e => {
     e.preventDefault();
     dispatch(changeReset());
@@ -211,6 +191,7 @@ const CarFilter = () => {
           options={transformedMarkOptions}
           styles={carBrandSearchStyles}
           id="carBrand"
+          onBlur={formik.handleBlur}
           value={
             searchModel
               ? { value: searchModel, label: searchModel }
@@ -220,6 +201,9 @@ const CarFilter = () => {
             dispatch(getFilterModel(selectedOption.value));
           }}
         />
+        {formik.touched.make && formik.errors.make && (
+          <div>{formik.errors.make}</div>
+        )}
       </SelectorContainerStyled>
 
       <SelectorContainerStyled>
@@ -229,14 +213,14 @@ const CarFilter = () => {
             options={carsPriceObj}
             styles={priceSelectStyles}
             id="price"
+            onBlur={formik.handleBlur}
             value={
               searchPrice
                 ? { value: searchPrice, label: searchPrice }
                 : priceDefaultValue
             }
-            onChange={e => {
-              formik.handleChange(e);
-              dispatch(getFilterMileageFrom(e.target.value));
+            onChange={selectedOption => {
+              dispatch(getFilterPrice(selectedOption.value));
             }}
           />
 
@@ -252,6 +236,7 @@ const CarFilter = () => {
               type="number"
               id="mileageFrom"
               name="mileageFrom"
+              onBlur={formik.handleBlur}
               value={
                 searchMileageFrom !== null ? formik.values.mileageFrom : ''
               }
@@ -260,6 +245,11 @@ const CarFilter = () => {
                 dispatch(getFilterMileageFrom(e.target.value));
               }}
             />
+            {formik.touched.mileageFrom && formik.errors.mileageFrom && (
+              <ValidationErrorContainer>
+                {formik.errors.mileageFrom}
+              </ValidationErrorContainer>
+            )}
             <SpanText>From</SpanText>
           </MileageContainer>
 
@@ -268,6 +258,7 @@ const CarFilter = () => {
               type="number"
               id="mileageTo"
               name="mileageTo"
+              onBlur={formik.handleBlur}
               value={
                 searchMileageTo !== null
                   ? formik.values.mileageTo.toString()
@@ -278,6 +269,11 @@ const CarFilter = () => {
                 dispatch(getFilterMileageTo(e.target.value));
               }}
             />
+            {formik.touched.mileageTo && formik.errors.mileageTo && (
+              <ValidationErrorContainer>
+                {formik.errors.mileageTo}
+              </ValidationErrorContainer>
+            )}
             <SpanText>To</SpanText>
           </MileageContainer>
         </MileageInputContainer>
