@@ -30,10 +30,10 @@ export const LinkStyle = styled(NavLink)`
   &:hover,
   :focus {
     color: #3470ff;
-    transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   &.active {
-    color: #3470ff;
-    transition: 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+    color: #0B44CD;
+    transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 `;
