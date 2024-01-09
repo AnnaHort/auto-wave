@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import CarFilter from '../../components/CarFilter/CarFilter';
 import CarCard from '../../components/CarCard/CarCard';
-import { LoadMoreStyled } from './Catalog.styled';
+import { LoadMoreStyled, NoCardsContainer, NoCarsText, SearchNoCarsSvg } from './Catalog.styled';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCarsInfo } from '../../redux/operations';
 import { getCarInfo } from '../../redux/carSlice';
 import { selectCarsInfo } from '../../redux/selectors';
+import { FcSearch } from 'react-icons/fc';
 
 const Catalog = () => {
   const dispatch = useDispatch();
@@ -53,9 +54,15 @@ const Catalog = () => {
     <>
       <CarFilter />
       <CarCard carInfo={carArray} />
-
-      {hasMoreData && (
-        <LoadMoreStyled onClick={fetchMoreData}>Load more</LoadMoreStyled>
+      {carArray.length === 0 ? (
+        <NoCardsContainer>
+          <SearchNoCarsSvg />
+          <NoCarsText>There are no any cars</NoCarsText>
+        </NoCardsContainer>
+      ) : (
+        hasMoreData && (
+          <LoadMoreStyled onClick={fetchMoreData}>Load more</LoadMoreStyled>
+        )
       )}
     </>
   );

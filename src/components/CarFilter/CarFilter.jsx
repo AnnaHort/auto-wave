@@ -39,18 +39,19 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import toast, { Toaster } from 'react-hot-toast';
 
+
 const CarFilter = () => {
   const dispatch = useDispatch();
   const [, setIsLoading] = useState(false);
 
   const carsInfo = useSelector(selectCarsInfo);
-  console.log(carsInfo);
+  // console.log(carsInfo);
   const searchModel = useSelector(selectFilterSearchModel);
   const searchPrice = useSelector(selectFilterSearchPrice);
   const searchMileageFrom = useSelector(selectFilterSearchMileageFrom);
   const searchMileageTo = useSelector(selectFilterSearchMileageTo);
   const currentReset = useSelector(resetFilters);
-  console.log(currentReset);
+  // console.log(currentReset);
 
   const validationSchema = Yup.object().shape({
     make: Yup.string(),
@@ -223,10 +224,9 @@ const CarFilter = () => {
               : carBrandDefaultValue
           }
           onChange={selectedOption => {
-             dispatch(getFilterModel(selectedOption.value))} 
-          }
+            dispatch(getFilterModel(selectedOption.value));
+          }}
         />
-        
 
         {formik.touched.make && formik.errors.make && (
           <div>{formik.errors.make}</div>
