@@ -39,13 +39,10 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import toast, { Toaster } from 'react-hot-toast';
 
-
 const CarFilter = () => {
   const dispatch = useDispatch();
   const [, setIsLoading] = useState(false);
 
-  const carsInfo = useSelector(selectCarsInfo);
-  // console.log(carsInfo);
   const searchModel = useSelector(selectFilterSearchModel);
   const searchPrice = useSelector(selectFilterSearchPrice);
   const searchMileageFrom = useSelector(selectFilterSearchMileageFrom);
