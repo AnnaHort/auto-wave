@@ -20,6 +20,16 @@ export const LoadMoreStyled = styled.button`
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 `;
+
+const noCardsContainerAnimation = keyframes`
+from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+`;
+
 export const NoCardsContainer = styled.div`
   margin-right: auto;
   margin-left: auto;
@@ -27,28 +37,26 @@ export const NoCardsContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 50px;
+  animation: ${noCardsContainerAnimation} 1200ms;
+  animation-fill-mode: forwards;
 `;
 
 const search = keyframes`
 0% {
   transform: translate3d(0px, 0px, 0px);
-
 }
 25% {
   transform: translate3d(25px, 25px, 0px);
-
 }
 50% {
   transform: translate3d(0px, 50px, 0px);
-
 }
 75%{
   transform: translate3d(-25px, 25px, 0px);
-
 }
 100% {
   transform: translate3d(0px, 0px, 0px);
-
 }
 `;
 export const SearchNoCarsSvg = styled(FcSearch)`
@@ -61,7 +69,7 @@ export const NoCarsText = styled.h2`
   text-align: center;
   color: #121417;
   font-family: Manrope;
-  font-size: 16px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 500;
   line-height: 1.5;

@@ -57,7 +57,7 @@ const Catalog = () => {
       {carArray.length === 0 ? (
         <NoCardsContainer>
           <SearchNoCarsSvg />
-          <NoCarsText>There are no any cars</NoCarsText>
+          <NoCarsText>Unfortunately, there are no cars available at the moment</NoCarsText>
         </NoCardsContainer>
       ) : (
         hasMoreData && (
