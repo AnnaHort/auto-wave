@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllCarsInfo } from '../../redux/operations';
 import { getCarInfo } from '../../redux/carSlice';
 import { selectCarsInfo } from '../../redux/selectors';
-import toast, { Toaster } from 'react-hot-toast';
 
 const Catalog = () => {
   const dispatch = useDispatch();
@@ -39,6 +38,7 @@ const Catalog = () => {
 
       if (newCarsData.length < 12) {
         setHasMoreData(false);
+
       } else {
         dispatch(getCarInfo([...carArray, ...newCarsData]));
         setCurrentPage(currentPage + 1);
@@ -58,9 +58,9 @@ const Catalog = () => {
         <NoCardsContainer>
           <SearchNoCarsSvg />
           <NoCarsText>Unfortunately, there are no cars available at the moment</NoCarsText>
-          <Toaster/>
         </NoCardsContainer>
       ) : (
+
         hasMoreData && (
           <LoadMoreStyled onClick={fetchMoreData}>Load more</LoadMoreStyled>
         )

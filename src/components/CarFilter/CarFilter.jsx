@@ -37,14 +37,13 @@ import { getAllCarsInfo } from '../../redux/operations';
 import { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 const CarFilter = () => {
   const dispatch = useDispatch();
   const [, setIsLoading] = useState(false);
 
   const carsInfo = useSelector(selectCarsInfo);
-  console.log(carsInfo);
   const searchModel = useSelector(selectFilterSearchModel);
   const searchPrice = useSelector(selectFilterSearchPrice);
   const searchMileageFrom = useSelector(selectFilterSearchMileageFrom);
@@ -148,7 +147,7 @@ const CarFilter = () => {
         dispatch(getCarInfo(filteredCars));
         setIsLoading(true);
 
-        if(carsInfo.length === 0){
+        if(carsInfo.length === 0 && filteredCars.length === 0){
           return toast.error('No cars found with the selected filter values', {
             duration: 2000,
             style: {
