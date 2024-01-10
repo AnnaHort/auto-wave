@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import LikeSvgActive from '../../components/LikeSvgActive/LikeSvgActive';
 import LikeSvgNormal from '../../components/LikeSvgNormal/LikeSvgNormal';
 import { addToFavorite, deleteFromFavorite } from '../../redux/carSlice';
@@ -77,7 +76,7 @@ const FavoriteCarCards = () => {
     <>
       <ListCardStyled>
         {favoriteCars.length === 0 ? (
-          <FavoriteWithoutCard/>
+            <FavoriteWithoutCard />
         ) : (
           favoriteCars.map((item, index) => {
             const {
@@ -164,6 +163,7 @@ const FavoriteCarCards = () => {
             );
           })
         )}
+       
       </ListCardStyled>
       {isModalOpen && (
         <ModalWindowCar

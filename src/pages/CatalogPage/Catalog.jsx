@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllCarsInfo } from '../../redux/operations';
 import { getCarInfo } from '../../redux/carSlice';
 import { selectCarsInfo } from '../../redux/selectors';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Catalog = () => {
   const dispatch = useDispatch();
@@ -57,6 +58,7 @@ const Catalog = () => {
         <NoCardsContainer>
           <SearchNoCarsSvg />
           <NoCarsText>Unfortunately, there are no cars available at the moment</NoCarsText>
+          <Toaster/>
         </NoCardsContainer>
       ) : (
         hasMoreData && (

@@ -7,6 +7,7 @@ import {
 } from "./HeaderList.styled";
 import { Suspense } from "react";
 import { GiCarWheel } from "react-icons/gi";
+import { Toaster } from "react-hot-toast";
 
 const HeaderList = () => {
   return (
@@ -28,6 +29,7 @@ const HeaderList = () => {
             <LinkStyle to="/favorites">Favorites</LinkStyle>
           </li>
         </HeaderListStyled>
+        <Toaster />
       </NavStyled>
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />

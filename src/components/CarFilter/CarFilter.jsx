@@ -22,6 +22,7 @@ import {
   selectFilterSearchPrice,
   selectFilterSearchModel,
   resetFilters,
+  selectCarsInfo,
 } from '../../redux/selectors';
 import {
   changeReset,
@@ -42,6 +43,8 @@ const CarFilter = () => {
   const dispatch = useDispatch();
   const [, setIsLoading] = useState(false);
 
+  const carsInfo = useSelector(selectCarsInfo);
+  console.log(carsInfo);
   const searchModel = useSelector(selectFilterSearchModel);
   const searchPrice = useSelector(selectFilterSearchPrice);
   const searchMileageFrom = useSelector(selectFilterSearchMileageFrom);
@@ -60,9 +63,8 @@ const CarFilter = () => {
         'is-less-than-mileageTo',
         'From must be less than To',
         function (value) {
-          const { mileageTo } = this.parent; // отримуємо значення mileageTo з контексту
+          const { mileageTo } = this.parent;
 
-          // Перевіряємо, чи введене значення менше за mileageTo
           return (
             !value ||
             !mileageTo ||
@@ -127,7 +129,7 @@ const CarFilter = () => {
               car.rentalPrice.replace('$', ''),
               10
             );
-            return numericRentalPrice <= numericSearchPrice;
+              return numericRentalPrice <= numericSearchPrice;
           });
         }
 
@@ -145,6 +147,21 @@ const CarFilter = () => {
         }
         dispatch(getCarInfo(filteredCars));
         setIsLoading(true);
+
+        if(carsInfo.length === 0){
+          return toast.error('No cars found with the selected filter values', {
+            duration: 2000,
+            style: {
+              border: '1px solid #121417',
+              padding: '16px',
+              color: '#3470ff',
+            },
+            iconTheme: {
+              primary: '#3470ff',
+              secondary: '#FFFAEE',
+            },
+          });
+        }
       } catch (error) {
         console.error('Error fetching carInfo:', error);
       }
@@ -311,7 +328,6 @@ const CarFilter = () => {
       >
         Reset
       </FilterButton>
-      <Toaster />
     </FilterFormStyled>
   );
 };
