@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllCarsInfo } from '../../redux/operations';
 import { getCarInfo } from '../../redux/carSlice';
 import { selectCarsInfo } from '../../redux/selectors';
-import { FcSearch } from 'react-icons/fc';
 
 const Catalog = () => {
   const dispatch = useDispatch();

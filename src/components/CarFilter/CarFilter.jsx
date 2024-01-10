@@ -22,7 +22,6 @@ import {
   selectFilterSearchPrice,
   selectFilterSearchModel,
   resetFilters,
-  selectCarsInfo,
 } from '../../redux/selectors';
 import {
   changeReset,
