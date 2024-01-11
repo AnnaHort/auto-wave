@@ -4,6 +4,7 @@ import {
   CarMarkStyled,
   CarModelStyled,
   CardContainerStyled,
+  CardImgContainer,
   CardImgStyled,
   InfoListElStyled,
   InfoListStyled,
@@ -79,7 +80,9 @@ const CarCard = props => {
           return (
             <li key={id}>
               <CardContainerStyled>
+                <CardImgContainer>
                 <CardImgStyled src={img} alt={`${make}`} />
+                </CardImgContainer>
 
                 {favoriteId.includes(id) ? (
                   <LikeSvgActive

@@ -17,6 +17,27 @@ export const CardContainerStyled = styled.div`
   flex-direction: column;
   justify-content: space-between;
 `;
+
+export const CardImgContainer = styled.div`
+  width: 100%;
+  height: 268px;
+  border-radius: 14px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(255,255,255,0) 85%, rgba(18,20,23,0.4990371148459384) 100%);
+    /* z-index: 1; */
+  }
+`
+
 export const CardImgStyled = styled.img`
   width: 100%;
   height: 268px;
@@ -36,7 +57,6 @@ export const CarMarkStyled = styled.p`
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
-  
 `;
 export const CarModelStyled = styled.span`
   color: #3470ff;
@@ -44,8 +64,6 @@ export const CarModelStyled = styled.span`
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
-  
-  
 `;
 export const InfoListStyled = styled.ul`
   display: flex;
@@ -59,7 +77,6 @@ export const InfoListStyled = styled.ul`
   margin-bottom: 28px;
   height: 40px;
   max-width: 277px;
-  
 `;
 
 export const InfoListElStyled = styled.li`
@@ -79,7 +96,7 @@ export const CarCardButton = styled.button`
   font-weight: 600;
   line-height: 1.4;
   border: none;
-  
+
   &:hover {
     background: #0b44cd;
     transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);

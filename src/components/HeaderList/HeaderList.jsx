@@ -1,13 +1,15 @@
-import { Outlet } from "react-router-dom";
+import { Outlet } from 'react-router-dom';
 import {
   NavStyled,
   HeaderListStyled,
   LinkStyle,
   LogoContainer,
-} from "./HeaderList.styled";
-import { Suspense } from "react";
-import { GiCarWheel } from "react-icons/gi";
-import { Toaster } from "react-hot-toast";
+} from './HeaderList.styled';
+import { Suspense } from 'react';
+import { GiCarWheel } from 'react-icons/gi';
+import { Toaster } from 'react-hot-toast';
+import { Oval } from 'react-loader-spinner';
+import { Loader } from 'components/Loader/Loader';
 
 const HeaderList = () => {
   return (
@@ -31,7 +33,7 @@ const HeaderList = () => {
         </HeaderListStyled>
         <Toaster />
       </NavStyled>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
     </>

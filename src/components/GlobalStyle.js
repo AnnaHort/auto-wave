@@ -7,6 +7,7 @@ body {
     margin: 0;  
     width: 100%;
     box-sizing: border-box;
+    user-select: none;
 }
 
 h1,

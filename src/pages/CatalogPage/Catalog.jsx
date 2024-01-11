@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import CarFilter from '../../components/CarFilter/CarFilter';
 import CarCard from '../../components/CarCard/CarCard';
-import { LoadMoreStyled, NoCardsContainer, NoCarsText, SearchNoCarsSvg } from './Catalog.styled';
+import {
+  LoadMoreStyled,
+  NoCardsContainer,
+  NoCarsText,
+  SearchNoCarsSvg,
+} from './Catalog.styled';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCarsInfo } from '../../redux/operations';
 import { getCarInfo } from '../../redux/carSlice';
 import { selectCarsInfo } from '../../redux/selectors';
+import ScrollToTop from 'react-scroll-to-top';
+import { Loader } from 'components/Loader/Loader';
 
 const Catalog = () => {
   const dispatch = useDispatch();
@@ -38,7 +45,6 @@ const Catalog = () => {
 
       if (newCarsData.length < 12) {
         setHasMoreData(false);
-
       } else {
         dispatch(getCarInfo([...carArray, ...newCarsData]));
         setCurrentPage(currentPage + 1);
@@ -49,7 +55,9 @@ const Catalog = () => {
   };
 
   return isLoading === false ? (
-    <div>...Loading</div>
+
+   <Loader/>
+
   ) : (
     <>
       <CarFilter />
@@ -57,14 +65,24 @@ const Catalog = () => {
       {carArray.length === 0 ? (
         <NoCardsContainer>
           <SearchNoCarsSvg />
-          <NoCarsText>Unfortunately, there are no cars available at the moment</NoCarsText>
+          <NoCarsText>
+            Unfortunately, there are no cars available at the moment
+          </NoCarsText>
         </NoCardsContainer>
       ) : (
-
         hasMoreData && (
           <LoadMoreStyled onClick={fetchMoreData}>Load more</LoadMoreStyled>
         )
       )}
+      <ScrollToTop
+        smooth
+        color="#3470ff"
+        style={{
+          padding: '6px 0',
+          borderRadius: '12px',
+          boxShadow: '0px 2px 10px 0px rgba(0,0,0,0.75)',
+        }}
+      />
     </>
   );
 };

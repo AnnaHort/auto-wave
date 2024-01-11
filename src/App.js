@@ -12,7 +12,20 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense
+        fallback={
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: '100vh',
+            }}
+          >
+            Loading...
+          </div>
+        }
+      >
         <Routes>
           <Route path="/" element={<HeaderList />}>
             <Route index element={<Home />} />
@@ -27,3 +40,5 @@ function App() {
 }
 
 export default App;
+
+

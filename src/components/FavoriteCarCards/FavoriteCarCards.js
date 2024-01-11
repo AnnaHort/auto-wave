@@ -17,6 +17,7 @@ import {
   ListCardStyled,
 } from '../CarCard/CarCard.styled';
 import { FavoriteWithoutCard } from 'components/FavoriteWithoutCard/FavoriteWithoutCard';
+import { Loader } from 'components/Loader/Loader';
 
 const FavoriteCarCards = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -71,12 +72,12 @@ const FavoriteCarCards = () => {
   }, []);
 
   return isLoading === false ? (
-    <div>...Loading</div>
+    <Loader />
   ) : (
     <>
       <ListCardStyled>
         {favoriteCars.length === 0 ? (
-            <FavoriteWithoutCard />
+          <FavoriteWithoutCard />
         ) : (
           favoriteCars.map((item, index) => {
             const {
@@ -163,7 +164,6 @@ const FavoriteCarCards = () => {
             );
           })
         )}
-       
       </ListCardStyled>
       {isModalOpen && (
         <ModalWindowCar
