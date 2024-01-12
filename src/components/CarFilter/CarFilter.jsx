@@ -14,7 +14,6 @@ import {
   ValidationErrorContainer,
   ResetButton,
   ButtonContainer,
-  ResetBtnContainer,
 } from './CarFilter.styled';
 import { priceSelectStyles } from '../../styles/selectStyles/priceSelectStyles';
 
