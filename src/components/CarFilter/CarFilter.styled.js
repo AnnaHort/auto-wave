@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from 'styled-components';
 
 export const FilterFormStyled = styled.form`
   display: flex;
@@ -52,44 +52,42 @@ export const CarMileageToInput = styled.input`
     outline: none;
   }
   &::placeholder {
-    text-indent: 0px; 
+    text-indent: 0px;
   }
 `;
 
 export const MileageInputContainer = styled.div`
-display: flex;
-`
+  display: flex;
+`;
 
 export const PriseHourText = styled.span`
-position: absolute;
-top: 15px;
-left: 18px;
-font-family: 'Manrope', sans-serif;
-`
+  position: absolute;
+  top: 15px;
+  left: 18px;
+  font-family: 'Manrope', sans-serif;
+`;
 
 export const SpanText = styled.span`
-position: absolute;
-top: 16px;
-left: 24px;
-font-family: 'Manrope', sans-serif;
-`
+  position: absolute;
+  top: 16px;
+  left: 24px;
+  font-family: 'Manrope', sans-serif;
+`;
 export const MileageContainer = styled.div`
-position: relative;
-`
+  position: relative;
+`;
 export const FilterButton = styled.button`
-padding: 14px 44px;
-border-radius: 12px;
-background: #3470FF;
-border: none;
-background: #3470FF;
-color: #fff;
-font-family: 'Manrope', sans-serif;
-&:hover{
-  background: #0B44CD;
-  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1)
-}
-` 
-
+  padding: 14px 44px;
+  border-radius: 12px;
+  background: #3470ff;
+  border: none;
+  color: #fff;
+  font-family: 'Manrope', sans-serif;
+  &:hover {
+    background: #0b44cd;
+    transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+`;
 const slideIn = keyframes`
   from {
     left: 20px;
@@ -104,6 +102,36 @@ const slideIn = keyframes`
 
 export const ValidationErrorContainer = styled.div`
   position: absolute;
-  color: teal;
-  animation: ${slideIn} 0.3s cubic-bezier(.39,.4,.77,.74);
+  color: rgba(18, 20, 23, 0.50);
+  animation: ${slideIn} 0.3s cubic-bezier(0.39, 0.4, 0.77, 0.74);
+`;
+
+export const ButtonContainer = styled.div`
+  position: relative;
+`;
+
+const resetIn = keyframes`
+  from {
+    right: 20px;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    transition: 0.3s cubic-bezier(.39,.4,.77,.74);
+    opacity: 1;
+  }
+`;
+export const ResetButton = styled.button`
+  position: absolute;
+  top: 100%;
+  right: 0;
+  border: none;
+  color: rgba(18, 20, 23, 0.50);
+  font-family: 'Manrope', sans-serif;
+  background-color: transparent;
+  animation: ${resetIn} 0.3s cubic-bezier(0.39, 0.4, 0.77, 0.74);
+  &:hover {
+    color: #3470ff;
+    transition: color 450ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
 `;

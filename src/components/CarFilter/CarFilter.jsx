@@ -12,6 +12,9 @@ import {
   FilterButton,
   PriseHourText,
   ValidationErrorContainer,
+  ResetButton,
+  ButtonContainer,
+  ResetBtnContainer,
 } from './CarFilter.styled';
 import { priceSelectStyles } from '../../styles/selectStyles/priceSelectStyles';
 
@@ -128,7 +131,7 @@ const CarFilter = () => {
               car.rentalPrice.replace('$', ''),
               10
             );
-              return numericRentalPrice <= numericSearchPrice;
+            return numericRentalPrice <= numericSearchPrice;
           });
         }
 
@@ -147,7 +150,7 @@ const CarFilter = () => {
         dispatch(getCarInfo(filteredCars));
         setIsLoading(true);
 
-        if(carsInfo.length === 0 && filteredCars.length === 0){
+        if (carsInfo.length === 0 && filteredCars.length === 0) {
           return toast.error('No cars found with the selected filter values', {
             duration: 2000,
             style: {
@@ -318,15 +321,19 @@ const CarFilter = () => {
         </MileageInputContainer>
       </SelectorContainerStyled>
 
-      <FilterButton type="submit">Search</FilterButton>
+      <ButtonContainer >
+        <FilterButton type="submit">Search</FilterButton>
 
-      <FilterButton
-        type="button"
-        onClick={handleReset}
-        style={{ display: currentReset === false ? 'none' : 'block' }}
-      >
-        Reset
-      </FilterButton>
+
+          <ResetButton style={{ display: currentReset === false ? 'none' : 'block' }}
+            type="button"
+            onClick={handleReset}
+          >
+           Reset all filters
+          </ResetButton>
+
+
+      </ButtonContainer>
     </FilterFormStyled>
   );
 };
