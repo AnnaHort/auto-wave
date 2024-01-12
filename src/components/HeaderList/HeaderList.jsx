@@ -8,7 +8,6 @@ import {
 import { Suspense } from 'react';
 import { GiCarWheel } from 'react-icons/gi';
 import { Toaster } from 'react-hot-toast';
-import { Oval } from 'react-loader-spinner';
 import { Loader } from 'components/Loader/Loader';
 
 const HeaderList = () => {
