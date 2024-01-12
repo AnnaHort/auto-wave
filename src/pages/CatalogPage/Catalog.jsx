@@ -10,18 +10,42 @@ import {
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCarsInfo } from '../../redux/operations';
-import { getCarInfo } from '../../redux/carSlice';
-import { selectCarsInfo } from '../../redux/selectors';
+import {
+  getCarInfo,
+  getMoreData,
+  updateCurrentPage,
+} from '../../redux/carSlice';
+import {
+  selectCarsInfo,
+  selectFilterSearchMileageFrom,
+  selectFilterSearchModel,
+  selectFilterSearchPrice,
+  selectFilterSearchMileageTo,
+  currentPage,
+  moreData,
+} from '../../redux/selectors';
 import ScrollToTop from 'react-scroll-to-top';
 import { Loader } from 'components/Loader/Loader';
 
 const Catalog = () => {
   const dispatch = useDispatch();
   const carArray = useSelector(selectCarsInfo);
+  const modelFilter = useSelector(selectFilterSearchModel);
+  // console.log(modelFilter);
+  const priceFilter = useSelector(selectFilterSearchPrice);
+  // console.log(priceFilter);
+  const mileageFromFilter = useSelector(selectFilterSearchMileageFrom);
+  // console.log(mileageFromFilter);
+  const mileageToFilter = useSelector(selectFilterSearchMileageTo);
+  // console.log(mileageToFilter);
+  const currentPageNumber = useSelector(currentPage);
+  // console.log(currentPage);
+
+  const hasMoreData = useSelector(moreData);
+  console.log(hasMoreData);
+
   const BASE_URL = 'https://657343ad192318b7db41d7f4.mockapi.io/advert';
   const [isLoading, setIsLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [hasMoreData, setHasMoreData] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,6 +54,7 @@ const Catalog = () => {
         const carsData = response.payload;
         dispatch(getCarInfo(carsData));
         setIsLoading(true);
+        dispatch(getMoreData(true));
       } catch (error) {
         console.error('Error fetching carInfo:', error);
       }
@@ -39,15 +64,57 @@ const Catalog = () => {
 
   const fetchMoreData = async () => {
     try {
-      const url = new URL(`${BASE_URL}?page=${currentPage + 1}&limit=12`);
-      const response = await axios.get(url);
-      const newCarsData = response.data;
+      if (
+        modelFilter === '' &&
+        priceFilter === null &&
+        mileageFromFilter === null &&
+        mileageToFilter === null
+      ) {
+        const url = new URL(
+          `${BASE_URL}?page=${currentPageNumber + 1}&limit=12`
+        );
+        const response = await axios.get(url);
+        const carsData = response.data;
 
-      if (newCarsData.length < 12) {
-        setHasMoreData(false);
+        if (carsData.length < 12) {
+          dispatch(getMoreData());
+        }
+        dispatch(getCarInfo([...carArray, ...carsData]));
+        dispatch(updateCurrentPage());
       } else {
-        dispatch(getCarInfo([...carArray, ...newCarsData]));
-        setCurrentPage(currentPage + 1);
+        const url = new URL(
+          `${BASE_URL}?page=${currentPageNumber + 1}&limit=12`
+        );
+        const response = await axios.get(url);
+        const carsData = response.data;
+
+        let filteredCars = carsData;
+        console.log(filteredCars);
+        if (priceFilter && priceFilter !== '') {
+          const numericSearchPrice = parseInt(priceFilter.replace('$', ''), 10);
+          filteredCars = filteredCars.filter(car => {
+            const numericRentalPrice = parseInt(
+              car.rentalPrice.replace('$', ''),
+              10
+            );
+            return numericRentalPrice <= numericSearchPrice;
+          });
+        }
+        if (mileageFromFilter && mileageFromFilter !== null) {
+          filteredCars = filteredCars.filter(car => {
+            const filterMileage = car.mileage;
+            return filterMileage >= mileageFromFilter;
+          });
+        }
+        if (mileageToFilter && mileageToFilter !== null) {
+          filteredCars = filteredCars.filter(car => {
+            const filterMileage = car.mileage;
+            return filterMileage <= mileageToFilter;
+          });
+        }
+        dispatch(getCarInfo(filteredCars));
+        setIsLoading(true);
+        dispatch(updateCurrentPage());
       }
     } catch (error) {
       console.error('Error fetching more carInfo:', error);
@@ -55,9 +122,7 @@ const Catalog = () => {
   };
 
   return isLoading === false ? (
-
-   <Loader/>
-
+    <Loader />
   ) : (
     <>
       <CarFilter />
@@ -69,10 +134,8 @@ const Catalog = () => {
             Unfortunately, there are no cars available at the moment
           </NoCarsText>
         </NoCardsContainer>
-      ) : (
-        hasMoreData && (
-          <LoadMoreStyled onClick={fetchMoreData}>Load more</LoadMoreStyled>
-        )
+      ) : hasMoreData.payload === undefined ? null : (
+        <LoadMoreStyled onClick={fetchMoreData}>Load more</LoadMoreStyled>
       )}
       <ScrollToTop
         smooth

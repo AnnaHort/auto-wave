@@ -25,6 +25,7 @@ import {
   selectFilterSearchModel,
   resetFilters,
   selectCarsInfo,
+  moreData,
 } from '../../redux/selectors';
 import {
   changeReset,
@@ -33,6 +34,7 @@ import {
   getFilterMileageTo,
   getFilterModel,
   getFilterPrice,
+  getMoreData,
   reset,
 } from '../../redux/carSlice';
 import { getAllCarsInfo } from '../../redux/operations';
@@ -45,13 +47,13 @@ const CarFilter = () => {
   const dispatch = useDispatch();
   const [, setIsLoading] = useState(false);
 
+
   const carsInfo = useSelector(selectCarsInfo);
   const searchModel = useSelector(selectFilterSearchModel);
   const searchPrice = useSelector(selectFilterSearchPrice);
   const searchMileageFrom = useSelector(selectFilterSearchMileageFrom);
   const searchMileageTo = useSelector(selectFilterSearchMileageTo);
   const currentReset = useSelector(resetFilters);
-  // console.log(currentReset);
 
   const validationSchema = Yup.object().shape({
     make: Yup.string(),
@@ -121,7 +123,10 @@ const CarFilter = () => {
         const response = await dispatch(getAllCarsInfo());
         const carsData = response.payload;
 
+        dispatch(getMoreData(true));
+
         let filteredCars = carsData;
+        console.log(filteredCars)
 
         if (searchPrice && searchPrice !== '') {
           const numericSearchPrice = parseInt(searchPrice.replace('$', ''), 10);
@@ -130,6 +135,7 @@ const CarFilter = () => {
               car.rentalPrice.replace('$', ''),
               10
             );
+
             return numericRentalPrice <= numericSearchPrice;
           });
         }
@@ -216,8 +222,10 @@ const CarFilter = () => {
     try {
       const response = await dispatch(getAllCarsInfo());
       const carsData = response.payload;
+      // console.log(carsData)
       dispatch(getCarInfo(carsData));
       setIsLoading(true);
+      // dispatch(moreData(true));
     } catch (error) {
       console.error('Error fetching carInfo:', error);
     }

@@ -25,8 +25,6 @@ const ModalWindowCar = ({ car, onClose }) => {
     }
   };
 
-
-
   const {
     id,
     year,
@@ -34,12 +32,9 @@ const ModalWindowCar = ({ car, onClose }) => {
     make,
     model,
     address,
-    // mileage,
-    // rentalCompany,
     type,
     fuelConsumption,
     engineSize,
-    // functionalities,
   } = car;
   const carAddress = address;
 
@@ -47,11 +42,11 @@ const ModalWindowCar = ({ car, onClose }) => {
   const town = reversedText[0].replace(',', '');
   const country = reversedText[1];
 
-  // const functionalitiesCar = functionalities[0];
+
   return (
     <MainModalContainerStyled onClick={handleModalClose}>
       <ModalContainerStyled>
-        <CloseModalSvg onClick={handleSvgClick} />
+        <CloseModalSvg onClick={handleSvgClick}/>
 
         <ModalImgStyled src={img} alt={`${make}`} />
         <ModalTitleStyled>

@@ -15,3 +15,7 @@ export const selectFilterSearchMileageTo = state =>
 export const selectCarsInfo = state => state.filter.carsInfo;
 // ресет 
 export const resetFilters = state => state.filter.reset;
+// поточна сторінка 
+export const currentPage = state => state.filter.currentPage;
+// додаткові дані
+export const moreData = state => state.filter.moreData;

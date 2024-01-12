@@ -10,7 +10,9 @@ const filterInitialState = {
   searchPrice: null,
   searchMileageFrom: null,
   searchMileageTo: null,
+  currentPage: 1,
   reset: false,
+  moreData: true,
 };
 
 const filterCarSlice = createSlice({
@@ -38,9 +40,17 @@ const filterCarSlice = createSlice({
       state.searchMileageFrom = null;
       state.searchMileageTo = null;
       state.reset = false;
+      state.currentPage = 1;
     },
-    reset(state){
+    reset(state) {
       state.reset = true;
+      state.currentPage = 1;
+    },
+    updateCurrentPage(state) {
+      state.currentPage += 1;
+    },
+    getMoreData(state, value) {
+      state.moreData = value;
     }
   },
 });
@@ -74,6 +84,8 @@ export const {
   getFilterMileageFrom,
   getFilterMileageTo,
   changeReset,
-  reset
+  reset,
+  updateCurrentPage,
+  getMoreData,
 } = filterCarSlice.actions;
 export const filterCarReducer = filterCarSlice.reducer;

@@ -1,5 +1,19 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { keyframes } from 'styled-components';
+
+const modalIn = keyframes`
+  from {
+    left: 20px;
+    opacity: 0;
+  }
+  to {
+    left: 0;
+    transition: 0.3s cubic-bezier(.39,.4,.77,.74);
+    opacity: 1;
+  }
+`;
+
 
 export const MainModalContainerStyled = styled.div`
   position: fixed;
@@ -9,6 +23,7 @@ export const MainModalContainerStyled = styled.div`
   height: 100%;
   background: rgba(18, 20, 23, 0.5);
   z-index: 1;
+  animation: ${modalIn} 0.3s cubic-bezier(0.39, 0.4, 0.77, 0.74);
 `;
 
 export const ModalContainerStyled = styled.div`
