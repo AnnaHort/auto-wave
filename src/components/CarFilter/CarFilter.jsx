@@ -27,13 +27,14 @@ import {
   selectCarsInfo,
 } from '../../redux/selectors';
 import {
+  addMoreData,
   changeReset,
+  deleteMoreData,
   getCarInfo,
   getFilterMileageFrom,
   getFilterMileageTo,
   getFilterModel,
   getFilterPrice,
-  getMoreData,
   reset,
 } from '../../redux/carSlice';
 import { getAllCarsInfo } from '../../redux/operations';
@@ -121,13 +122,13 @@ const CarFilter = () => {
         const response = await dispatch(getAllCarsInfo());
         const carsData = response.payload;
 
-        dispatch(getMoreData(true));
+        dispatch(addMoreData(true));
 
         let filteredCars = carsData;
         console.log(filteredCars);
 
         if (filteredCars.length < 12) {
-          dispatch(getMoreData());
+          dispatch(deleteMoreData(false));
         }
         if (searchPrice && searchPrice !== '') {
           const numericSearchPrice = parseInt(searchPrice.replace('$', ''), 10);
@@ -232,13 +233,12 @@ const CarFilter = () => {
   const handleReset = async e => {
     e.preventDefault();
     dispatch(changeReset());
+    dispatch(addMoreData());
     try {
       const response = await dispatch(getAllCarsInfo());
       const carsData = response.payload;
-      // console.log(carsData)
       dispatch(getCarInfo(carsData));
       setIsLoading(true);
-      // dispatch(moreData(true));
     } catch (error) {
       console.error('Error fetching carInfo:', error);
     }

@@ -41,6 +41,7 @@ const filterCarSlice = createSlice({
       state.searchMileageTo = null;
       state.reset = false;
       state.currentPage = 1;
+      state.moreData = true
     },
     reset(state) {
       state.reset = true;
@@ -49,9 +50,12 @@ const filterCarSlice = createSlice({
     updateCurrentPage(state) {
       state.currentPage += 1;
     },
-    getMoreData(state, value) {
-      state.moreData = value;
+    addMoreData(state) {
+      state.moreData = true
     },
+    deleteMoreData(state){
+      state.moreData = false
+    }
   },
 });
 
@@ -86,6 +90,7 @@ export const {
   changeReset,
   reset,
   updateCurrentPage,
-  getMoreData,
+  addMoreData,
+  deleteMoreData,
 } = filterCarSlice.actions;
 export const filterCarReducer = filterCarSlice.reducer;

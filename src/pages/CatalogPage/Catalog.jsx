@@ -11,8 +11,9 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCarsInfo } from '../../redux/operations';
 import {
+  addMoreData,
+  deleteMoreData,
   getCarInfo,
-  getMoreData,
   updateCurrentPage,
 } from '../../redux/carSlice';
 import {
@@ -48,7 +49,7 @@ const Catalog = () => {
         const carsData = response.payload;
         dispatch(getCarInfo(carsData));
         setIsLoading(true);
-        dispatch(getMoreData(true));
+        dispatch(addMoreData());
       } catch (error) {
         console.error('Error fetching carInfo:', error);
       }
@@ -71,7 +72,7 @@ const Catalog = () => {
         const carsData = response.data;
 
         if (carsData.length < 12) {
-          dispatch(getMoreData());
+          dispatch(deleteMoreData());
         }
         dispatch(getCarInfo([...carArray, ...carsData]));
         dispatch(updateCurrentPage());
@@ -81,7 +82,7 @@ const Catalog = () => {
         const response = await axios.get(url);
         const carsData = response.data;
         if (carsData.length < 12) {
-          dispatch(getMoreData(false));
+          dispatch(deleteMoreData());
         }
         let filteredCars = carsData;
         console.log(filteredCars);
@@ -110,7 +111,7 @@ const Catalog = () => {
         dispatch(getCarInfo(filteredCars));
         setIsLoading(true);
         dispatch(updateCurrentPage());
-        dispatch(getMoreData(false));
+        dispatch(deleteMoreData(false));
       }
     } catch (error) {
       console.error('Error fetching more carInfo:', error);
@@ -130,8 +131,8 @@ const Catalog = () => {
             Unfortunately, there are no cars available at the moment
           </NoCarsText>
         </NoCardsContainer>
-      ) : hasMoreData.payload === undefined ||
-        hasMoreData.payload === false ? null : (
+      ) : hasMoreData === undefined ||
+        hasMoreData === false ? null : (
         <LoadMoreStyled onClick={fetchMoreData}>Load more</LoadMoreStyled>
       )}
       <ScrollToTop
