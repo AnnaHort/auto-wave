@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const ListCardStyled = styled.ul`
   display: flex;
@@ -8,6 +8,15 @@ export const ListCardStyled = styled.ul`
   align-items: flex-end;
 `;
 
+const cardAnimation = keyframes`
+from{
+  opacity: 0;
+}
+to{
+  opacity: 1;
+}
+`
+
 export const CardContainerStyled = styled.div`
   max-width: 274px;
   position: relative;
@@ -16,6 +25,7 @@ export const CardContainerStyled = styled.div`
   height: 450px;
   flex-direction: column;
   justify-content: space-between;
+  animation: ${cardAnimation} 0.5s cubic-bezier(0.39, 0.4, 0.77, 0.74);;
 `;
 
 export const CardImgContainer = styled.div`
@@ -34,7 +44,6 @@ export const CardImgContainer = styled.div`
     width: 100%;
     height: 100%;
     background: linear-gradient(0deg, rgba(255,255,255,0) 85%, rgba(18,20,23,0.4990371148459384) 100%);
-    /* z-index: 1; */
   }
 `
 

@@ -125,11 +125,10 @@ const CarFilter = () => {
 
         let filteredCars = carsData;
         console.log(filteredCars);
-        
+
         if (filteredCars.length < 12) {
           dispatch(getMoreData());
         }
-
         if (searchPrice && searchPrice !== '') {
           const numericSearchPrice = parseInt(searchPrice.replace('$', ''), 10);
           filteredCars = filteredCars.filter(car => {
@@ -141,7 +140,6 @@ const CarFilter = () => {
             return numericRentalPrice <= numericSearchPrice;
           });
         }
-
         if (searchMileageFrom && searchMileageFrom !== null) {
           filteredCars = filteredCars.filter(car => {
             const filterMileage = car.mileage;
@@ -159,6 +157,19 @@ const CarFilter = () => {
 
         if (carsInfo.length === 0 && filteredCars.length === 0) {
           return toast.error('No cars found with the selected filter values', {
+            duration: 2000,
+            style: {
+              border: '1px solid #121417',
+              padding: '16px',
+              color: '#3470ff',
+            },
+            iconTheme: {
+              primary: '#3470ff',
+              secondary: '#FFFAEE',
+            },
+          });
+        } else {
+          toast.success('Cars are filtered!', {
             duration: 2000,
             style: {
               border: '1px solid #121417',
