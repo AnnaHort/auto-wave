@@ -125,6 +125,10 @@ const CarFilter = () => {
 
         let filteredCars = carsData;
         console.log(filteredCars);
+        
+        if (filteredCars.length < 12) {
+          dispatch(getMoreData());
+        }
 
         if (searchPrice && searchPrice !== '') {
           const numericSearchPrice = parseInt(searchPrice.replace('$', ''), 10);

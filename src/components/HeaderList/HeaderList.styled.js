@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 
 export const NavStyled = styled.nav`
   display: flex;
@@ -22,18 +22,45 @@ export const HeaderListStyled = styled.ul`
   gap: 80px;
 `;
 
+
+const underlineAnimation = keyframes`
+  from {
+    width: 0;
+    left: 50%;
+  }
+  to {
+    width: 100%;
+    left: 0;
+  }
+`;
+
 export const LinkStyle = styled(NavLink)`
+  position: relative;
   text-decoration: none;
   color: black;
   font-size: 20px;
   font-family: 'Manrope';
+
   &:hover,
-  :focus {
+  &:focus {
     color: #3470ff;
-    transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1);
   }
+
   &.active {
     color: #0B44CD;
-    transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 1.5px;
+      background-color: rgba(18, 20, 23, 0.3);
+      animation: ${underlineAnimation} 0.3s cubic-bezier(0.39, 0.4, 0.77, 0.74);
+    }
   }
 `;
+
