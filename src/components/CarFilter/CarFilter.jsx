@@ -25,7 +25,6 @@ import {
   selectFilterSearchModel,
   resetFilters,
   selectCarsInfo,
-  moreData,
 } from '../../redux/selectors';
 import {
   changeReset,
@@ -46,7 +45,6 @@ import toast from 'react-hot-toast';
 const CarFilter = () => {
   const dispatch = useDispatch();
   const [, setIsLoading] = useState(false);
-
 
   const carsInfo = useSelector(selectCarsInfo);
   const searchModel = useSelector(selectFilterSearchModel);
@@ -126,7 +124,7 @@ const CarFilter = () => {
         dispatch(getMoreData(true));
 
         let filteredCars = carsData;
-        console.log(filteredCars)
+        console.log(filteredCars);
 
         if (searchPrice && searchPrice !== '') {
           const numericSearchPrice = parseInt(searchPrice.replace('$', ''), 10);
@@ -328,18 +326,16 @@ const CarFilter = () => {
         </MileageInputContainer>
       </SelectorContainerStyled>
 
-      <ButtonContainer >
+      <ButtonContainer>
         <FilterButton type="submit">Search</FilterButton>
 
-
-          <ResetButton style={{ display: currentReset === false ? 'none' : 'block' }}
-            type="button"
-            onClick={handleReset}
-          >
-           Reset all filters
-          </ResetButton>
-
-
+        <ResetButton
+          style={{ display: currentReset === false ? 'none' : 'block' }}
+          type="button"
+          onClick={handleReset}
+        >
+          Reset all filters
+        </ResetButton>
       </ButtonContainer>
     </FilterFormStyled>
   );

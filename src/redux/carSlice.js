@@ -51,7 +51,7 @@ const filterCarSlice = createSlice({
     },
     getMoreData(state, value) {
       state.moreData = value;
-    }
+    },
   },
 });
 

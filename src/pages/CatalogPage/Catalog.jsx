@@ -31,18 +31,12 @@ const Catalog = () => {
   const dispatch = useDispatch();
   const carArray = useSelector(selectCarsInfo);
   const modelFilter = useSelector(selectFilterSearchModel);
-  // console.log(modelFilter);
   const priceFilter = useSelector(selectFilterSearchPrice);
-  // console.log(priceFilter);
   const mileageFromFilter = useSelector(selectFilterSearchMileageFrom);
-  // console.log(mileageFromFilter);
   const mileageToFilter = useSelector(selectFilterSearchMileageTo);
-  // console.log(mileageToFilter);
   const currentPageNumber = useSelector(currentPage);
-  // console.log(currentPage);
 
   const hasMoreData = useSelector(moreData);
-  // console.log(hasMoreData);
 
   const BASE_URL = 'https://657343ad192318b7db41d7f4.mockapi.io/advert';
   const [isLoading, setIsLoading] = useState(false);
@@ -82,15 +76,13 @@ const Catalog = () => {
         dispatch(getCarInfo([...carArray, ...carsData]));
         dispatch(updateCurrentPage());
       } else {
-        const url = new URL(
-          `${BASE_URL}`
-        );
+        const url = new URL(`${BASE_URL}`);
         if (modelFilter) url.searchParams.append('make', modelFilter);
         const response = await axios.get(url);
         const carsData = response.data;
-if(carsData.length < 12){
-  dispatch(getMoreData(false));
-}
+        if (carsData.length < 12) {
+          dispatch(getMoreData(false));
+        }
         let filteredCars = carsData;
         console.log(filteredCars);
         if (priceFilter && priceFilter !== '') {
@@ -138,7 +130,8 @@ if(carsData.length < 12){
             Unfortunately, there are no cars available at the moment
           </NoCarsText>
         </NoCardsContainer>
-      ) : hasMoreData.payload === undefined || hasMoreData.payload === false ? null : (
+      ) : hasMoreData.payload === undefined ||
+        hasMoreData.payload === false ? null : (
         <LoadMoreStyled onClick={fetchMoreData}>Load more</LoadMoreStyled>
       )}
       <ScrollToTop
