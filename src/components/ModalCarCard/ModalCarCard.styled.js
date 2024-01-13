@@ -2,17 +2,6 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { keyframes } from 'styled-components';
 
-const modalIn = keyframes`
-  from {
-    left: 20px;
-    opacity: 0;
-  }
-  to {
-    left: 0;
-    transition: 0.3s cubic-bezier(.39,.4,.77,.74);
-    opacity: 1;
-  }
-`;
 
 
 export const MainModalContainerStyled = styled.div`
@@ -23,7 +12,17 @@ export const MainModalContainerStyled = styled.div`
   height: 100%;
   background: rgba(18, 20, 23, 0.5);
   z-index: 1;
-  animation: ${modalIn} 0.3s cubic-bezier(0.39, 0.4, 0.77, 0.74);
+`;
+
+const modalIn = keyframes`
+  from {
+    left: 40%;
+    opacity: 0;
+  }
+  to {
+    top: 50%;
+    opacity: 1;
+  }
 `;
 
 export const ModalContainerStyled = styled.div`
@@ -36,6 +35,7 @@ export const ModalContainerStyled = styled.div`
   transform: translate(-50%, -50%);
   position: absolute;
   z-index: 2;
+  animation: ${modalIn} 0.3s cubic-bezier(0.39, 0.4, 0.77, 0.74);
 `;
 
 export const ModalImgStyled = styled.img`
