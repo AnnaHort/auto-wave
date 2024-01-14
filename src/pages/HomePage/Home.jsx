@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { HomeContainer, TextStyle } from './Home.Styled';
 import CarRentalBrands from '../../components/CarRentalBrands/CarRentalBrands';
 import AboutUsComponent from '../../components/AboutUsComponent/AboutUsComponent';
@@ -6,6 +6,7 @@ import HomeHeroComponent from '../../components/HomeHeroComponent/HomeHeroCompon
 import ScrollToTop from 'react-scroll-to-top';
 
 const Home = () => {
+  const [isHovered, setHovered] = useState(false);
   return (
     <>
       <HomeContainer>
@@ -22,7 +23,11 @@ const Home = () => {
             padding: '6px 0',
             borderRadius: '12px',
             boxShadow: '0px 2px 10px 0px rgba(0,0,0,0.75)',
+            transform: isHovered ? 'scale(1.2)' : 'scale(1)',
+            transition: 'transform 0.3s ease', // Optional: Add a smooth transition effect
           }}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
         />
       </HomeContainer>
     </>

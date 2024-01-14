@@ -41,6 +41,7 @@ const Catalog = () => {
 
   const BASE_URL = 'https://657343ad192318b7db41d7f4.mockapi.io/advert';
   const [isLoading, setIsLoading] = useState(false);
+  const [isHovered, setHovered] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -135,15 +136,19 @@ const Catalog = () => {
         hasMoreData === false ? null : (
         <LoadMoreStyled onClick={fetchMoreData}>Load more</LoadMoreStyled>
       )}
-      <ScrollToTop
-        smooth
-        color="#3470ff"
-        style={{
-          padding: '6px 0',
-          borderRadius: '12px',
-          boxShadow: '0px 2px 10px 0px rgba(0,0,0,0.75)',
-        }}
-      />
+ <ScrollToTop
+          smooth
+          color="#3470ff"
+          style={{
+            padding: '6px 0',
+            borderRadius: '12px',
+            boxShadow: '0px 2px 10px 0px rgba(0,0,0,0.75)',
+            transform: isHovered ? 'scale(1.2)' : 'scale(1)',
+            transition: 'transform 0.3s ease', // Optional: Add a smooth transition effect
+          }}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+        />
     </>
   );
 };
