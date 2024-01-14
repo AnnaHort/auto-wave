@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { HomeContainer, TextStyle } from './Home.Styled';
 import CarRentalBrands from '../../components/CarRentalBrands/CarRentalBrands';
-// import AboutUsComponent from '../../components/AboutUsComponent/AboutUsComponent';
+import AboutUsComponent from '../../components/AboutUsComponent/AboutUsComponent';
 import HomeHeroComponent from '../../components/HomeHeroComponent/HomeHeroComponent';
 import ScrollToTop from 'react-scroll-to-top';
 
@@ -15,10 +15,10 @@ const Home = () => {
           AutoWave gives you access to the largest car rental brands.
         </TextStyle>
         <CarRentalBrands />
-        {/* <AboutUsComponent /> */}
+        <AboutUsComponent />
         <ScrollToTop
           smooth
-          color="#3470ff"
+          color="var(--color-primary-blue)"
           style={{
             padding: '6px 0',
             borderRadius: '12px',

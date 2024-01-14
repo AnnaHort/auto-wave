@@ -79,12 +79,12 @@ export const MileageContainer = styled.div`
 export const FilterButton = styled.button`
   padding: 14px 44px;
   border-radius: 12px;
-  background: #3470ff;
+  background: var(--color-primary-blue);
   border: none;
   color: var(--color-primary-white);
   font-family: 'Manrope', sans-serif;
   &:hover {
-    background: #0b44cd;
+    background: var(--color-primary-blue-2);
     transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 `;
@@ -131,7 +131,7 @@ export const ResetButton = styled.button`
   background-color: transparent;
   animation: ${resetIn} 0.3s cubic-bezier(0.39, 0.4, 0.77, 0.74);
   &:hover {
-    color: #3470ff;
+    color: var(--color-primary-blue);
     transition: color 450ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 `;

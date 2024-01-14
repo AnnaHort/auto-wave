@@ -8,7 +8,7 @@ export const LoadMoreStyled = styled.button`
   margin-bottom: 150px;
   border: none;
   background-color: transparent;
-  color: #3470ff;
+  color: var(--color-primary-blue);
   font-family: 'Manrope', sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -16,7 +16,7 @@ export const LoadMoreStyled = styled.button`
   line-height: 1.5;
   text-decoration-line: underline;
   &:hover {
-    color: #0b44cd;
+    color: var(--color-primary-blue-2);
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 `;
@@ -67,7 +67,7 @@ export const SearchNoCarsSvg = styled(FcSearch)`
 
 export const NoCarsText = styled.h2`
   text-align: center;
-  color: #121417;
+  color: var(--color-primary-black);
   font-family: Manrope;
   font-size: 20px;
   font-style: normal;

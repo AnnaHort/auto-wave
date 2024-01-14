@@ -98,13 +98,13 @@ const CarFilter = () => {
         return toast.error('Please enter any filters before searching', {
           duration: 2000,
           style: {
-            border: '1px solid #121417',
+            border: '1px solid var(--color-primary-black)',
             padding: '16px',
-            color: '#3470ff',
+            color: 'var(--color-primary-blue)',
           },
           iconTheme: {
-            primary: '#3470ff',
-            secondary: '#FFFAEE',
+            primary: 'var(--color-primary-blue)',
+            secondary: 'var(--color-primary-white-2)',
           },
         });
       }
@@ -160,26 +160,26 @@ const CarFilter = () => {
           return toast.error('No cars found with the selected filter values', {
             duration: 2000,
             style: {
-              border: '1px solid #121417',
+              border: '1px solid var(--color-primary-black)',
               padding: '16px',
-              color: '#3470ff',
+              color: 'var(--color-primary-blue)',
             },
             iconTheme: {
-              primary: '#3470ff',
-              secondary: '#FFFAEE',
+              primary: 'var(--color-primary-blue)',
+              secondary: 'var(--color-primary-white-2)',
             },
           });
         } else {
           toast.success('Cars are filtered!', {
             duration: 2000,
             style: {
-              border: '1px solid #121417',
+              border: '1px solid var(--color-primary-black)',
               padding: '16px',
-              color: '#3470ff',
+              color: 'var(--color-primary-blue)',
             },
             iconTheme: {
-              primary: '#3470ff',
-              secondary: '#FFFAEE',
+              primary: 'var(--color-primary-blue)',
+              secondary: 'var(--color-primary-white-2)',
             },
           });
         }

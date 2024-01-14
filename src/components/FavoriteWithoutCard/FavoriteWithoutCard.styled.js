@@ -16,12 +16,12 @@ export const WithoutFavoriteHeartSvg = styled(FcLike)`
 width: 200px;
 height: 200px;
 path {
-    fill: #3470ff; /* Червоний колір */
+    fill: var(--color-primary-blue);
   }
 `
 
 export const WithoutFavoriteText = styled.p`
-color: #121417;
+color: var(--color-primary-black);
 font-family: Manrope;
 font-size: 16px;
 font-style: normal;

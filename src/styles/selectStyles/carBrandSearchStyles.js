@@ -13,7 +13,7 @@ export const carBrandSearchStyles = {
     option: (provided, state) => ({
       ...provided,
       backgroundColor: "transparent",
-      color: state.isFocused ? "#121417" : "rgba(18, 20, 23, 0.20)",
+      color: state.isFocused ? "var(--color-primary-black)" : "rgba(18, 20, 23, 0.20)",
       "&:hover": {
         backgroundColor: state.isFocused ? "transparent" : "#transparent",
       },

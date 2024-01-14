@@ -8,8 +8,8 @@ export const Loader = () => {
         visible={true}
         height={80}
         width={80}
-        color="#3470ff"
-        secondaryColor={'#121417'}
+        color={'var(--color-primary-blue)'}
+        secondaryColor={'var(--color-primary-black)'}
         ariaLabel="oval-loading"
         wrapperStyle={{}}
         wrapperClass=""

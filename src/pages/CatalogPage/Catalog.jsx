@@ -138,7 +138,7 @@ const Catalog = () => {
       )}
  <ScrollToTop
           smooth
-          color="#3470ff"
+          color="var(--color-primary-blue)"
           style={{
             padding: '6px 0',
             borderRadius: '12px',

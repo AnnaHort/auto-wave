@@ -39,16 +39,5 @@ export const StyledSwiper = styled(SwiperComponent)`
     &.swiper-pagination-bullet-active {
       background-color: var(--color-primary-blue-2);
     }
-    /* @media (min-width: 768px) {
-      .swiper-slide {
-        width: calc(100% / 2.5); 
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .swiper-slide {
-        width: calc(100% / 10); 
-      }
-    } */
   }
 `;

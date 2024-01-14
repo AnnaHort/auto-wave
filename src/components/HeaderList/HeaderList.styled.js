@@ -38,11 +38,6 @@ export const HeaderListStyled = styled.ul`
     display: flex;
     gap: 80px;
   }
-
-  /* @media (min-width: 1024px) {
-    display: flex;
-    gap: 80px;
-  } */
 `;
 
 const underlineAnimation = keyframes`
@@ -65,12 +60,12 @@ export const LinkStyle = styled(NavLink)`
 
   &:hover,
   &:focus {
-    color: #3470ff;
+    color: var(--color-primary-blue);
     transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   &.active {
-    color: #0b44cd;
+    color: var(--color-primary-blue-2);
     transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1);
 
     &::after {

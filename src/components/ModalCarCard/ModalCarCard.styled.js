@@ -47,14 +47,14 @@ export const ModalImgStyled = styled.img`
 `;
 
 export const ModalTitleStyled = styled.h2`
-  color: #121417;
+  color: var(--color-primary-black);
   font-size: 18px;
   font-weight: 500;
   line-height: 1.33;
   margin-bottom: 8px;
 `;
 export const ModalTitleSpanStyled = styled.span`
-  color: #3470ff;
+  color: var(--color-primary-blue);
   font-size: 18px;
   font-weight: 500;
   line-height: 1.33;
@@ -71,14 +71,14 @@ export const ModalListStyled = styled.ul`
 `;
 
 export const ModalAboutTextStyled = styled.p`
-  color: #121417;
+  color: var(--color-primary-black);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.42;
   margin-bottom: 24px;
 `;
 export const ModalAccessoriesStyled = styled.h3`
-  color: #121417;
+  color: var(--color-primary-black);
   font-size: 14px;
   font-weight: 500;
   line-height: 1.42;
@@ -99,7 +99,7 @@ export const ModalCarConditionsStyled = styled.ul`
 `;
 
 export const ModalConditionsSpanStyled = styled.span`
-  color: #3470ff;
+  color: var(--color-primary-blue);
   font-family: 'Manrope';
   font-size: 12px;
   font-weight: 600;
@@ -108,7 +108,7 @@ export const ModalConditionsSpanStyled = styled.span`
 `;
 export const ModalLinkStyled = styled(NavLink)`
   border-radius: 12px;
-  background: #3470ff;
+  background: var(--color-primary-blue);
   padding: 12px 50px;
   color: var(--color-primary-white);
   font-family: 'Manrope', sans-serif;
@@ -120,7 +120,7 @@ export const ModalLinkStyled = styled(NavLink)`
   font-family: 'Manrope';
 
   &:hover {
-    background: #0b44cd;
+    background: var(--color-primary-blue-2);
     transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 `;

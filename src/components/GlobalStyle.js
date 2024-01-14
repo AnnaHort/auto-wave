@@ -6,9 +6,9 @@ export const GlobalStyle = createGlobalStyle`
 :root {
     --color-primary-black: #121417;  
     --color-primary-white: #ffffff;  
+    --color-primary-white-2: #FFFAEE;
     --color-primary-blue: #3470FF;
     --color-primary-blue-2: #0B44CD;
-
 }
 
 body {

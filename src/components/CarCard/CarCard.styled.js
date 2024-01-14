@@ -65,14 +65,14 @@ export const AboutCarContainer = styled.div`
   margin-bottom: 8px;
 `;
 export const CarMarkStyled = styled.p`
-  color: #121417;
+  color: var(--color-primary-black);
   font-family: 'Manrope', sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
 `;
 export const CarModelStyled = styled.span`
-  color: #3470ff;
+  color: var(--color-primary-blue);
   font-family: 'Manrope', sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -101,7 +101,7 @@ export const CarCardButton = styled.button`
   width: 100%;
   height: 44px;
   padding: 12px 0px;
-  background-color: #3470ff;
+  background-color: var(--color-primary-blue);
   border-radius: 12px;
   color: var(--color-primary-white);
   font-family: 'Manrope', sans-serif;
@@ -111,7 +111,7 @@ export const CarCardButton = styled.button`
   border: none;
 
   &:hover {
-    background: #0b44cd;
+    background: var(--color-primary-blue-2);
     transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 `;
