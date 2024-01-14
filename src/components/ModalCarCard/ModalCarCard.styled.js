@@ -2,7 +2,6 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { keyframes } from 'styled-components';
 
-
 export const MainModalContainerStyled = styled.div`
   position: fixed;
   top: 0;
@@ -27,7 +26,7 @@ const modalIn = keyframes`
 export const ModalContainerStyled = styled.div`
   max-width: 541px;
   border-radius: 24px;
-  background-color: #fff;
+  background-color: var(--color-primary-white);
   padding: 40px;
   top: 50%;
   left: 50%;
@@ -111,7 +110,7 @@ export const ModalLinkStyled = styled(NavLink)`
   border-radius: 12px;
   background: #3470ff;
   padding: 12px 50px;
-  color: #fff;
+  color: var(--color-primary-white);
   font-family: 'Manrope', sans-serif;
   font-size: 14px;
   font-weight: 600;

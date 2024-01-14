@@ -1,7 +1,16 @@
-import { createGlobalStyle } from "styled-components";
-import "modern-normalize";
+import { createGlobalStyle } from 'styled-components';
+import 'modern-normalize';
 
 export const GlobalStyle = createGlobalStyle`
+
+:root {
+    --color-primary-black: #121417;  
+    --color-primary-white: #ffffff;  
+    --color-primary-blue: #3470FF;
+    --color-primary-blue-2: #0B44CD;
+
+}
+
 body {
     overflow-y: scroll; 
     margin: 0;  
@@ -44,8 +53,16 @@ button {
 }
 
 #root{
-    padding-left: 60px;
+    padding-left: 10px;
+    padding-right: 10px;
+    @media (min-width: 768px) {
+        padding-left: 30px;
+    padding-right: 30px;
+    }
+    @media (min-width: 1024px) {
+        padding-left: 60px;
     padding-right: 60px;
+    }
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

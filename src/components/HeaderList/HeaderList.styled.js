@@ -1,27 +1,49 @@
-import { NavLink } from "react-router-dom";
-import styled, {keyframes} from "styled-components";
+import { NavLink } from 'react-router-dom';
+import styled, { keyframes } from 'styled-components';
 
 export const NavStyled = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-  padding: 30px 60px;
+  padding: 12px 16px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  margin-bottom: 60px;
+  margin-bottom: 28px;
+  @media (min-width: 768px) {
+    padding: 20px 40px;
+    margin-bottom: 40px;
+  }
+  @media (min-width: 1024px) {
+    padding: 30px 60px;
+    margin-bottom: 60px;
+  }
 `;
 
 export const LogoContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  @media (min-width: 1024px) {
+  }
 `;
 
 export const HeaderListStyled = styled.ul`
-  display: flex;
-  gap: 80px;
-`;
+  display: none;
+  @media (min-width: 768px) {
+    display: flex;
+    gap: 80px;
+  }
 
+  /* @media (min-width: 1024px) {
+    display: flex;
+    gap: 80px;
+  } */
+`;
 
 const underlineAnimation = keyframes`
   from {
@@ -48,7 +70,7 @@ export const LinkStyle = styled(NavLink)`
   }
 
   &.active {
-    color: #0B44CD;
+    color: #0b44cd;
     transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1);
 
     &::after {
@@ -63,4 +85,3 @@ export const LinkStyle = styled(NavLink)`
     }
   }
 `;
-

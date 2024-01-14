@@ -15,7 +15,7 @@ from{
 to{
   opacity: 1;
 }
-`
+`;
 
 export const CardContainerStyled = styled.div`
   max-width: 274px;
@@ -25,7 +25,7 @@ export const CardContainerStyled = styled.div`
   height: 450px;
   flex-direction: column;
   justify-content: space-between;
-  animation: ${cardAnimation} 0.5s cubic-bezier(0.39, 0.4, 0.77, 0.74);;
+  animation: ${cardAnimation} 0.5s cubic-bezier(0.39, 0.4, 0.77, 0.74);
 `;
 
 export const CardImgContainer = styled.div`
@@ -43,9 +43,13 @@ export const CardImgContainer = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(0deg, rgba(255,255,255,0) 85%, rgba(18,20,23,0.4990371148459384) 100%);
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0) 85%,
+      rgba(18, 20, 23, 0.4990371148459384) 100%
+    );
   }
-`
+`;
 
 export const CardImgStyled = styled.img`
   width: 100%;
@@ -99,7 +103,7 @@ export const CarCardButton = styled.button`
   padding: 12px 0px;
   background-color: #3470ff;
   border-radius: 12px;
-  color: #fff;
+  color: var(--color-primary-white);
   font-family: 'Manrope', sans-serif;
   font-size: 14px;
   font-weight: 600;

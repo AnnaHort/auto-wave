@@ -81,7 +81,7 @@ export const FilterButton = styled.button`
   border-radius: 12px;
   background: #3470ff;
   border: none;
-  color: #fff;
+  color: var(--color-primary-white);
   font-family: 'Manrope', sans-serif;
   &:hover {
     background: #0b44cd;
