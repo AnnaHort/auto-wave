@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   AboutUsCalendarSvg,
-  AboutUsListContainer,
   AboutUsMoneySvg,
   AboutUsSearchSvg,
   ListItemStyled,
@@ -13,12 +12,13 @@ import {
 const AboutUsComponent = () => {
   return (
     <>
+
       <ListStyled>
         <ListItemStyled>
-          <AboutUsListContainer>
+
             <AboutUsCalendarSvg />
             <TitleTextStyled>Flexible Rental</TitleTextStyled>
-          </AboutUsListContainer>
+
 
           <TextStyled>
             Cancel or change most bookings for free up to 48 hours before

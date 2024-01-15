@@ -14,44 +14,22 @@ export const ListItemStyled = styled.li`
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
   text-align: center;
   padding: 36px 44px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  &:hover{
-    transform: rotateY(180deg);
-  }
 `;
 
-export const AboutUsListContainer = styled.div`
-  /* position: absolute; */
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-`
 
 export const TitleTextStyled = styled.h3`
   color: var(--color-primary-black);
-  text-transform: uppercase;
 `;
 
 export const TextStyled = styled.p`
-
-  padding: 28px;
-  border-radius: 15px;
-  background-color: white;
-  color: var(--black);
-  transform: rotateY(180deg);
-  overflow: hidden;
+  color: var(--color-primary-black);
 `;
 
 export const AboutUsCalendarSvg = styled(RxCalendar)`
