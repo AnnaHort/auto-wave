@@ -5,7 +5,7 @@ export const ListStyle = styled.ul`
   position: relative;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 
   @media (min-width: 768px) {
     margin-bottom: 60px;
