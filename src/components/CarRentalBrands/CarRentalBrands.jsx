@@ -25,7 +25,7 @@ const CarRentalBrands = () => {
       slidesPerView: 3,
     },
     1024: {
-      slidesPerView: 6,
+      slidesPerView: 5,
     },
   };
 

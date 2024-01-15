@@ -12,13 +12,10 @@ import {
 const AboutUsComponent = () => {
   return (
     <>
-
       <ListStyled>
         <ListItemStyled>
-
-            <AboutUsCalendarSvg />
-            <TitleTextStyled>Flexible Rental</TitleTextStyled>
-
+          <AboutUsCalendarSvg />
+          <TitleTextStyled>Flexible Rental</TitleTextStyled>
 
           <TextStyled>
             Cancel or change most bookings for free up to 48 hours before

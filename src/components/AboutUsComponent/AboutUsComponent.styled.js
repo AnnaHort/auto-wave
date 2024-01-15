@@ -8,9 +8,20 @@ export const ListStyled = styled.ul`
   flex-direction: column;
   gap: 20px;
   margin-bottom: 40px;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  @media (min-width: 1024px) {
+    gap: 60px;
+  }
 `;
 
 export const ListItemStyled = styled.li`
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 300px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -20,9 +31,11 @@ export const ListItemStyled = styled.li`
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-
+  @media (min-width: 768px) {
+    margin-right: 0;
+    margin-left: 0;
+  }
 `;
-
 
 export const TitleTextStyled = styled.h3`
   color: var(--color-primary-black);
