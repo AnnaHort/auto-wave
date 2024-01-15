@@ -349,7 +349,7 @@ const CarFilter = () => {
           type="button"
           onClick={handleReset}
         >
-          Reset all filters
+          Reset
         </ResetButton>
       </ButtonContainer>
     </FilterFormStyled>
