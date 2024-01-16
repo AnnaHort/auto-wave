@@ -7,12 +7,16 @@ import {
   HeaderLogoContainer,
   BurgerSvg,
 } from './HeaderList.styled';
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 import { GiCarWheel } from 'react-icons/gi';
 import { Toaster } from 'react-hot-toast';
 import { Loader } from 'components/Loader/Loader';
+import { createPortal } from 'react-dom';
+import { BurgerModal } from 'components/BurgerModal/BurgerModal';
 
 const HeaderList = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       <NavStyled>
@@ -22,7 +26,8 @@ const HeaderList = () => {
             <LinkStyle to="/">AutoWave</LinkStyle>
           </HeaderLogoContainer>
 
-          <BurgerSvg size={24}/>
+          <BurgerSvg size={24} onClick={() => setIsOpen(true)} />
+          <BurgerModal open={isOpen} onClose={() => setIsOpen(false)} />
         </LogoContainer>
 
         <HeaderListStyled>
