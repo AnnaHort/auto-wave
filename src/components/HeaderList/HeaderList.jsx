@@ -4,6 +4,8 @@ import {
   HeaderListStyled,
   LinkStyle,
   LogoContainer,
+  HeaderLogoContainer,
+  BurgerSvg,
 } from './HeaderList.styled';
 import { Suspense } from 'react';
 import { GiCarWheel } from 'react-icons/gi';
@@ -15,8 +17,12 @@ const HeaderList = () => {
     <>
       <NavStyled>
         <LogoContainer>
-          <GiCarWheel size={32} />
-          <LinkStyle to="/">AutoWave</LinkStyle>
+          <HeaderLogoContainer>
+            <GiCarWheel size={32} />
+            <LinkStyle to="/">AutoWave</LinkStyle>
+          </HeaderLogoContainer>
+
+          <BurgerSvg size={24}/>
         </LogoContainer>
 
         <HeaderListStyled>

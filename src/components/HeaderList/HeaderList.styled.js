@@ -1,3 +1,4 @@
+import { RxHamburgerMenu } from 'react-icons/rx';
 import { NavLink } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 
@@ -6,15 +7,15 @@ export const NavStyled = styled.nav`
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-  padding: 12px 16px;
+  padding: 12px 0px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   margin-bottom: 28px;
   @media (min-width: 768px) {
-    padding: 20px 40px;
+    padding: 20px 0px;
     margin-bottom: 40px;
   }
   @media (min-width: 1024px) {
-    padding: 30px 60px;
+    padding: 30px 0px;
     margin-bottom: 60px;
   }
 `;
@@ -22,19 +23,37 @@ export const NavStyled = styled.nav`
 export const LogoContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 12px;
+  min-width: 100%;
+  justify-content: space-between;
+  margin-right: auto;
+  margin-left: auto;
   @media (min-width: 768px) {
-    display: flex;
-    align-items: center;
-    gap: 12px;
   }
   @media (min-width: 1024px) {
+    min-width: auto;
+    margin-right: 0;
+    margin-left: 0;
+  }
+`;
+
+export const HeaderLogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 4px;
+`;
+
+export const BurgerSvg = styled(RxHamburgerMenu)`
+  @media (min-width: 1024px) {
+    display: none;
   }
 `;
 
 export const HeaderListStyled = styled.ul`
   display: none;
   @media (min-width: 768px) {
+    display: none;
+  }
+  @media (min-width: 1024px) {
     display: flex;
     gap: 80px;
   }
