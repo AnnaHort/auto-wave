@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Link } from 'react-router-dom';
 import { BurgerModalCloseBtnContainer, BurgerModalContainer, BurgerModalList, BurgerModalListEl, PortalContainer } from './BurgerModal.styled';
 import { GiCarWheel } from 'react-icons/gi';
 import { IoMdClose } from 'react-icons/io';
