@@ -7,7 +7,7 @@ import {
   HeaderLogoContainer,
   BurgerSvg,
 } from './HeaderList.styled';
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { GiCarWheel } from 'react-icons/gi';
 import { Toaster } from 'react-hot-toast';
 import { Loader } from 'components/Loader/Loader';
@@ -15,6 +15,18 @@ import { BurgerModal } from 'components/BurgerModal/BurgerModal';
 
 const HeaderList = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const handleKeyDown = e => {
+      if (e.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);;
 
   return (
     <>

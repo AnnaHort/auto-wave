@@ -6,11 +6,18 @@ import { IoMdClose } from 'react-icons/io';
 import { HeaderLogoContainer, LinkStyle } from 'components/HeaderList/HeaderList.styled';
 
 export const BurgerModal = ({ open, onClose }) => {
+
+  const handleModalClose = e => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
   if (!open) return null;
 
   return ReactDOM.createPortal(
-    <PortalContainer>
-      <BurgerModalContainer>
+    <PortalContainer onClick={handleModalClose}>
+      <BurgerModalContainer >
         <BurgerModalCloseBtnContainer>
           <HeaderLogoContainer>
             <GiCarWheel size={32} />

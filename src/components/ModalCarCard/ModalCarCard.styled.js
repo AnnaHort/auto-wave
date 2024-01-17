@@ -25,7 +25,7 @@ const modalIn = keyframes`
 
 export const ModalContainerStyled = styled.div`
   max-height: 80vh;
-  max-width: 541px;
+  min-width: 280px;
   border-radius: 24px;
   background-color: var(--color-primary-white);
   padding: 40px;
@@ -37,16 +37,6 @@ export const ModalContainerStyled = styled.div`
   animation: ${modalIn} 0.3s cubic-bezier(0.39, 0.4, 0.77, 0.74);
   @media (min-width: 768px) {
     max-height: 100vh;
-    /* max-width: 541px;
-    border-radius: 24px;
-    background-color: var(--color-primary-white);
-    padding: 40px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    z-index: 2;
-    animation: ${modalIn} 0.3s cubic-bezier(0.39, 0.4, 0.77, 0.74); */
   }
 `;
 
@@ -61,11 +51,6 @@ export const ModalImgStyled = styled.img`
   @media (min-width: 768px) {
     width: 469px;
     max-height: 287px;
-    /* margin-right: auto;
-    margin-left: auto;
-    border-radius: 24px;
-    margin-bottom: 14px;
-    object-fit: cover; */
   }
 `;
 
@@ -104,8 +89,6 @@ export const ModalListStyled = styled.ul`
   font-weight: 400;
   line-height: 1.5;
   margin-bottom: 14px;
-  /* max-height: 80vh; 
-  overflow-y: auto; */
 `;
 
 export const ModalAboutTextStyled = styled.p`
@@ -132,7 +115,7 @@ export const ModalCarConditionsStyled = styled.ul`
   line-height: 1.5;
   margin-bottom: 31px;
   li {
-    padding: 12px 36px 12px 0; // Задаємо відступи всередині кожного елемента
+    padding: 12px 36px 12px 0;
   }
 `;
 
