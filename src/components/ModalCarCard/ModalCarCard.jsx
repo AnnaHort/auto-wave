@@ -1,5 +1,6 @@
 import {
   MainModalContainerStyled,
+  MobileModalContainer,
   ModalAboutTextStyled,
   ModalAccessoriesStyled,
   ModalCarConditionsStyled,
@@ -54,6 +55,11 @@ const ModalWindowCar = ({ car, onClose }) => {
           <ModalTitleSpanStyled> {model} </ModalTitleSpanStyled>
           {year}
         </ModalTitleStyled>
+
+
+        <MobileModalContainer 
+        // style={{maxHeight:"400px",overflowY: 'auto', width:"210px"}}
+        >
         <ModalListStyled>
           <InfoListElStyled>
             <p>{town}</p>
@@ -151,6 +157,8 @@ const ModalWindowCar = ({ car, onClose }) => {
             </p>
           </li>
         </ModalCarConditionsStyled>
+        </MobileModalContainer>
+
 
         <ModalLinkStyled to={'tel:+380730000000'}>Rental Car</ModalLinkStyled>
       </ModalContainerStyled>

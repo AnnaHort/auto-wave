@@ -24,6 +24,7 @@ const modalIn = keyframes`
 `;
 
 export const ModalContainerStyled = styled.div`
+  max-height: 80vh;
   max-width: 541px;
   border-radius: 24px;
   background-color: var(--color-primary-white);
@@ -34,16 +35,38 @@ export const ModalContainerStyled = styled.div`
   position: absolute;
   z-index: 2;
   animation: ${modalIn} 0.3s cubic-bezier(0.39, 0.4, 0.77, 0.74);
+  @media (min-width: 768px) {
+    max-height: 100vh;
+    /* max-width: 541px;
+    border-radius: 24px;
+    background-color: var(--color-primary-white);
+    padding: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    z-index: 2;
+    animation: ${modalIn} 0.3s cubic-bezier(0.39, 0.4, 0.77, 0.74); */
+  }
 `;
 
 export const ModalImgStyled = styled.img`
-  width: 469px;
-  max-height: 287px;
+  width: 200px;
+  max-height: 200px;
   margin-right: auto;
   margin-left: auto;
   border-radius: 24px;
   margin-bottom: 14px;
   object-fit: cover;
+  @media (min-width: 768px) {
+    width: 469px;
+    max-height: 287px;
+    /* margin-right: auto;
+    margin-left: auto;
+    border-radius: 24px;
+    margin-bottom: 14px;
+    object-fit: cover; */
+  }
 `;
 
 export const ModalTitleStyled = styled.h2`
@@ -53,12 +76,25 @@ export const ModalTitleStyled = styled.h2`
   line-height: 1.33;
   margin-bottom: 8px;
 `;
+
 export const ModalTitleSpanStyled = styled.span`
   color: var(--color-primary-blue);
   font-size: 18px;
   font-weight: 500;
   line-height: 1.33;
 `;
+
+export const MobileModalContainer = styled.div`
+  max-height: 300px;
+  overflow-y: auto;
+  width: 210px;
+  @media (min-width: 768px) {
+    overflow-y: hidden;
+    max-height: auto;
+    width: 100%;
+  }
+`;
+
 export const ModalListStyled = styled.ul`
   display: flex;
   flex-wrap: wrap;
@@ -68,6 +104,8 @@ export const ModalListStyled = styled.ul`
   font-weight: 400;
   line-height: 1.5;
   margin-bottom: 14px;
+  /* max-height: 80vh; 
+  overflow-y: auto; */
 `;
 
 export const ModalAboutTextStyled = styled.p`
