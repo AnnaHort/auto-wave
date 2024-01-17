@@ -128,7 +128,8 @@ export const MileageContainer = styled.div`
   max-width: 320px;
 `;
 export const FilterButton = styled.button`
-  padding: 14px 44px;
+  width: 100%;
+  padding: 14px 24px;
   border-radius: 12px;
   background: var(--color-primary-blue);
   border: none;
@@ -138,7 +139,11 @@ export const FilterButton = styled.button`
     background: var(--color-primary-blue-2);
     transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
+  @media (min-width: 768px) {
+    width: 218px;
+  }
 `;
+
 const slideIn = keyframes`
   from {
     left: 20px;
@@ -175,7 +180,8 @@ const resetIn = keyframes`
   }
 `;
 export const ResetButton = styled.button`
-  padding: 14px 44px;
+  width: 100%;
+  padding: 14px 24px;
   border-radius: 12px;
   background: var(--color-primary-blue);
   border: none;
@@ -184,6 +190,9 @@ export const ResetButton = styled.button`
   &:hover {
     background: var(--color-primary-blue-2);
     transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  @media (min-width: 768px) {
+    width: 218px;
   }
   @media (min-width: 1024px) {
     position: absolute;

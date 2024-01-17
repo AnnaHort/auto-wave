@@ -16,6 +16,9 @@ export const BurgerModalContainer = styled.div`
   width: 100%;
   background-color: var(--color-primary-white);
   padding: 20px;
+  @media (min-width: 768px) {
+    padding: 30px;
+  }
 `;
 
 export const BurgerModalCloseBtnContainer = styled.div`
