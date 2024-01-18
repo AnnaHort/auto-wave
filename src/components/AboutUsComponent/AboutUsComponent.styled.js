@@ -21,7 +21,8 @@ export const ListStyled = styled.ul`
 export const ListItemStyled = styled.li`
   margin-right: auto;
   margin-left: auto;
-  max-width: 300px;
+  height: 240px;
+  width: 260px;
   display: flex;
   align-items: center;
   flex-direction: column;

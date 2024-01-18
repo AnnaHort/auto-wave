@@ -12,7 +12,7 @@ const Home = () => {
       <HomeContainer>
         <HomeHeroComponent />
         <TextStyle>
-          AutoWave gives you access to the largest car rental brands.
+          AutoWave gives you access to the best car rental brands.
         </TextStyle>
         <CarRentalBrands />
         <AboutUsComponent />

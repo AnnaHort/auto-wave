@@ -70,13 +70,16 @@ export const ModalTitleSpanStyled = styled.span`
 `;
 
 export const MobileModalContainer = styled.div`
+  width: 100%;
   max-height: 300px;
-  overflow-y: auto;
-  width: 210px;
+  overflow-y: scroll;
+  margin-bottom: 20px;
   @media (min-width: 768px) {
+    width: 541px;
     overflow-y: hidden;
     max-height: auto;
-    width: 100%;
+    /* width: 100%; */
+    margin-bottom: 0px;
   }
 `;
 
@@ -139,7 +142,12 @@ export const ModalLinkStyled = styled(NavLink)`
   border: none;
   text-decoration: none;
   font-family: 'Manrope';
-
+  display: block;
+  text-align: center;
+  @media (min-width: 768px) {
+    display: inline;
+  text-align: start;
+  }
   &:hover {
     background: var(--color-primary-blue-2);
     transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);

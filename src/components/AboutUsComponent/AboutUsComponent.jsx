@@ -5,7 +5,7 @@ import {
   AboutUsSearchSvg,
   ListItemStyled,
   ListStyled,
-  TextStyled,
+  // TextStyled,
   TitleTextStyled,
 } from './AboutUsComponent.styled';
 
@@ -15,19 +15,19 @@ const AboutUsComponent = () => {
       <ListStyled>
         <ListItemStyled>
           <AboutUsCalendarSvg />
-          <TitleTextStyled>Flexible Rental</TitleTextStyled>
+          <TitleTextStyled>Flexible & comfortable Rental</TitleTextStyled>
 
-          <TextStyled>
+          {/* <TextStyled>
             Cancel or change most bookings for free up to 48 hours before
             pickup.
-          </TextStyled>
+          </TextStyled> */}
         </ListItemStyled>
 
         <ListItemStyled>
           <AboutUsSearchSvg />
 
           <TitleTextStyled>No Hidden Fees</TitleTextStyled>
-          <TextStyled>Know exactly what you're paying for.</TextStyled>
+          {/* <TextStyled>Know exactly what you're paying for.</TextStyled> */}
         </ListItemStyled>
 
         <ListItemStyled>
@@ -35,9 +35,9 @@ const AboutUsComponent = () => {
 
           <TitleTextStyled>Price Match Guarantee</TitleTextStyled>
 
-          <TextStyled>
+          {/* <TextStyled>
             Found the same offer for a lower price? We'll refund the difference.
-          </TextStyled>
+          </TextStyled> */}
         </ListItemStyled>
       </ListStyled>
     </>

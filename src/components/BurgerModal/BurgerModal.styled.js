@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const PortalContainer = styled.div`
   position: fixed;
@@ -9,6 +9,18 @@ export const PortalContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 1;
 `;
+
+const modalIn = keyframes`
+    from {
+    left: -100%;
+    opacity: 0;
+  }
+  to {
+    left: 1;
+     opacity: 1;
+  }
+`;
+
 export const BurgerModalContainer = styled.div`
   position: fixed;
   top: 0;
@@ -16,6 +28,8 @@ export const BurgerModalContainer = styled.div`
   width: 100%;
   background-color: var(--color-primary-white);
   padding: 20px;
+  animation: ${modalIn} 0.3s cubic-bezier(0.39, 0.4, 0.77, 0.74);
+
   @media (min-width: 768px) {
     padding: 30px;
   }
