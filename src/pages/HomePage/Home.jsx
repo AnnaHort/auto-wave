@@ -21,7 +21,7 @@ const Home = () => {
           color="var(--color-primary-blue)"
           style={{
             scrollBehavior: 'smooth',
-            webkitTapHighlightColor: 'rgba(0,0,0,0)',
+            WebkitTapHighlightColor : 'rgba(0,0,0,0)',
             userSelect: 'none',
             padding: '6px 0',
             borderRadius: '12px',
