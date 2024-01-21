@@ -65,3 +65,5 @@ export const AboutUsMoneySvg = styled(TbPigMoney)`
     height: 60px;
   }
 `;
+
+
