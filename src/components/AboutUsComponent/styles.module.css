@@ -1,42 +1,52 @@
 .c {
-    position: absolute;
-    max-width: 500px;
-    max-height: 500px;
-    width: 350px;
-    height: 200px;
-    cursor: pointer;
-    will-change: transform, opacity;
-  }
-  
-  .front,
-  .back {
-    background-size: cover;
-    margin-right: auto;
-    margin-left: auto;
-    height: 240px;
-    width: 260px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
-    padding: 36px 44px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  
-  .back {
-    background-color: lightblue;
-  }
-  
-  .front {
-    background-color: lightblue;
-  }
-  
-  .container {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    justify-content: center;
-  }
+  position: absolute;
+  max-width: 500px;
+  max-height: 500px;
+  width: 350px;
+  height: 200px;
+  cursor: pointer;
+  will-change: transform, opacity;
+}
+
+.front,
+.back {
+  background-size: cover;
+  margin-right: auto;
+  margin-left: auto;
+  height: 240px;
+  width: 260px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  padding: 36px 44px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.back {
+  background-color: var(--color-primary-white);
+}
+
+.front {
+  background-color: var(--color-primary-white);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+}
+
+.animatedSearchContainer {
+  position: absolute;
+  max-width: 500px;
+  max-height: 500px;
+  width: 350px;
+  height: 200px;
+  cursor: pointer;
+  will-change: transformSearch, opacitySearch;
+}
