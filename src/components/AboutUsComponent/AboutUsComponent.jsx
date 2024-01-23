@@ -39,6 +39,8 @@ const AboutUsComponent = () => {
         <li
           onClick={() => setFlipped(state => !state)}
           style={{ position: 'relative', width: '260px', height: '240px' }}
+          onMouseEnter={() => setFlipped(true)}
+          onMouseLeave={() => setFlipped(false)}
         >
           <a.div
             className={`${styles.c} ${styles.back}`}
@@ -66,6 +68,8 @@ const AboutUsComponent = () => {
         <li
           onClick={() => setFlippedSearch(state => !state)}
           style={{ position: 'relative', width: '260px', height: '240px' }}
+          onMouseEnter={() => setFlippedSearch(true)}
+          onMouseLeave={() => setFlippedSearch(false)}
         >
           <a.div
             className={`${styles.c} ${styles.back}`}
@@ -92,6 +96,8 @@ const AboutUsComponent = () => {
         <li
           onClick={() => setFlippedPrice(state => !state)}
           style={{ position: 'relative', width: '260px', height: '240px' }}
+          onMouseEnter={() => setFlippedPrice(true)}
+          onMouseLeave={() => setFlippedPrice(false)}
         >
           <a.div
             className={`${styles.c} ${styles.back}`}
@@ -102,7 +108,7 @@ const AboutUsComponent = () => {
           >
             <AboutUsMoneySvg />
 
-            <TitleTextStyled>No Hidden Fees</TitleTextStyled>
+            <TitleTextStyled>Price match guarantee</TitleTextStyled>
           </a.div>
           <a.div
             className={`${styles.c} ${styles.front}`}

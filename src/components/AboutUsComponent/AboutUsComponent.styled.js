@@ -8,6 +8,7 @@ export const ListStyled = styled.ul`
   flex-direction: column;
   gap: 20px;
   margin-bottom: 40px;
+  align-items: center;
   @media (min-width: 768px) {
     flex-direction: row;
     flex-wrap: wrap;
@@ -19,6 +20,7 @@ export const ListStyled = styled.ul`
 `;
 
 export const ListItemStyled = styled.li`
+  -webkit-tap-highlight-color: 'rgba(0,0,0,0)';
   margin-right: auto;
   margin-left: auto;
   height: 240px;
@@ -44,24 +46,26 @@ export const TitleTextStyled = styled.h3`
 
 export const TextStyled = styled.p`
   color: var(--color-primary-black);
+  font-size: 20px;
+  line-height: 1.25;
 `;
 
 export const AboutUsCalendarSvg = styled(RxCalendar)`
   color: var(--color-primary-blue);
-  height: 60px;
-  width: 60px;
+  height: 50%;
+  width: 50%;
 `;
 export const AboutUsSearchSvg = styled(FaSearch)`
   color: var(--color-primary-blue);
-  height: 60px;
-  width: 60px;
+  height: 50%;
+  width: 50%;
 `;
 export const AboutUsMoneySvg = styled(TbPigMoney)`
   color: var(--color-primary-blue);
-  height: 60px;
-  width: 60px;
+  height: 50%;
+  width: 50%;
   & > path {
-    width: 60px;
-    height: 60px;
+    width: 50%;
+    height: 50%;
   }
 `;
