@@ -56,7 +56,6 @@ export const BurgerModalListEl = styled.li`
     border-radius: 50%;
     background-color: var(--color-primary-blue);
     margin-right: 5px;
-
     position: absolute;
     top: 50%;
     transform: translateY(-50%);

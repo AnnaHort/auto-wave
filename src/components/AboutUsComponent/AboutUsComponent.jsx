@@ -4,6 +4,7 @@ import {
   AboutUsCalendarSvg,
   AboutUsMoneySvg,
   AboutUsSearchSvg,
+  ListElementStyled,
   ListStyled,
   TextStyled,
   TitleTextStyled,
@@ -36,9 +37,8 @@ const AboutUsComponent = () => {
   return (
     <>
       <ListStyled>
-        <li
+        <ListElementStyled
           onClick={() => setFlipped(state => !state)}
-          style={{ position: 'relative', width: '260px', height: '240px' }}
           onMouseEnter={() => setFlipped(true)}
           onMouseLeave={() => setFlipped(false)}
         >
@@ -63,11 +63,10 @@ const AboutUsComponent = () => {
               pickup.
             </TextStyled>
           </a.div>
-        </li>
+        </ListElementStyled>
 
-        <li
+        <ListElementStyled
           onClick={() => setFlippedSearch(state => !state)}
-          style={{ position: 'relative', width: '260px', height: '240px' }}
           onMouseEnter={() => setFlippedSearch(true)}
           onMouseLeave={() => setFlippedSearch(false)}
         >
@@ -91,11 +90,10 @@ const AboutUsComponent = () => {
           >
             <TextStyled>Know exactly what you're paying for.</TextStyled>
           </a.div>
-        </li>
+        </ListElementStyled>
 
-        <li
+        <ListElementStyled
           onClick={() => setFlippedPrice(state => !state)}
-          style={{ position: 'relative', width: '260px', height: '240px' }}
           onMouseEnter={() => setFlippedPrice(true)}
           onMouseLeave={() => setFlippedPrice(false)}
         >
@@ -123,7 +121,7 @@ const AboutUsComponent = () => {
               difference.
             </TextStyled>
           </a.div>
-        </li>
+        </ListElementStyled>
       </ListStyled>
     </>
   );

@@ -17,6 +17,11 @@ body {
     width: 100%;
     box-sizing: border-box;
     user-select: none;
+    @media (min-width: 1024px) {
+     max-width: 80em ;
+     margin-right: auto;
+     margin-left: auto;
+    }
 }
 
 h1,

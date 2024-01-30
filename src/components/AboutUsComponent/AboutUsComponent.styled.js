@@ -19,26 +19,39 @@ export const ListStyled = styled.ul`
   }
 `;
 
-export const ListItemStyled = styled.li`
-  -webkit-tap-highlight-color: 'rgba(0,0,0,0)';
-  margin-right: auto;
-  margin-left: auto;
-  height: 240px;
+export const ListElementStyled = styled.li`
+position: relative;
+width: 260px;
+height: 240px;
+@media (min-width: 768px) {
+  width: 200px;
+}
+@media (min-width: 1024px) {
   width: 260px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 20px;
-  text-align: center;
-  padding: 36px 44px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  @media (min-width: 768px) {
-    margin-right: 0;
-    margin-left: 0;
-  }
-`;
+}
+`
+
+// export const ListItemStyled = styled.li`
+//   -webkit-tap-highlight-color: 'rgba(0,0,0,0)';
+//   margin-right: auto;
+//   margin-left: auto;
+//   height: 240px;
+//   width: 260px;
+//   display: flex;
+//   align-items: center;
+//   flex-direction: column;
+//   gap: 20px;
+//   text-align: center;
+//   padding: 36px 44px;
+//   border: 1px solid rgba(0, 0, 0, 0.2);
+//   border-radius: 10px;
+//   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+//   @media (min-width: 768px) {
+
+//     margin-right: 0;
+//     margin-left: 0;
+//   }
+// `;
 
 export const TitleTextStyled = styled.h3`
   color: var(--color-primary-black);

@@ -50,3 +50,18 @@
   cursor: pointer;
   will-change: transformSearch, opacitySearch;
 }
+
+@media (min-width: 768px) {
+  .front,
+  .back {
+    width: 200px;
+  padding: 28px 36px;
+
+  }
+}
+@media (min-width: 1024px) {
+  .front,
+  .back {
+    width: 260px;
+  }
+}
