@@ -2,14 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getAllCarsInfo } from '../../redux/operations';
 import {
+    OurPropositionContainer,
+  OurPropositionTitle,
+  TopPropositionsContainerCarInfo,
   TopPropositionsImg,
-  TopPropositionsImgContainer,
   TopPropositionsList,
 } from './TopPropositions.styled';
 
 const TopPropositions = () => {
   const dispatch = useDispatch();
   const [carsData, setCarsData] = useState([]);
+  const [randomCars, setRandomCars] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,7 +20,6 @@ const TopPropositions = () => {
         const response = await dispatch(getAllCarsInfo());
         const carsData = response.payload;
         setCarsData(carsData);
-        console.log(carsData);
       } catch (error) {
         console.error('Error fetching carInfo:', error);
       }
@@ -25,32 +27,39 @@ const TopPropositions = () => {
     fetchData();
   }, [dispatch]);
 
+  useEffect(() => {
+    if (carsData.length > 0 && randomCars.length < 3) {
+      function getRandomObjects(arr, count) {
+        const shuffledArray = arr.sort(() => Math.random() - 0.5);
+        return shuffledArray.slice(0, count);
+      }
+      const randomObjects = getRandomObjects(carsData, 3);
+      setRandomCars(randomObjects);
+    }
+  }, [carsData, randomCars]);
+
   return (
-    <div>
-      <h3>TOP PROPOSITION</h3>
+    <OurPropositionContainer>
+      <OurPropositionTitle>TOP PROPOSITION</OurPropositionTitle>
       <TopPropositionsList>
-        {carsData.map((item, index) => {
-          const {
-            id,
-            img,
-            make,
-            model,
-            address,
-          } = item;
+        {randomCars.map((item, index) => {
+          const { id, img, make, model, address } = item;
           return (
             <li key={id}>
-              <TopPropositionsImgContainer>
+              <div>
                 <TopPropositionsImg src={img} alt={`${make}`} />
-                <h4>
-                  {make} <span>{model}</span>
-                </h4>
-                <p>{address}</p>
-              </TopPropositionsImgContainer>
+                <TopPropositionsContainerCarInfo>
+                  <h4>
+                    {make} <span>{model}</span>
+                  </h4>
+                  <p>{address}</p>
+                </TopPropositionsContainerCarInfo>
+              </div>
             </li>
           );
         })}
       </TopPropositionsList>
-    </div>
+    </OurPropositionContainer>
   );
 };
 

@@ -22,7 +22,6 @@ export const FrequentlyQestions = () => {
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1-content"
           id="panel1-header"
-          style={{fontSize:"20px"}}
         >
           What do I need to rent a car?
         </AccordionSummary>

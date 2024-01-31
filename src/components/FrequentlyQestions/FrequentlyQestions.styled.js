@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const FrequentlyQestionsContainer = styled.div`
+margin-bottom: 40px;
 @media (min-width: 768px) {
     width: 50%;
 }`;
@@ -9,6 +10,7 @@ export const FrequentlyQestionsTitle = styled.h3`
   margin-bottom: 16px;
   text-align: center;
   font-family: 'Manrope', sans-serif;
+text-transform: uppercase;
 `;
 
 export const FrequentlyQestionsList = styled.ul`
