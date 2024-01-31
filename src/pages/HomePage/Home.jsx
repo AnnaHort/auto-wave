@@ -5,6 +5,7 @@ import AboutUsComponent from '../../components/AboutUsComponent/AboutUsComponent
 import HomeHeroComponent from '../../components/HomeHeroComponent/HomeHeroComponent';
 import ScrollToTop from 'react-scroll-to-top';
 import FrequentlyQestions from 'components/FrequentlyQestions/FrequentlyQestions';
+import TopPropositions from 'components/TopPropositions/TopPropositions';
 
 const Home = () => {
   const [isHovered, setHovered] = useState(false);
@@ -18,6 +19,7 @@ const Home = () => {
         <CarRentalBrands />
         <AboutUsComponent />
         <FrequentlyQestions/>
+        <TopPropositions/>
         <ScrollToTop
           smooth
           color="var(--color-primary-blue)"
