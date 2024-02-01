@@ -5,6 +5,7 @@ export const OurPropositionContainer = styled.div`
   margin-bottom: 40px;
   @media (min-width: 768px) {
     width: 50%;
+    margin-bottom: 0px;
   }
 `;
 export const OurPropositionTitle = styled.h3`
@@ -22,8 +23,7 @@ export const TopPropositionsList = styled.ul`
   }
 `;
 
-export const TopPropositionsListEl = styled.li`
-`;
+export const TopPropositionsListEl = styled.li``;
 export const TopPropositionsImgContainer = styled.div``;
 export const TopPropositionsContainerCarInfo = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.2);

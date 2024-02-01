@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {
   HomeContainer,
   HomePageAcordeonContainer,
+  SharedContainer,
   TextStyle,
 } from './Home.Styled';
 import CarRentalBrands from '../../components/CarRentalBrands/CarRentalBrands';
@@ -11,6 +12,7 @@ import ScrollToTop from 'react-scroll-to-top';
 import FrequentlyQestions from 'components/FrequentlyQestions/FrequentlyQestions';
 import TopPropositions from 'components/TopPropositions/TopPropositions';
 import OurLocation from 'components/OurLocation/OurLocation';
+import CleanCars from 'components/CleanCars/CleanCars';
 
 const Home = () => {
   const [isHovered, setHovered] = useState(false);
@@ -25,8 +27,11 @@ const Home = () => {
         <AboutUsComponent />
 
         <HomePageAcordeonContainer>
-          <FrequentlyQestions />
           <TopPropositions />
+          <SharedContainer>
+            <FrequentlyQestions />
+            <CleanCars />
+          </SharedContainer>
         </HomePageAcordeonContainer>
         <OurLocation />
         <ScrollToTop
