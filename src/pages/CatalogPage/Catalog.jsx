@@ -58,6 +58,10 @@ const Catalog = () => {
     fetchData();
   }, [dispatch]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const fetchMoreData = async () => {
     try {
       if (

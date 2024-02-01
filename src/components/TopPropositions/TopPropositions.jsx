@@ -6,8 +6,11 @@ import {
   OurPropositionTitle,
   TopPropositionsContainerCarInfo,
   TopPropositionsImg,
+  TopPropositionsLink,
   TopPropositionsList,
+  TopPropositionsTitle,
 } from './TopPropositions.styled';
+import { Link } from 'react-router-dom';
 
 const TopPropositions = () => {
   const dispatch = useDispatch();
@@ -28,19 +31,19 @@ const TopPropositions = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (carsData.length > 0 && randomCars.length < 3) {
+    if (carsData.length > 0 && randomCars.length < 2) {
       function getRandomObjects(arr, count) {
         const shuffledArray = arr.sort(() => Math.random() - 0.5);
         return shuffledArray.slice(0, count);
       }
-      const randomObjects = getRandomObjects(carsData, 3);
+      const randomObjects = getRandomObjects(carsData, 2);
       setRandomCars(randomObjects);
     }
   }, [carsData, randomCars]);
 
   return (
     <OurPropositionContainer>
-      <OurPropositionTitle>TOP PROPOSITION</OurPropositionTitle>
+      <OurPropositionTitle>OUR PROPOSITION</OurPropositionTitle>
       <TopPropositionsList>
         {randomCars.map((item, index) => {
           const { id, img, make, model, address } = item;
@@ -49,9 +52,9 @@ const TopPropositions = () => {
               <div>
                 <TopPropositionsImg src={img} alt={`${make}`} />
                 <TopPropositionsContainerCarInfo>
-                  <h4>
+                  <TopPropositionsTitle>
                     {make} <span>{model}</span>
-                  </h4>
+                  </TopPropositionsTitle>
                   <p>{address}</p>
                 </TopPropositionsContainerCarInfo>
               </div>
@@ -59,6 +62,8 @@ const TopPropositions = () => {
           );
         })}
       </TopPropositionsList>
+
+      <TopPropositionsLink to="/catalog">See more</TopPropositionsLink>
     </OurPropositionContainer>
   );
 };

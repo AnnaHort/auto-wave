@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
-import { HomeContainer, TextStyle } from './Home.Styled';
+import {
+  HomeContainer,
+  HomePageAcordeonContainer,
+  TextStyle,
+} from './Home.Styled';
 import CarRentalBrands from '../../components/CarRentalBrands/CarRentalBrands';
 import AboutUsComponent from '../../components/AboutUsComponent/AboutUsComponent';
 import HomeHeroComponent from '../../components/HomeHeroComponent/HomeHeroComponent';
 import ScrollToTop from 'react-scroll-to-top';
 import FrequentlyQestions from 'components/FrequentlyQestions/FrequentlyQestions';
 import TopPropositions from 'components/TopPropositions/TopPropositions';
+import OurLocation from 'components/OurLocation/OurLocation';
 
 const Home = () => {
   const [isHovered, setHovered] = useState(false);
@@ -18,14 +23,18 @@ const Home = () => {
         </TextStyle>
         <CarRentalBrands />
         <AboutUsComponent />
-        <FrequentlyQestions/>
-        <TopPropositions/>
+
+        <HomePageAcordeonContainer>
+          <FrequentlyQestions />
+          <TopPropositions />
+        </HomePageAcordeonContainer>
+        <OurLocation />
         <ScrollToTop
           smooth
           color="var(--color-primary-blue)"
           style={{
             scrollBehavior: 'smooth',
-            WebkitTapHighlightColor : 'rgba(0,0,0,0)',
+            WebkitTapHighlightColor: 'rgba(0,0,0,0)',
             userSelect: 'none',
             padding: '6px 0',
             borderRadius: '12px',

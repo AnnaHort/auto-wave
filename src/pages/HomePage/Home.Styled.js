@@ -14,3 +14,11 @@ export const TextStyle = styled.h3`
     font-size: 28px;
   }
 `;
+
+export const HomePageAcordeonContainer = styled.div`
+@media (min-width: 768px) {
+ display :flex ;
+ gap: 16px;
+ flex-direction: row-reverse;
+}
+`
