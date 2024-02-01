@@ -10,7 +10,6 @@ import {
   TopPropositionsList,
   TopPropositionsTitle,
 } from './TopPropositions.styled';
-import { Link } from 'react-router-dom';
 
 const TopPropositions = () => {
   const dispatch = useDispatch();
