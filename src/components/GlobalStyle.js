@@ -11,6 +11,10 @@ export const GlobalStyle = createGlobalStyle`
     --color-primary-blue-2: #0B44CD;
 }
 
+* {
+  -webkit-tap-highlight-color: transparent; 
+}
+
 body {
     overflow-y: scroll; 
     margin: 0;  
