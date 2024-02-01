@@ -1,3 +1,4 @@
+import { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -8,6 +9,7 @@ export const OurPropositionContainer = styled.div`
     margin-bottom: 0px;
   }
 `;
+
 export const OurPropositionTitle = styled.h3`
   text-align: center;
   margin-bottom: 16px;
@@ -23,7 +25,16 @@ export const TopPropositionsList = styled.ul`
   }
 `;
 
-export const TopPropositionsListEl = styled.li``;
+export const TopPropositionsListEl = styled.li`
+  @media (min-width: 1024px) {
+    &:hover {
+      box-shadow: rgba(11, 68, 205, 0.35) 0px 5px 15px;
+      border-radius: 10px;
+      transform: scale(1.02);
+      transition: transform 0.3s cubic-bezier(0.39, 0.4, 0.77, 0.74);
+    }
+  }
+`;
 export const TopPropositionsImgContainer = styled.div``;
 export const TopPropositionsContainerCarInfo = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.2);

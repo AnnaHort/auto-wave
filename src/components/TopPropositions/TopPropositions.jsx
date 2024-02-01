@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getAllCarsInfo } from '../../redux/operations';
 import {
-    OurPropositionContainer,
+  OurPropositionContainer,
   OurPropositionTitle,
   TopPropositionsContainerCarInfo,
   TopPropositionsImg,
   TopPropositionsLink,
   TopPropositionsList,
+  TopPropositionsListEl,
   TopPropositionsTitle,
 } from './TopPropositions.styled';
 
@@ -47,7 +48,7 @@ const TopPropositions = () => {
         {randomCars.map((item, index) => {
           const { id, img, make, model, address } = item;
           return (
-            <li key={id}>
+            <TopPropositionsListEl key={id}>
               <div>
                 <TopPropositionsImg src={img} alt={`${make}`} />
                 <TopPropositionsContainerCarInfo>
@@ -57,7 +58,7 @@ const TopPropositions = () => {
                   <p>{address}</p>
                 </TopPropositionsContainerCarInfo>
               </div>
-            </li>
+            </TopPropositionsListEl>
           );
         })}
       </TopPropositionsList>
