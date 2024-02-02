@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const OurLocationContainer = styled.div`
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 `;
 
 export const OurLocationTitle = styled.h3`

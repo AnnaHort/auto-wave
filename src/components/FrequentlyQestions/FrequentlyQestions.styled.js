@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FrequentlyQestionsContainer = styled.div`
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   @media (min-width: 768px) {
     margin-bottom: 12px;
   }

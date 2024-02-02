@@ -5,7 +5,7 @@ export const HomeHeroContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   padding: 16px;
   border-radius: 10px;
   background-image: linear-gradient(

@@ -7,7 +7,7 @@ export const ListStyled = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   align-items: center;
   @media (min-width: 768px) {
     flex-direction: row;
@@ -20,16 +20,16 @@ export const ListStyled = styled.ul`
 `;
 
 export const ListElementStyled = styled.li`
-position: relative;
-width: 260px;
-height: 240px;
-@media (min-width: 768px) {
-  width: 200px;
-}
-@media (min-width: 1024px) {
+  position: relative;
   width: 260px;
-}
-`
+  height: 240px;
+  @media (min-width: 768px) {
+    width: 200px;
+  }
+  @media (min-width: 1024px) {
+    width: 260px;
+  }
+`;
 
 // export const ListItemStyled = styled.li`
 //   -webkit-tap-highlight-color: 'rgba(0,0,0,0)';

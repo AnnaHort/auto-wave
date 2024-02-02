@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const CleanCarsContainer = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   padding: 0 12px;
   padding-bottom: 12px;
 
