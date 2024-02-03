@@ -28,11 +28,13 @@ const Home = () => {
 
         <HomePageAcordeonContainer>
           <TopPropositions />
+
           <SharedContainer>
             <FrequentlyQestions />
             <CleanCars />
           </SharedContainer>
         </HomePageAcordeonContainer>
+
         <OurLocation />
         <ScrollToTop
           smooth
