@@ -13,6 +13,7 @@ import FrequentlyQestions from 'components/FrequentlyQestions/FrequentlyQestions
 import TopPropositions from 'components/TopPropositions/TopPropositions';
 import OurLocation from 'components/OurLocation/OurLocation';
 import CleanCars from 'components/CleanCars/CleanCars';
+import Footer from 'components/Footer/Footer';
 
 const Home = () => {
   const [isHovered, setHovered] = useState(false);
@@ -36,6 +37,7 @@ const Home = () => {
         </HomePageAcordeonContainer>
 
         <OurLocation />
+        <Footer />
         <ScrollToTop
           smooth
           color="var(--color-primary-blue)"
