@@ -1,5 +1,9 @@
 import React from 'react';
-import { ListElementStyled, ListStyle, StyledSwiper } from './CarRentalBrands.styled';
+import {
+  ListElementStyled,
+  ListStyle,
+  StyledSwiper,
+} from './CarRentalBrands.styled';
 import { SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules';
 import 'swiper/css/bundle';
@@ -42,10 +46,7 @@ const CarRentalBrands = () => {
         {imagePaths.map((path, index) => (
           <SwiperSlide key={index}>
             <ListElementStyled>
-              <img
-                src={path}
-                alt={`Car Rental Brand ${index}`}
-              />
+              <img src={path} alt={`Car Rental Brand ${index}`} />
             </ListElementStyled>
           </SwiperSlide>
         ))}
